@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Arti | Gerbang Makna</title>
+    <style>
+        /* Estetika Minimalis & Teduh */
+        body {
+            background-color: #f8f5f0;
+            color: #2c2c2c;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 500px; width: 100%; text-align: center; }
+        h1 { font-weight: 300; letter-spacing: 3px; margin-bottom: 10px; }
+        .tagline { font-style: italic; color: #666; margin-bottom: 40px; font-size: 0.9rem; }
+        
+        /* Kartu Tautan */
+        .box {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #e0dcd0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #2c2c2c;
+            display: block;
+            transition: 0.3s;
+        }
+        .box:hover { border-color: #333; transform: translateY(-2px); }
+        .premium { border: 1.5px solid #d1b894; background: #fffcf5; }
+
+        /* Formulir Senyap */
+        .form-area {
+            display: none; /* Tersembunyi, muncul saat tombol ditekan */
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-align: left;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%; padding: 10px; margin: 8px 0;
+            border: 1px solid #ccc; border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #333; color: #fff; border: none;
+            padding: 12px; width: 100%; border-radius: 6px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Ruang Arti</h1>
+            <p class="tagline">"Menemukan hakikat di balik yang tersurat."</p>
+        </header>
+
+        <a href="https://medium.com/@username_anda" class="box">
+            <strong>📖 Jendela Pemikiran</strong>
+            <p style="font-size: 0.8rem; margin: 5px 0 0;">Baca tulisan mendalam saya di Medium</p>
+        </a>
+
+        <div class="box premium" onclick="toggleForm()">
+            <strong>💎 Tebus Karya Eksklusif</strong>
+            <p style="font-size: 0.8rem; margin: 5px 0 0;">Klik untuk memesan (Privat & Aman)</p>
+        </div>
+
+        <div id="orderForm" class="form-area">
+            <h3 style="margin-top:0;">Formulir Niat</h3>
+            <p style="font-size: 0.8rem;">Isi data Anda. Instruksi pembayaran akan muncul setelah Anda mengirim pesan.</p>
+            <input type="text" id="nama" placeholder="Nama Lengkap" required>
+            <textarea id="alamat" placeholder="Alamat Pengiriman" rows="3" required></textarea>
+            <button onclick="sendWA()">Kirim via WhatsApp (Senyap)</button>
+        </div>
+
+        <footer style="margin-top: 50px; font-size: 0.7rem; color: #999;">
+            &copy; 2026 Ruang Arti. Kedaulatan Milik Sendiri.
+        </footer>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var f = document.getElementById("orderForm");
+            f.style.display = (f.style.display === "block") ? "none" : "block";
+        }
+
+        function sendWA() {
+            var nama = document.getElementById("nama").value;
+            var alamat = document.getElementById("alamat").value;
+            var nomorWA = "628xxxxxxxx"; // GANTI DENGAN NOMOR WA ANDA
+            
+            var teks = "Halo Ruang Arti, saya berniat menebus karya.\n\n" +
+                       "Nama: " + nama + "\n" +
+                       "Alamat: " + alamat + "\n\n" +
+                       "Mohon petunjuk untuk langkah mahar selanjutnya.";
+            
+            var url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(teks);
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>

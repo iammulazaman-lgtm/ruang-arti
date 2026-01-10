@@ -1,175 +1,133 @@
+Inilah Jasad Digital pertama bagi Ruang Arti. Kode ini dirancang dengan struktur yang sangat ringan namun memiliki "napas" yang dalam. Saya telah menyatukan kalkulator otomatis, sistem pencarian PDF (Sumur Hikmah), dan Selasar Medium ke dalam satu file.
+
+Silakan gunakan kode ini sebagai fondasi di GitHub Pages Anda:
+HTML
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang Arti | Kurasi Aksara & Alat</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>LOKAGATRA | Ruang Arti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #f4f1ea; --text: #2c2c2c; --accent: #5d6d5d; --gold: #b59410; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        .container { max-width: 480px; margin: 0 auto; padding: 40px 20px; }
+        :root { --bg: #fdfdfb; --ink: #1a2a36; --gold: #a68911; --slate: #546e7a; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; }
+        .container { max-width: 550px; margin: 0 auto; padding: 60px 25px; }
         
-        header { text-align: center; margin-bottom: 40px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; }
-        .tagline { font-family: 'Playfair Display', serif; font-style: italic; opacity: 0.7; font-size: 0.9rem; }
+        /* Selasar Persembahan */
+        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0; letter-spacing: 3px; }
+        .tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-top: 10px; }
+        .gallery-intro { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--slate); margin: 30px 0; line-height: 1.8; }
+        .btn-menyelami { display: inline-block; padding: 10px 20px; border: 1px solid var(--ink); text-decoration: none; color: var(--ink); font-size: 0.75rem; letter-spacing: 1px; transition: 0.4s; }
+        .btn-menyelami:hover { background: var(--ink); color: white; }
 
-        .section-title { font-family: 'Playfair Display', serif; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin: 30px 0 20px; font-size: 1.2rem; }
-
-        /* Card Style */
-        .card { background: #fff; border-radius: 15px; padding: 20px; margin-bottom: 25px; border: 1px solid #e0ddd5; }
-        .card h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0 0 10px; color: var(--accent); }
+        /* Gerbang Tebus Aksara */
+        .section-label { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 50px 0 25px; border-left: 3px solid var(--gold); padding-left: 15px; }
+        .card { background: white; padding: 25px; border-radius: 2px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
+        .card h3 { font-family: 'Playfair Display', serif; margin: 0 0 15px; color: var(--ink); }
+        .item-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
+        .item-line input[type="checkbox"] { margin-top: 5px; accent-color: var(--ink); }
+        .price { margin-left: auto; font-weight: 600; color: var(--gold); }
         
-        .resensi { font-size: 0.8rem; background: #fdfcf8; padding: 10px; border-left: 3px solid var(--accent); margin: 10px 0; font-style: italic; }
+        /* Sumur Hikmah */
+        .spring-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
+        .spring-item small { display: block; margin-bottom: 8px; font-weight: 600; }
+        .btn-timba { font-size: 0.7rem; color: var(--slate); text-decoration: underline; letter-spacing: 1px; }
 
-        .item-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; }
-        .item-row input { margin-top: 5px; cursor: pointer; }
-        .price-tag { margin-left: auto; font-weight: 600; color: var(--gold); }
-
-        .total-box { margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-        .total-price { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
-
-        .btn { display: block; text-align: center; background: var(--accent); color: white; text-decoration: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; cursor: pointer; border: none; width: 100%; }
+        /* Tebus Button */
+        .btn-akad { width: 100%; padding: 15px; background: var(--ink); color: white; border: none; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 1px; cursor: pointer; margin-top: 20px; }
         
-        /* Pustaka Esensi */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .grid-item { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee; text-align: center; font-size: 0.8rem; }
-
-        .medium-link { display: block; text-align: center; margin: 20px 0; color: var(--accent); text-decoration: underline; font-style: italic; font-size: 0.9rem; }
+        footer { text-align: center; margin-top: 80px; font-size: 0.7rem; letter-spacing: 1px; opacity: 0.4; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Ruang Arti</h1>
-        <p class="tagline">"Menemukan hakikat di balik yang tersurat"</p>
-        <a href="https://medium.com/@iammulazaman" class="medium-link">Membaca Jendela Pemikiran (Medium)</a>
+        <h1>LOKAGATRA</h1>
+        <div class="tagline">Prasanti Adikala</div>
+        <div class="gallery-intro">
+            "Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di selasar ini. Tulisan-tulisan ini adalah fragmen peta batin yang kami susun sebagai persembahan."
+        </div>
+        <a href="https://medium.com/@iammulazaman" class="btn-menyelami" target="_blank">MENYELAMI KARYA TULIS</a>
     </header>
 
-    <div class="section-title">4 Pilar Kurasi</div>
+    <div class="section-label">Gerbang Tebus Aksara</div>
 
     <div class="card" id="nomaden">
-        <h2>🔥 NOMADEN GEAR</h2>
-        <div class="resensi">"Melatih ketahanan dan cara membedakan pengalaman dengan materi ilusi."</div>
-        
-        <div class="item-row">
-            <input type="checkbox" checked disabled> 
-            <span><strong>Aksara:</strong> Titik Nol & Siddhartha</span>
-            <span class="price-tag">Rp 106.000</span>
+        <h3>NOMADEN GEAR</h3>
+        <div class="item-line">
+            <input type="checkbox" checked disabled>
+            <span><b>Aksara:</b> Titik Nol & Siddhartha</span>
+            <span class="price">106.000</span>
         </div>
-
-        <div class="item-row">
-            <input type="checkbox" class="gear" data-price="275000" onchange="updateTotal('nomaden')">
-            <span>+ Jaket Puffer Delirium</span>
-            <span class="price-tag">Rp 275.000</span>
+        <div class="item-line">
+            <input type="checkbox" class="jasad" data-price="235000" onchange="hitung('nomaden')">
+            <span>Jasad: Jas Hujan Turtle Pack</span>
+            <span class="price">235.000</span>
         </div>
-        <div class="item-row">
-            <input type="checkbox" class="gear" data-price="469000" onchange="updateTotal('nomaden')">
-            <span>+ Eiger Backpack 25L</span>
-            <span class="price-tag">Rp 469.000</span>
+        <div class="item-line">
+            <input type="checkbox" class="jasad" data-price="178484" onchange="hitung('nomaden')">
+            <span>Jasad: Tumbler Stainless 1L</span>
+            <span class="price">178.484</span>
         </div>
-
-        <div class="total-box">
-            <span>Total Investasi:</span>
-            <span class="total-price" id="total-nomaden">Rp 106.000</span>
+        <div style="margin-top:20px; border-top: 1px solid #eee; padding-top:15px; display:flex; justify-content:space-between;">
+            <span style="font-size:0.8rem; opacity:0.6">Total Akad:</span>
+            <strong id="total-nomaden">Rp 106.000</strong>
         </div>
-        <button class="btn" onclick="tebus('NOMADEN GEAR', 'total-nomaden')">Tebus Karya</button>
+        <button class="btn-akad" onclick="prosesAkad('NOMADEN GEAR', 'total-nomaden')">TEBUS KARYA</button>
     </div>
 
-    <div class="card" id="video">
-        <h2>🎤 VIDEO MAKER</h2>
-        <div class="resensi">"Mengolah ide mentah menjadi narasi sinematik yang berbobot."</div>
-        
-        <div class="item-row">
-            <input type="checkbox" checked disabled> 
-            <span><strong>Aksara:</strong> 21 Pelajaran & Norwegian Wood</span>
-            <span class="price-tag">Rp 274.240</span>
-        </div>
-        <div class="item-row">
-            <input type="checkbox" class="gear" data-price="74520" onchange="updateTotal('video')">
-            <span>+ Arsen Mic Wireless 3-in-1</span>
-            <span class="price-tag">Rp 74.520</span>
+    <div class="section-label">Sumur Hikmah</div>
+    <div class="card">
+        <p style="font-size:0.8rem; font-style:italic; opacity:0.7; margin-bottom:25px;">
+            "Ilmu adalah air, nalar adalah wadahnya. Timba secukupnya, gunakan sepenuhnya."
+        </p>
+
+        <div class="spring-item">
+            <small>Muqaddimah — Ibnu Khaldun</small>
+            <a href="https://www.google.com/search?q=filetype:pdf+Muqaddimah+Ibnu+Khaldun+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
         </div>
 
-        <div class="total-box">
-            <span>Total Investasi:</span>
-            <span class="total-price" id="total-video">Rp 274.240</span>
-        </div>
-        <button class="btn" onclick="tebus('VIDEO MAKER', 'total-video')">Tebus Karya</button>
-    </div>
-
-    <div class="card" id="ibadah">
-        <h2>🧘 IBADAH TRAVEL</h2>
-        <div class="resensi">"Menemukan fokus dan hening di tengah keramaian."</div>
-        
-        <div class="item-row">
-            <input type="checkbox" checked disabled> 
-            <span><strong>Aksara:</strong> Makna Manusia & Hujan Juni</span>
-            <span class="price-tag">Rp 113.376</span>
-        </div>
-        <div class="item-row">
-            <input type="checkbox" class="gear" data-price="62599" onchange="updateTotal('ibadah')">
-            <span>+ Sajadah Genggam DS Modest</span>
-            <span class="price-tag">Rp 62.599</span>
+        <div class="spring-item">
+            <small>Man’s Search for Meaning — Viktor Frankl</small>
+            <a href="https://www.google.com/search?q=filetype:pdf+Man%27s+Search+for+Meaning+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
         </div>
 
-        <div class="total-box">
-            <span>Total Investasi:</span>
-            <span class="total-price" id="total-ibadah">Rp 175.975</span>
-        </div>
-        <button class="btn" onclick="tebus('IBADAH TRAVEL', 'total-ibadah')">Tebus Karya</button>
-    </div>
-
-    <div class="section-title">Pustaka Esensi (Eceran)</div>
-    <div class="grid">
-        <div class="grid-item">
-            <strong>Haemin Sunim</strong><br>Rp 118.750
-            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Haemin Sunim', '118.750')">Tebus</button>
-        </div>
-        <div class="grid-item">
-            <strong>Musashi</strong><br>Rp 44.400
-            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Miyamoto Musashi', '44.400')">Tebus</button>
-        </div>
-        <div class="grid-item">
-            <strong>Al-Quran Reeyana</strong><br>Rp 74.000
-            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Al-Quran Reeyana', '74.000')">Tebus</button>
-        </div>
-        <div class="grid-item">
-            <strong>Book of Dreams</strong><br>Rp 299.000
-            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Jurnal Dream', '299.000')">Tebus</button>
+        <div class="spring-item">
+            <small>Meditations — Marcus Aurelius</small>
+            <a href="https://www.google.com/search?q=filetype:pdf+Meditations+Marcus+Aurelius+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
         </div>
     </div>
 
+    <footer>
+        LOGIC WORLD | KURATOR: HILMI MULAZAMAN<br>
+        © 2026 PRASANTI ADIKALA
+    </footer>
 </div>
 
 <script>
-    function updateTotal(id) {
+    function hitung(id) {
         const card = document.getElementById(id);
-        const gears = card.querySelectorAll('.gear');
-        let basePrice = (id === 'nomaden') ? 106000 : (id === 'video') ? 274240 : 113376;
-        let total = basePrice;
+        const checkboxes = card.querySelectorAll('.jasad');
+        let total = (id === 'nomaden') ? 106000 : 0; // Base price Aksara
         
-        gears.forEach(gear => {
-            if (gear.checked) total += parseInt(gear.getAttribute('data-price'));
+        checkboxes.forEach(cb => {
+            if (cb.checked) total += parseInt(cb.getAttribute('data-price'));
         });
         
         document.getElementById('total-' + id).innerText = 'Rp ' + total.toLocaleString('id-ID');
     }
 
-    function tebus(paket, totalId) {
-        let harga = document.getElementById(totalId).innerText;
-        let nama = prompt("Siapa nama yang ingin kami catat dalam akad ini?");
-        if(nama) {
-            let pesan = `Assalamualaikum, saya ${nama}. Ingin menebus ${paket} dengan total investasi ${harga}. Bagaimana langkah selanjutnya?`;
-            window.location.href = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
-        }
-    }
-
-    function tebusEcer(item, harga) {
-        let nama = prompt("Siapa nama Anda?");
-        if(nama) {
-            let pesan = `Assalamualaikum, saya ${nama}. Ingin menebus eceran: ${item} seharga Rp ${harga}.`;
+    function prosesAkad(paket, totalId) {
+        const total = document.getElementById(totalId).innerText;
+        const nama = prompt("Siapa nama yang hendak mengikat akad ini?");
+        const alamat = prompt("Mohon sertakan alamat pengiriman (Jasad):");
+        
+        if(nama && alamat) {
+            const pesan = `Rahayu, saya ${nama}.\nAlamat: ${alamat}\n\nSaya ingin menebus ${paket} dengan total investasi ${total}.\nBagaimana langkah selanjutnya?`;
             window.location.href = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
         }
     }

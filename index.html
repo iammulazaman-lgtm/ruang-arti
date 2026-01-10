@@ -3,111 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang Arti | Gerbang Makna</title>
+    <title>Ruang Arti | Kurasi Aksara & Alat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Estetika Minimalis & Teduh */
-        body {
-            background-color: #f8f5f0;
-            color: #2c2c2c;
-            font-family: 'Georgia', serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-        .container { max-width: 500px; width: 100%; text-align: center; }
-        h1 { font-weight: 300; letter-spacing: 3px; margin-bottom: 10px; }
-        .tagline { font-style: italic; color: #666; margin-bottom: 40px; font-size: 0.9rem; }
+        :root { --bg: #f4f1ea; --text: #2c2c2c; --accent: #5d6d5d; --gold: #b59410; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        .container { max-width: 480px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Kartu Tautan */
-        .box {
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #e0dcd0;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            text-decoration: none;
-            color: #2c2c2c;
-            display: block;
-            transition: 0.3s;
-        }
-        .box:hover { border-color: #333; transform: translateY(-2px); }
-        .premium { border: 1.5px solid #d1b894; background: #fffcf5; }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; }
+        .tagline { font-family: 'Playfair Display', serif; font-style: italic; opacity: 0.7; font-size: 0.9rem; }
 
-        /* Formulir Senyap */
-        .form-area {
-            display: none; /* Tersembunyi, muncul saat tombol ditekan */
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            text-align: left;
-            margin-top: 10px;
-        }
-        input, textarea {
-            width: 100%; padding: 10px; margin: 8px 0;
-            border: 1px solid #ccc; border-radius: 6px;
-            box-sizing: border-box;
-        }
-        button {
-            background: #333; color: #fff; border: none;
-            padding: 12px; width: 100%; border-radius: 6px; cursor: pointer;
-        }
+        .section-title { font-family: 'Playfair Display', serif; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin: 30px 0 20px; font-size: 1.2rem; }
+
+        /* Card Style */
+        .card { background: #fff; border-radius: 15px; padding: 20px; margin-bottom: 25px; border: 1px solid #e0ddd5; }
+        .card h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0 0 10px; color: var(--accent); }
+        
+        .resensi { font-size: 0.8rem; background: #fdfcf8; padding: 10px; border-left: 3px solid var(--accent); margin: 10px 0; font-style: italic; }
+
+        .item-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; }
+        .item-row input { margin-top: 5px; cursor: pointer; }
+        .price-tag { margin-left: auto; font-weight: 600; color: var(--gold); }
+
+        .total-box { margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .total-price { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+
+        .btn { display: block; text-align: center; background: var(--accent); color: white; text-decoration: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; cursor: pointer; border: none; width: 100%; }
+        
+        /* Pustaka Esensi */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .grid-item { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee; text-align: center; font-size: 0.8rem; }
+
+        .medium-link { display: block; text-align: center; margin: 20px 0; color: var(--accent); text-decoration: underline; font-style: italic; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Ruang Arti</h1>
-            <p class="tagline">"Menemukan hakikat di balik yang tersurat."</p>
-        </header>
+<div class="container">
+    <header>
+        <h1>Ruang Arti</h1>
+        <p class="tagline">"Menemukan hakikat di balik yang tersurat"</p>
+        <a href="https://medium.com/@iammulazaman" class="medium-link">Membaca Jendela Pemikiran (Medium)</a>
+    </header>
 
-        <a href="https://medium.com/@iammulazaman" class="box">
-            <strong>📖 Jendela Pemikiran</strong>
-            <p style="font-size: 0.8rem; margin: 5px 0 0;">Baca tulisan mendalam saya di Medium</p>
-        </a>
+    <div class="section-title">4 Pilar Kurasi</div>
 
-        <div class="box premium" onclick="toggleForm()">
-            <strong>💎 Tebus Karya Eksklusif</strong>
-            <p style="font-size: 0.8rem; margin: 5px 0 0;">Klik untuk memesan (Privat & Aman)</p>
+    <div class="card" id="nomaden">
+        <h2>🔥 NOMADEN GEAR</h2>
+        <div class="resensi">"Melatih ketahanan dan cara membedakan pengalaman dengan materi ilusi."</div>
+        
+        <div class="item-row">
+            <input type="checkbox" checked disabled> 
+            <span><strong>Aksara:</strong> Titik Nol & Siddhartha</span>
+            <span class="price-tag">Rp 106.000</span>
         </div>
 
-        <div id="orderForm" class="form-area">
-            <h3 style="margin-top:0;">Formulir Niat</h3>
-            <p style="font-size: 0.8rem;">Isi data Anda. Instruksi pembayaran akan muncul setelah Anda mengirim pesan.</p>
-            <input type="text" id="nama" placeholder="Nama Lengkap" required>
-            <textarea id="alamat" placeholder="Alamat Pengiriman" rows="3" required></textarea>
-            <button onclick="sendWA()">Kirim via WhatsApp (Senyap)</button>
+        <div class="item-row">
+            <input type="checkbox" class="gear" data-price="275000" onchange="updateTotal('nomaden')">
+            <span>+ Jaket Puffer Delirium</span>
+            <span class="price-tag">Rp 275.000</span>
+        </div>
+        <div class="item-row">
+            <input type="checkbox" class="gear" data-price="469000" onchange="updateTotal('nomaden')">
+            <span>+ Eiger Backpack 25L</span>
+            <span class="price-tag">Rp 469.000</span>
         </div>
 
-        <footer style="margin-top: 50px; font-size: 0.7rem; color: #999;">
-            &copy; 2026 Ruang Arti. Kedaulatan Milik Sendiri.
-        </footer>
+        <div class="total-box">
+            <span>Total Investasi:</span>
+            <span class="total-price" id="total-nomaden">Rp 106.000</span>
+        </div>
+        <button class="btn" onclick="tebus('NOMADEN GEAR', 'total-nomaden')">Tebus Karya</button>
     </div>
 
-    <script>
-        function toggleForm() {
-            var f = document.getElementById("orderForm");
-            f.style.display = (f.style.display === "block") ? "none" : "block";
-        }
+    <div class="card" id="video">
+        <h2>🎤 VIDEO MAKER</h2>
+        <div class="resensi">"Mengolah ide mentah menjadi narasi sinematik yang berbobot."</div>
+        
+        <div class="item-row">
+            <input type="checkbox" checked disabled> 
+            <span><strong>Aksara:</strong> 21 Pelajaran & Norwegian Wood</span>
+            <span class="price-tag">Rp 274.240</span>
+        </div>
+        <div class="item-row">
+            <input type="checkbox" class="gear" data-price="74520" onchange="updateTotal('video')">
+            <span>+ Arsen Mic Wireless 3-in-1</span>
+            <span class="price-tag">Rp 74.520</span>
+        </div>
 
-        function sendWA() {
-            var nama = document.getElementById("nama").value;
-            var alamat = document.getElementById("alamat").value;
-            var nomorWA = "6288989764121"; // GANTI DENGAN NOMOR WA ANDA
-            
-            var teks = "Halo Ruang Arti, saya berniat menebus karya.\n\n" +
-                       "Nama: " + nama + "\n" +
-                       "Alamat: " + alamat + "\n\n" +
-                       "Mohon petunjuk untuk langkah mahar selanjutnya.";
-            
-            var url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(teks);
-            window.open(url, '_blank');
+        <div class="total-box">
+            <span>Total Investasi:</span>
+            <span class="total-price" id="total-video">Rp 274.240</span>
+        </div>
+        <button class="btn" onclick="tebus('VIDEO MAKER', 'total-video')">Tebus Karya</button>
+    </div>
+
+    <div class="card" id="ibadah">
+        <h2>🧘 IBADAH TRAVEL</h2>
+        <div class="resensi">"Menemukan fokus dan hening di tengah keramaian."</div>
+        
+        <div class="item-row">
+            <input type="checkbox" checked disabled> 
+            <span><strong>Aksara:</strong> Makna Manusia & Hujan Juni</span>
+            <span class="price-tag">Rp 113.376</span>
+        </div>
+        <div class="item-row">
+            <input type="checkbox" class="gear" data-price="62599" onchange="updateTotal('ibadah')">
+            <span>+ Sajadah Genggam DS Modest</span>
+            <span class="price-tag">Rp 62.599</span>
+        </div>
+
+        <div class="total-box">
+            <span>Total Investasi:</span>
+            <span class="total-price" id="total-ibadah">Rp 175.975</span>
+        </div>
+        <button class="btn" onclick="tebus('IBADAH TRAVEL', 'total-ibadah')">Tebus Karya</button>
+    </div>
+
+    <div class="section-title">Pustaka Esensi (Eceran)</div>
+    <div class="grid">
+        <div class="grid-item">
+            <strong>Haemin Sunim</strong><br>Rp 118.750
+            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Haemin Sunim', '118.750')">Tebus</button>
+        </div>
+        <div class="grid-item">
+            <strong>Musashi</strong><br>Rp 44.400
+            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Miyamoto Musashi', '44.400')">Tebus</button>
+        </div>
+        <div class="grid-item">
+            <strong>Al-Quran Reeyana</strong><br>Rp 74.000
+            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Al-Quran Reeyana', '74.000')">Tebus</button>
+        </div>
+        <div class="grid-item">
+            <strong>Book of Dreams</strong><br>Rp 299.000
+            <button class="btn" style="font-size:0.7rem; padding:5px;" onclick="tebusEcer('Jurnal Dream', '299.000')">Tebus</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function updateTotal(id) {
+        const card = document.getElementById(id);
+        const gears = card.querySelectorAll('.gear');
+        let basePrice = (id === 'nomaden') ? 106000 : (id === 'video') ? 274240 : 113376;
+        let total = basePrice;
+        
+        gears.forEach(gear => {
+            if (gear.checked) total += parseInt(gear.getAttribute('data-price'));
+        });
+        
+        document.getElementById('total-' + id).innerText = 'Rp ' + total.toLocaleString('id-ID');
+    }
+
+    function tebus(paket, totalId) {
+        let harga = document.getElementById(totalId).innerText;
+        let nama = prompt("Siapa nama yang ingin kami catat dalam akad ini?");
+        if(nama) {
+            let pesan = `Assalamualaikum, saya ${nama}. Ingin menebus ${paket} dengan total investasi ${harga}. Bagaimana langkah selanjutnya?`;
+            window.location.href = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
         }
-    </script>
+    }
+
+    function tebusEcer(item, harga) {
+        let nama = prompt("Siapa nama Anda?");
+        if(nama) {
+            let pesan = `Assalamualaikum, saya ${nama}. Ingin menebus eceran: ${item} seharga Rp ${harga}.`;
+            window.location.href = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
+        }
+    }
+</script>
 
 </body>
 </html>

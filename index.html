@@ -7,34 +7,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #fdfdfb; --ink: #1a2a36; --gold: #a68911; --slate: #546e7a; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; }
-        .container { max-width: 550px; margin: 0 auto; padding: 60px 25px; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 580px; margin: 0 auto; padding: 60px 25px; }
         
         /* Selasar Persembahan */
-        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0; letter-spacing: 3px; }
-        .tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-top: 10px; }
-        .gallery-intro { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--slate); margin: 30px 0; line-height: 1.8; }
-        .btn-menyelami { display: inline-block; padding: 10px 20px; border: 1px solid var(--ink); text-decoration: none; color: var(--ink); font-size: 0.75rem; letter-spacing: 1px; transition: 0.4s; }
+        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; letter-spacing: 4px; }
+        .tagline { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.5; margin-top: 10px; }
+        .gallery-intro { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--slate); margin: 35px 0; line-height: 1.9; }
+        .btn-menyelami { display: inline-block; padding: 12px 25px; border: 1px solid var(--ink); text-decoration: none; color: var(--ink); font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; transition: 0.4s; }
         .btn-menyelami:hover { background: var(--ink); color: white; }
 
-        /* Gerbang Tebus Aksara */
-        .section-label { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 50px 0 25px; border-left: 3px solid var(--gold); padding-left: 15px; }
-        .card { background: white; padding: 25px; border-radius: 2px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
-        .card h3 { font-family: 'Playfair Display', serif; margin: 0 0 15px; color: var(--ink); }
-        .item-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.9rem; }
-        .item-line input[type="checkbox"] { margin-top: 5px; accent-color: var(--ink); }
-        .price { margin-left: auto; font-weight: 600; color: var(--gold); }
+        /* Section Styling */
+        .section-label { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 60px 0 30px; border-left: 4px solid var(--gold); padding-left: 18px; }
+        .card { background: white; padding: 30px; border-radius: 2px; margin-bottom: 35px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border: 1px solid #f2f2f2; }
+        .card h3 { font-family: 'Playfair Display', serif; margin: 0 0 8px; color: var(--ink); font-size: 1.2rem; }
+        .card p.sub { font-size: 0.8rem; font-style: italic; color: var(--slate); margin-bottom: 20px; }
+        
+        /* Items & Prices */
+        .item-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.9rem; border-bottom: 1px solid #fafafa; padding-bottom: 10px; }
+        .price-tag { margin-left: auto; font-weight: 600; color: var(--gold); display: flex; flex-direction: column; align-items: flex-end; }
+        .strike { text-decoration: line-through; font-size: 0.7rem; opacity: 0.4; }
+
+        .btn-akad { width: 100%; padding: 18px; background: var(--ink); color: white; border: none; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 2px; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .btn-akad:hover { opacity: 0.95; letter-spacing: 3px; }
         
         /* Sumur Hikmah */
-        .spring-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
-        .spring-item small { display: block; margin-bottom: 8px; font-weight: 600; }
-        .btn-timba { font-size: 0.7rem; color: var(--slate); text-decoration: underline; letter-spacing: 1px; }
+        .spring-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #e0e0e0; }
+        .spring-item small { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.95rem; }
+        .spring-desc { font-size: 0.8rem; color: var(--slate); line-height: 1.5; margin-bottom: 10px; display: block; }
+        .btn-timba { font-size: 0.75rem; color: var(--gold); text-decoration: none; font-weight: 600; letter-spacing: 1px; border: 1px solid var(--gold); padding: 5px 12px; transition: 0.3s; }
+        .btn-timba:hover { background: var(--gold); color: white; }
 
-        /* Tebus Button */
-        .btn-akad { width: 100%; padding: 15px; background: var(--ink); color: white; border: none; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 1px; cursor: pointer; margin-top: 20px; }
-        
-        footer { text-align: center; margin-top: 80px; font-size: 0.7rem; letter-spacing: 1px; opacity: 0.4; }
+        footer { text-align: center; margin-top: 100px; font-size: 0.75rem; letter-spacing: 1px; opacity: 0.5; border-top: 1px solid #eee; padding-top: 40px; padding-bottom: 60px; }
     </style>
 </head>
 <body>
@@ -51,73 +56,102 @@
 
     <div class="section-label">Gerbang Tebus Aksara</div>
 
-    <div class="card" id="nomaden">
-        <h3>NOMADEN GEAR</h3>
+    <div class="card">
+        <h3>🔥 NOMADEN GEAR</h3>
+        <p class="sub">Investasi Daya Tahan & Aksara Perjalanan.</p>
         <div class="item-line">
-            <input type="checkbox" checked disabled>
-            <span><b>Aksara:</b> Titik Nol & Siddhartha</span>
-            <span class="price">106.000</span>
+            <span>Paket Inti: Aksara & Logistik Dasar</span>
+            <div class="price-tag">
+                <span class="strike">IDR 850.000</span>
+                <span>IDR 795.000</span>
+            </div>
         </div>
+        <button class="btn-akad" onclick="prosesAkad('NOMADEN GEAR', 'IDR 795.000')">TEBUS KARYA</button>
+    </div>
+
+    <div class="card">
+        <h3>🎤 VIDEO MAKER</h3>
+        <p class="sub">Fondasi Narasi yang Stabil & Jelas.</p>
         <div class="item-line">
-            <input type="checkbox" class="jasad" data-price="235000" onchange="hitung('nomaden')">
-            <span>Jasad: Jas Hujan Turtle Pack</span>
-            <span class="price">235.000</span>
+            <span>Paket Inti: Aksara & Perangkat Suara</span>
+            <div class="price-tag">
+                <span class="strike">IDR 398.760</span>
+                <span>IDR 348.760</span>
+            </div>
         </div>
+        <button class="btn-akad" onclick="prosesAkad('VIDEO MAKER', 'IDR 348.760')">TEBUS KARYA</button>
+    </div>
+
+    <div class="card">
+        <h3>🧘 IBADAH TRAVEL</h3>
+        <p class="sub">Jeda Sunyi dalam Gerak yang Ringkas.</p>
         <div class="item-line">
-            <input type="checkbox" class="jasad" data-price="178484" onchange="hitung('nomaden')">
-            <span>Jasad: Tumbler Stainless 1L</span>
-            <span class="price">178.484</span>
+            <span>Paket Inti: Aksara & Perangkat Ibadah Mini</span>
+            <div class="price-tag">
+                <span class="strike">IDR 199.975</span>
+                <span>IDR 175.975</span>
+            </div>
         </div>
-        <div style="margin-top:20px; border-top: 1px solid #eee; padding-top:15px; display:flex; justify-content:space-between;">
-            <span style="font-size:0.8rem; opacity:0.6">Total Akad:</span>
-            <strong id="total-nomaden">Rp 106.000</strong>
+        <button class="btn-akad" onclick="prosesAkad('IBADAH TRAVEL', 'IDR 175.975')">TEBUS KARYA</button>
+    </div>
+
+    <div class="card">
+        <h3>☕ QUICK FUEL</h3>
+        <p class="sub">Fokus Cepat, Investasi Produktivitas.</p>
+        <div class="item-line">
+            <span>Paket Inti: Aksara & Energi Penunjang</span>
+            <div class="price-tag">
+                <span class="strike">IDR 449.134</span>
+                <span>IDR 399.134</span>
+            </div>
         </div>
-        <button class="btn-akad" onclick="prosesAkad('NOMADEN GEAR', 'total-nomaden')">TEBUS KARYA</button>
+        <button class="btn-akad" onclick="prosesAkad('QUICK FUEL', 'IDR 399.134')">TEBUS KARYA</button>
     </div>
 
     <div class="section-label">Sumur Hikmah</div>
+    
+    <div class="card" style="border: 2px solid var(--gold); background: #fffdf5;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <span style="background: var(--gold); color: white; padding: 4px 12px; font-size: 0.6rem; letter-spacing: 2px; font-weight: 600;">MATA AIR UTAMA 2026</span>
+        </div>
+        <div class="spring-item" style="border-bottom: none; text-align: center;">
+            <small style="font-size: 1.1rem;">STOLEN FOCUS — Johann Hari</small>
+            <span class="spring-desc" style="margin: 15px 0;">"Merebut kembali kedaulatan nalar dari pencurian perhatian digital. Inilah bekal paling mahal di era ini."</span>
+            <a href="https://www.google.com/search?q=filetype:pdf+Stolen+Focus+Johann+Hari+Indonesia" target="_blank" class="btn-timba">TIMBA MATA AIR</a>
+        </div>
+    </div>
+
     <div class="card">
-        <p style="font-size:0.8rem; font-style:italic; opacity:0.7; margin-bottom:25px;">
-            "Ilmu adalah air, nalar adalah wadahnya. Timba secukupnya, gunakan sepenuhnya."
-        </p>
-
         <div class="spring-item">
-            <small>Muqaddimah — Ibnu Khaldun</small>
-            <a href="https://www.google.com/search?q=filetype:pdf+Muqaddimah+Ibnu+Khaldun+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
+            <small>Slilit Sang Kiai — Emha Ainun Najib</small>
+            <span class="spring-desc">Menemukan makna esensial dalam kesederhanaan langkah.</span>
+            <a href="https://www.google.com/search?q=filetype:pdf+Slilit+Sang+Kiai+Emha+Ainun+Najib" target="_blank" class="btn-timba">TIMBA</a>
         </div>
-
         <div class="spring-item">
-            <small>Man’s Search for Meaning — Viktor Frankl</small>
-            <a href="https://www.google.com/search?q=filetype:pdf+Man%27s+Search+for+Meaning+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
+            <small>Arus Balik — Pramoedya Ananta Toer</small>
+            <span class="spring-desc">Membangkitkan nalar kedaulatan bangsa pengembara.</span>
+            <a href="https://www.google.com/search?q=filetype:pdf+Arus+Balik+Pramoedya+Ananta+Toer" target="_blank" class="btn-timba">TIMBA</a>
         </div>
-
         <div class="spring-item">
+            <small>Suluk Abdul Jalil — Agus Sunyoto</small>
+            <span class="spring-desc">Perjalanan sunyi menelusuri akar sejarah Nusantara.</span>
+            <a href="https://www.google.com/search?q=filetype:pdf+Suluk+Abdul+Jalil+Agus+Sunyoto" target="_blank" class="btn-timba">TIMBA</a>
+        </div>
+        <div class="spring-item" style="border:none;">
             <small>Meditations — Marcus Aurelius</small>
-            <a href="https://www.google.com/search?q=filetype:pdf+Meditations+Marcus+Aurelius+Indonesia" target="_blank" class="btn-timba">TIMBA ILMU (PDF)</a>
+            <span class="spring-desc">Nalar dingin untuk tetap tenang di tengah badai dunia.</span>
+            <a href="https://www.google.com/search?q=filetype:pdf+Meditations+Marcus+Aurelius+Indonesia" target="_blank" class="btn-timba">TIMBA</a>
         </div>
     </div>
 
     <footer>
         LOGIC WORLD | KURATOR: HILMI MULAZAMAN<br>
-        © 2026 PRASANTI ADIKALA
+        © 2026 PRASANTI ADIKALA — Membangun Nalar, Merawat Peradaban.
     </footer>
 </div>
 
 <script>
-    function hitung(id) {
-        const card = document.getElementById(id);
-        const checkboxes = card.querySelectorAll('.jasad');
-        let total = (id === 'nomaden') ? 106000 : 0; // Base price Aksara
-        
-        checkboxes.forEach(cb => {
-            if (cb.checked) total += parseInt(cb.getAttribute('data-price'));
-        });
-        
-        document.getElementById('total-' + id).innerText = 'Rp ' + total.toLocaleString('id-ID');
-    }
-
-    function prosesAkad(paket, totalId) {
-        const total = document.getElementById(totalId).innerText;
+    function prosesAkad(paket, total) {
         const nama = prompt("Siapa nama yang hendak mengikat akad ini?");
         const alamat = prompt("Mohon sertakan alamat pengiriman (Jasad):");
         

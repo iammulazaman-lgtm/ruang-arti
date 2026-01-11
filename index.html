@@ -39,6 +39,15 @@
             margin: 35px 0;
             padding: 0 10px;
         }
+        .medium-link {
+            font-size: 0.75rem;
+            margin-bottom: 30px;
+            display: block;
+            text-decoration: none;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
         /* Navigasi Jiwa */
         .nav-tabs { 
@@ -107,7 +116,8 @@
         }
         .bedah-inner { font-size: 0.85rem; padding: 20px 0; color: var(--ink); line-height: 1.6; }
         .resensi-box { background: #f9f9f9; padding: 15px; border-left: 2px solid var(--gold); margin-top: 15px; margin-bottom: 15px; }
-        .resensi-title { font-weight: 600; font-size: 0.8rem; color: var(--ink); display: block; margin-bottom: 4px; }
+        .resensi-title { font-weight: 600; font-size: 0.82rem; color: var(--ink); display: block; margin-bottom: 2px; }
+        .penulis-meta { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px; font-style: italic; }
         .resensi-box p { margin: 0 0 10px 0; font-size: 0.8rem; color: var(--slate); }
         .bedah-inner b { color: var(--slate); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; display: block; margin-top: 20px; }
 
@@ -116,6 +126,12 @@
             font-weight: 600; letter-spacing: 3px; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
         .btn-akad:hover { background: var(--gold); }
+
+        /* Sumur Hikmah */
+        .sumur-hikmah { margin-top: 50px; padding: 30px; background: #f4f4f2; text-align: center; border: 1px solid var(--border); }
+        .sumur-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 15px; }
+        .sumur-list { list-style: none; padding: 0; font-size: 0.85rem; color: var(--slate); }
+        .sumur-list li { margin-bottom: 8px; }
 
         footer { text-align: center; margin-top: 80px; padding-bottom: 50px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; }
     </style>
@@ -127,6 +143,7 @@
         <h1 class="brand">LOKAGATRA</h1>
         <div class="tagline">Prasanti Adikala</div>
         <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di selasar ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini."</div>
+        <a href="https://medium.com/@iammulazaman" target="_blank" class="medium-link">👉 ARSITEKTUR PEMIKIRAN: @iammulazaman</a>
     </header>
 
     <div class="nav-tabs">
@@ -149,15 +166,18 @@
                     <details>
                         <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Resensi Aksara (Nalar)</b>
+                            <b>Aksara I: Titik Nol</b>
                             <div class="resensi-box">
-                                <span class="resensi-title">Titik Nol — Agustinus Wibowo</span>
-                                <p>Perjalanan melintas batas negara adalah perjalanan melintas batas diri. Menyadarkan musafir bahwa tujuan akhir bukanlah peta, melainkan penemuan jati diri di titik paling asing.</p>
-                                <span class="resensi-title">Siddhartha — Hermann Hesse</span>
-                                <p>Mengajarkan tiga kekuatan utama musafir: berpikir (nalar), menunggu (sabar), dan berpuasa (ketahanan).</p>
+                                <span class="penulis-meta">Agustinus Wibowo - Pionir Perjalanan Filosofis</span>
+                                <p>Mendekonstruksi makna "tujuan". Setiap batas negara yang dilalui adalah cermin batas trauma diri. Valid bagi musafir untuk menemukan "rumah" di dalam batin.</p>
+                            </div>
+                            <b>Aksara II: Siddhartha</b>
+                            <div class="resensi-box">
+                                <span class="penulis-meta">Hermann Hesse - Nobel Sastra 1946</span>
+                                <p>Alegori pencerahan melalui tiga kekuatan: Berpikir (Nalar), Menunggu (Sabar), dan Berpuasa (Ketahanan). Bekal mental agar tidak didikte nafsu duniawi.</p>
                             </div>
                             <b>Kualitas (Jasad)</b> 
-                            Daypack Naturehike & Multitool Victorinox Spartan. Baja yang tak akan mengkhianati Anda di titik kritis medan asing.
+                            Daypack Naturehike 22L (Tangguh/Waterproof) & Multitool Victorinox Spartan. Baja yang tak akan mengkhianati Anda di titik kritis medan asing.
                         </div>
                     </details>
                 </div>
@@ -176,15 +196,18 @@
                     <details>
                         <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Resensi Aksara (Nalar)</b>
+                            <b>Aksara I: 21 Lessons for the 21st Century</b>
                             <div class="resensi-box">
-                                <span class="resensi-title">21 Pelajaran Abad 21 — Yuval Noah Harari</span>
-                                <p>Memberikan peta besar tentang kondisi peradaban hari ini. Agar karya yang dihasilkan memiliki bobot sejarah, bukan sekadar konten estetik yang kosong.</p>
-                                <span class="resensi-title">Norwegian Wood — Haruki Murakami</span>
-                                <p>Mengasah kepekaan untuk menangkap melankoli dan detail-detail kecil yang kasat mata dalam sebuah penceritaan.</p>
+                                <span class="penulis-meta">Yuval Noah Harari - Sejarawan Intelektual Dunia</span>
+                                <p>Peta kondisi dunia hari ini: algoritma dan krisis narasi. Kompas agar karya kita memiliki bobot sejarah, bukan sekadar konten kosong.</p>
+                            </div>
+                            <b>Aksara II: Norwegian Wood</b>
+                            <div class="resensi-box">
+                                <span class="penulis-meta">Haruki Murakami - Maestro Realisme Magis</span>
+                                <p>Mengasah kepekaan menangkap melankoli dan detail sensorik yang hidup. Mengajarkan ketajaman rasa terhadap setiap memori.</p>
                             </div>
                             <b>Kualitas (Jasad)</b> 
-                            Anker Powerbank & Mic Ulanzi. Menjamin energi narasi tak terputus dan suara terekam dengan integritas tinggi.
+                            Mic Wireless Ulanzi & Anker Powerbank 10.000mAh & Notebook Eksklusif Lokagatra. Menjamin integritas suara dan energi narasi tak terputus.
                         </div>
                     </details>
                 </div>
@@ -203,15 +226,18 @@
                     <details>
                         <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Resensi Aksara (Nalar)</b>
+                            <b>Aksara I: Man’s Search for Meaning</b>
                             <div class="resensi-box">
-                                <span class="resensi-title">Man’s Search for Meaning — Viktor Frankl</span>
-                                <p>Kompas utama untuk menemukan alasan tetap berjalan melalui penemuan makna di tengah situasi tersulit sekalipun.</p>
-                                <span class="resensi-title">Hujan Bulan Juni — Sapardi Djoko Damono</span>
-                                <p>Media meditatif. Mengajarkan ketabahan dalam hal-hal yang tidak tersampaikan kepada dunia.</p>
+                                <span class="penulis-meta">Viktor Frankl - Psikiater & Penyintas Nazi</span>
+                                <p>Rumusan bertahan hidup melalui penemuan makna. Nalar valid untuk menemukan "titik diam" dan alasan untuk tetap berjalan meski di tengah penderitaan pekat.</p>
+                            </div>
+                            <b>Aksara II: Hujan Bulan Juni</b>
+                            <div class="resensi-box">
+                                <span class="penulis-meta">Sapardi Djoko Damono - Begawan Sastra Indonesia</span>
+                                <p>Media meditatif. Mengajarkan ketabahan dalam hal-hal yang tidak tersampaikan. Menyucikan rasa dari polusi dunia modern.</p>
                             </div>
                             <b>Kualitas (Jasad)</b> 
-                            Sajadah Ringkas & Loop Earplugs. Menciptakan "tembok hening" sensorik instan untuk menjaga kewarasan batin.
+                            Sajadah Ringkas (Pocket Size) & Loop Earplugs Experience. Menciptakan "tembok hening" sensorik untuk menjaga kewarasan batin.
                         </div>
                     </details>
                 </div>
@@ -230,15 +256,18 @@
                     <details>
                         <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Resensi Aksara (Nalar)</b>
+                            <b>Aksara I: Digital Minimalism</b>
                             <div class="resensi-box">
-                                <span class="resensi-title">Digital Minimalism — Cal Newport</span>
-                                <p>Strategi merebut kembali kedaulatan perhatian dari jeratan algoritma demi kualitas memori bersama keluarga.</p>
-                                <span class="resensi-title">Slow Down — Haemin Sunim</span>
-                                <p>Mengingatkan bahwa hubungan berkualitas membutuhkan perhatian yang tenang, bukan ketergesaan ritme modern.</p>
+                                <span class="penulis-meta">Cal Newport - Profesor Ilmu Komputer</span>
+                                <p>Strategi merebut kembali perhatian dari jeratan algoritma demi kualitas waktu dan memori nyata bersama keluarga.</p>
+                            </div>
+                            <b>Aksara II: Slow Down</b>
+                            <div class="resensi-box">
+                                <span class="penulis-meta">Haemin Sunim - Guru Meditasi Zen</span>
+                                <p>Mengingatkan untuk melambat demi melihat luka dan kebutuhan orang tersayang yang selama ini terlewatkan karena ketergesaan modern.</p>
                             </div>
                             <b>Kualitas (Jasad)</b> 
-                            Tumbler Rosca & Jam Analog Casio. Simbol kejujuran waktu dan pemenuhan kebutuhan dasar tanpa distraksi layar gawai.
+                            Tumbler Rosca Thermal & Jam Casio Analog. Simbol kejujuran waktu dan kehadiran tanpa distraksi layar gawai.
                         </div>
                     </details>
                 </div>
@@ -248,6 +277,15 @@
 
     </div>
 
+    <div class="sumur-hikmah">
+        <div class="sumur-title">Sumur Hikmah</div>
+        <ul class="sumur-list">
+            <li><b>Slilit Sang Kiai</b> — Emha Ainun Nadjib</li>
+            <li><b>Arus Balik</b> — Pramoedya Ananta Toer</li>
+            <li><b>Esai Nalar Nusantara</b> — Koleksi Pemikiran</li>
+        </ul>
+    </div>
+
     <footer>
         LOGIC WORLD | KURATOR: HILMI MULAZAMAN<br>
         © 2026 PRASANTI ADIKALA — Membangun Nalar, Merawat Peradaban.
@@ -255,45 +293,43 @@
 </div>
 
 <script>
-    // --- MANAJEMEN DATABASE HARGA & PAKET ---
     const Catalog = {
         BATAS: {
             name: "NOMADEN GEAR",
-            aksara: { price: 150000, items: "2 Buku: Titik Nol & Siddhartha", bonus: "PDF Navigasi Psikologis" },
-            lengkap: { price: 795000, items: "Aksara + Daypack Naturehike & Victorinox" }
+            aksara: { price: 150000, items: "2 Aksara: Titik Nol & Siddhartha", bonus: "PDF Navigasi Psikologis" },
+            lengkap: { price: 795000, items: "Aksara + Daypack Naturehike & Victorinox Spartan" }
         },
         RISET: {
             name: "NARASI PENGEMBARA",
-            aksara: { price: 145000, items: "2 Buku: 21 Pelajaran & Norwegian Wood", bonus: "PDF Arsitektur Makna" },
-            lengkap: { price: 348760, items: "Aksara + Mic Ulanzi, Powerbank Anker, Notebook" }
+            aksara: { price: 145000, items: "2 Aksara: 21 Lessons & Norwegian Wood", bonus: "PDF Arsitektur Makna" },
+            lengkap: { price: 348760, items: "Aksara + Mic Ulanzi, Powerbank Anker, & Notebook Lokagatra" }
         },
         JEDA: {
             name: "SELASAR HENING",
-            aksara: { price: 110000, items: "2 Buku: Search for Meaning & Sapardi", bonus: "PDF Ritual Sunyi" },
+            aksara: { price: 110000, items: "2 Aksara: Search for Meaning & Sapardi", bonus: "PDF Ritual Sunyi" },
             lengkap: { price: 175975, items: "Aksara + Sajadah Ringkas & Loop Earplugs" }
         },
         FOKUS: {
             name: "NAVIGASI FOKUS",
-            aksara: { price: 135000, items: "2 Buku: Digital Minimalism & Haemin Sunim", bonus: "PDF Protokol Detoks" },
+            aksara: { price: 135000, items: "2 Aksara: Digital Minimalism & Haemin Sunim", bonus: "PDF Protokol Detoks" },
             lengkap: { price: 399134, items: "Aksara + Tumbler Rosca & Jam Casio Analog" }
         }
     };
 
     let selection = { pilarName: "", paket: "", harga: "" };
 
-    // Fungsi Render Paket
     function renderPricing() {
         for (let id in Catalog) {
             const data = Catalog[id];
             const container = document.getElementById(`grid-${id.toLowerCase()}`);
             container.innerHTML = `
-                <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', '${data.aksara.price}', '${data.name}')">
+                <div class="tier-card" onclick="selectTier(this, 'PAKET AKSARA (Jiwa)', '${data.aksara.price}', '${data.name}')">
                     <span class="tier-name">PAKET AKSARA (Jiwa)</span>
                     <span class="tier-price">IDR ${parseInt(data.aksara.price).toLocaleString('id-ID')}</span>
                     <span class="tier-items">${data.aksara.items}</span>
                     <span class="tier-bonus">🎁 Bonus: ${data.aksara.bonus}</span>
                 </div>
-                <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', '${data.lengkap.price}', '${data.name}')">
+                <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP (Raga & Jiwa)', '${data.lengkap.price}', '${data.name}')">
                     <span class="tier-name">PAKET LENGKAP (Raga & Jiwa)</span>
                     <span class="tier-price">IDR ${parseInt(data.lengkap.price).toLocaleString('id-ID')}</span>
                     <span class="tier-items">${data.lengkap.items}</span>
@@ -307,8 +343,8 @@
         document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
         document.getElementById(pilarID).classList.add("active");
         evt.currentTarget.classList.add("active");
-        // Reset seleksi saat pindah pilar
         selection = { pilarName: "", paket: "", harga: "" };
+        document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
     }
 
     function selectTier(element, paket, harga, pilarName) {
@@ -328,13 +364,13 @@
         }
         const nama = prompt("Nama Anda:");
         const alamat = prompt("Alamat Pengiriman:");
-        const niat = prompt("Niat Perjalanan/Kegelisahan Anda saat ini:");
+        const niat = prompt("Niat Perjalanan/Kegelisahan Anda (Ruh Transaksi):");
         
-        if (nama && alamat) {
+        if (nama && alamat && niat) {
             const pesan = `Rahayu Kurator Lokagatra,\n\nSaya *${nama}*.\nAlamat: ${alamat}\n\nSaya telah menetapkan hati untuk memilih *${selection.paket}* dari pilar *${selection.pilarName}*.\n\nNiat saya: "${niat}"\n\nMohon bimbingan akad senilai IDR ${selection.harga}. Terima kasih.`;
             window.open(`https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`, '_blank');
         } else {
-            alert("Mohon lengkapi data diri untuk memulai akad.");
+            alert("Mohon lengkapi seluruh data termasuk 'Niat' untuk memulai akad.");
         }
     }
 

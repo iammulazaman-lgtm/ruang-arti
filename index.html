@@ -40,7 +40,7 @@
             padding: 0 10px;
         }
 
-        /* Navigasi Jiwa (Tabbed Menu) */
+        /* Navigasi Jiwa */
         .nav-tabs { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
@@ -74,7 +74,7 @@
         .card-main { background: white; border: 1px solid var(--border); padding: 40px 30px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); margin-bottom: 30px; }
         .label-pilar { color: var(--gold); font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
         h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 15px 0; }
-        .pilar-desc { font-size: 0.9rem; color: var(--slate); margin-bottom: 30px; }
+        .pilar-desc { font-size: 0.9rem; color: var(--slate); margin-bottom: 30px; font-style: italic; }
 
         /* Tiered Pricing */
         .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; }
@@ -84,7 +84,6 @@
             cursor: pointer; 
             transition: 0.3s; 
             background: #fafafa;
-            text-align: left;
         }
         .tier-card:hover { border-color: var(--gold); background: white; }
         .tier-card.selected { border-color: var(--gold); background: var(--light-gold); border-width: 1.5px; }
@@ -94,7 +93,7 @@
         .tier-items { font-size: 0.75rem; color: var(--slate); display: block; line-height: 1.4; }
         .tier-bonus { font-size: 0.75rem; color: var(--gold); margin-top: 8px; font-weight: 600; display: block; }
 
-        /* Ruang Kedua (Bedah Bekal) */
+        /* Bedah Bekal & Resensi */
         .bedah-bekal { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
         details summary { 
             font-size: 0.8rem; 
@@ -104,24 +103,19 @@
             letter-spacing: 1px; 
             list-style: none;
             text-align: center;
+            outline: none;
         }
         .bedah-inner { font-size: 0.85rem; padding: 20px 0; color: var(--ink); line-height: 1.6; }
-        .bedah-inner b { color: var(--slate); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; display: block; margin-top: 15px; }
+        .resensi-box { background: #f9f9f9; padding: 15px; border-left: 2px solid var(--gold); margin-top: 15px; margin-bottom: 15px; }
+        .resensi-title { font-weight: 600; font-size: 0.8rem; color: var(--ink); display: block; margin-bottom: 4px; }
+        .resensi-box p { margin: 0 0 10px 0; font-size: 0.8rem; color: var(--slate); }
+        .bedah-inner b { color: var(--slate); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; display: block; margin-top: 20px; }
 
         .btn-akad { 
             width: 100%; padding: 20px; background: var(--ink); color: white; border: none; 
             font-weight: 600; letter-spacing: 3px; cursor: pointer; transition: 0.3s; margin-top: 10px;
         }
         .btn-akad:hover { background: var(--gold); }
-
-        /* Sumur Hikmah */
-        .sumur-hikmah { margin-top: 60px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; border-left: 4px solid var(--gold); padding-left: 15px; margin-bottom: 25px; }
-        .hikmah-list { background: var(--light-gold); padding: 25px; border: 1px solid #f9f2d0; }
-        .hikmah-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #eaddc0; }
-        .hikmah-item:last-child { border: none; margin: 0; padding: 0; }
-        .hikmah-item h4 { margin: 0; font-size: 0.9rem; }
-        .btn-unduh { font-size: 0.65rem; font-weight: 600; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 3px 10px; margin-top: 8px; display: inline-block; }
 
         footer { text-align: center; margin-top: 80px; padding-bottom: 50px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; }
     </style>
@@ -148,29 +142,22 @@
             <div class="card-main">
                 <span class="label-pilar">The Seeker / Pejuang</span>
                 <h2>NOMADEN GEAR</h2>
-                <p class="pilar-desc">Investasi daya tahan bagi mereka yang berani melampaui zona nyaman.</p>
-                
-                <div class="pricing-grid">
-                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 150.000', 'NOMADEN GEAR')">
-                        <span class="tier-name">AKSARA SAJA</span>
-                        <span class="tier-price">IDR 150.000</span>
-                        <span class="tier-items">Buku: Titik Nol & Siddhartha</span>
-                        <span class="tier-bonus">🎁 Bonus PDF: Navigasi Psikologis di Titik Nol</span>
-                    </div>
-                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 795.000', 'NOMADEN GEAR')">
-                        <span class="tier-name">PAKET LENGKAP</span>
-                        <span class="tier-price">IDR 795.000</span>
-                        <span class="tier-items">Aksara + Daypack Naturehike & Multitool Victorinox</span>
-                    </div>
-                </div>
+                <p class="pilar-desc">Ketahanan raga dan kedaulatan nalar di medan yang tak terpetakan.</p>
+                <div class="pricing-grid" id="grid-batas"></div>
 
                 <div class="bedah-bekal">
                     <details>
-                        <summary>[+] RUANG KEDUA: BEDAH BEKAL</summary>
+                        <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Nalar (Aksara)</b> Menyiapkan batin untuk berani "kalah" tanpa kehilangan jati diri. Menemukan makna di setiap kesulitan medan asing.
-                            <b>Kualitas (Jasad)</b> Victorinox Spartan adalah kedaulatan teknis; alat yang tak akan mengkhianati Anda di titik kritis.
-                            <b>Sasmita</b> Pulang dengan kemandirian batin dan kedaulatan raga.
+                            <b>Resensi Aksara (Nalar)</b>
+                            <div class="resensi-box">
+                                <span class="resensi-title">Titik Nol — Agustinus Wibowo</span>
+                                <p>Perjalanan melintas batas negara adalah perjalanan melintas batas diri. Menyadarkan musafir bahwa tujuan akhir bukanlah peta, melainkan penemuan jati diri di titik paling asing.</p>
+                                <span class="resensi-title">Siddhartha — Hermann Hesse</span>
+                                <p>Mengajarkan tiga kekuatan utama musafir: berpikir (nalar), menunggu (sabar), dan berpuasa (ketahanan).</p>
+                            </div>
+                            <b>Kualitas (Jasad)</b> 
+                            Daypack Naturehike & Multitool Victorinox Spartan. Baja yang tak akan mengkhianati Anda di titik kritis medan asing.
                         </div>
                     </details>
                 </div>
@@ -182,29 +169,22 @@
             <div class="card-main">
                 <span class="label-pilar">The Narrator / Kreator</span>
                 <h2>NARASI PENGEMBARA</h2>
-                <p class="pilar-desc">Membentuk narasi visual yang berakar pada nalar dan sejarah.</p>
-                
-                <div class="pricing-grid">
-                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 145.000', 'NARASI PENGEMBARA')">
-                        <span class="tier-name">AKSARA SAJA</span>
-                        <span class="tier-price">IDR 145.000</span>
-                        <span class="tier-items">Buku: 21 Pelajaran Harari & Kayu Norwegia</span>
-                        <span class="tier-bonus">🎁 Bonus PDF: Arsitektur Makna Storytelling</span>
-                    </div>
-                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 348.760', 'NARASI PENGEMBARA')">
-                        <span class="tier-name">PAKET LENGKAP</span>
-                        <span class="tier-price">IDR 348.760</span>
-                        <span class="tier-items">Aksara + Mic Ulanzi, Anker Powerbank, Notebook</span>
-                    </div>
-                </div>
+                <p class="pilar-desc">Mengubah jejak langkah menjadi legasi sejarah yang berbobot.</p>
+                <div class="pricing-grid" id="grid-riset"></div>
 
                 <div class="bedah-bekal">
                     <details>
-                        <summary>[+] RUANG KEDUA: BEDAH BEKAL</summary>
+                        <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Nalar (Aksara)</b> Agar setiap karya memiliki konteks sejarah dan kedalaman rasa, bukan sekadar sampah digital yang dangkal.
-                            <b>Kualitas (Jasad)</b> Anker Core Powerbank menjamin "nyawa" perangkat Anda tetap menyala untuk menangkap momen krusial.
-                            <b>Sasmita</b> Pulang dengan integritas karya yang mencerahkan.
+                            <b>Resensi Aksara (Nalar)</b>
+                            <div class="resensi-box">
+                                <span class="resensi-title">21 Pelajaran Abad 21 — Yuval Noah Harari</span>
+                                <p>Memberikan peta besar tentang kondisi peradaban hari ini. Agar karya yang dihasilkan memiliki bobot sejarah, bukan sekadar konten estetik yang kosong.</p>
+                                <span class="resensi-title">Norwegian Wood — Haruki Murakami</span>
+                                <p>Mengasah kepekaan untuk menangkap melankoli dan detail-detail kecil yang kasat mata dalam sebuah penceritaan.</p>
+                            </div>
+                            <b>Kualitas (Jasad)</b> 
+                            Anker Powerbank & Mic Ulanzi. Menjamin energi narasi tak terputus dan suara terekam dengan integritas tinggi.
                         </div>
                     </details>
                 </div>
@@ -216,29 +196,22 @@
             <div class="card-main">
                 <span class="label-pilar">The Spiritual / Healing</span>
                 <h2>SELASAR HENING</h2>
-                <p class="pilar-desc">Rekonsiliasi batin dan jeda sunyi di tengah hiruk pikuk gerak.</p>
-                
-                <div class="pricing-grid">
-                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 110.000', 'SELASAR HENING')">
-                        <span class="tier-name">AKSARA SAJA</span>
-                        <span class="tier-price">IDR 110.000</span>
-                        <span class="tier-items">Buku: Man’s Search for Meaning & Sapardi</span>
-                        <span class="tier-bonus">🎁 Bonus PDF: Ritual Sunyi & Ketenangan Batin</span>
-                    </div>
-                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 175.975', 'SELASAR HENING')">
-                        <span class="tier-name">PAKET LENGKAP</span>
-                        <span class="tier-price">IDR 175.975</span>
-                        <span class="tier-items">Aksara + Sajadah DS Modest & Loop Earplugs</span>
-                    </div>
-                </div>
+                <p class="pilar-desc">Menemukan kedamaian radikal di tengah kebisingan dunia.</p>
+                <div class="pricing-grid" id="grid-jeda"></div>
 
                 <div class="bedah-bekal">
                     <details>
-                        <summary>[+] RUANG KEDUA: BEDAH BEKAL</summary>
+                        <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Nalar (Aksara)</b> Mengadopsi logoterapi Frankl untuk melatih resiliensi batin meski dalam situasi perjalanan tersulit.
-                            <b>Kualitas (Jasad)</b> Loop Earplugs menciptakan "tembok hening" sensorik instan di tengah transportasi umum yang bising.
-                            <b>Sasmita</b> Pulang dengan ketangguhan damai (Resilience).
+                            <b>Resensi Aksara (Nalar)</b>
+                            <div class="resensi-box">
+                                <span class="resensi-title">Man’s Search for Meaning — Viktor Frankl</span>
+                                <p>Kompas utama untuk menemukan alasan tetap berjalan melalui penemuan makna di tengah situasi tersulit sekalipun.</p>
+                                <span class="resensi-title">Hujan Bulan Juni — Sapardi Djoko Damono</span>
+                                <p>Media meditatif. Mengajarkan ketabahan dalam hal-hal yang tidak tersampaikan kepada dunia.</p>
+                            </div>
+                            <b>Kualitas (Jasad)</b> 
+                            Sajadah Ringkas & Loop Earplugs. Menciptakan "tembok hening" sensorik instan untuk menjaga kewarasan batin.
                         </div>
                     </details>
                 </div>
@@ -250,29 +223,22 @@
             <div class="card-main">
                 <span class="label-pilar">The Guardian / Keluarga</span>
                 <h2>NAVIGASI FOKUS</h2>
-                <p class="pilar-desc">Menjaga kehadiran utuh bagi orang-orang tersayang di perjalanan.</p>
-                
-                <div class="pricing-grid">
-                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 135.000', 'NAVIGASI FOKUS')">
-                        <span class="tier-name">AKSARA SAJA</span>
-                        <span class="tier-price">IDR 135.000</span>
-                        <span class="tier-items">Buku: Digital Minimalism & Haemin Sunim</span>
-                        <span class="tier-bonus">🎁 Bonus PDF: Protokol Detoks Digital Keluarga</span>
-                    </div>
-                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 399.134', 'NAVIGASI FOKUS')">
-                        <span class="tier-name">PAKET LENGKAP</span>
-                        <span class="tier-price">IDR 399.134</span>
-                        <span class="tier-items">Aksara + Tumbler Rosca & Jam Analog Casio</span>
-                    </div>
-                </div>
+                <p class="pilar-desc">Hadir secara utuh untuk mereka yang paling berharga.</p>
+                <div class="pricing-grid" id="grid-fokus"></div>
 
                 <div class="bedah-bekal">
                     <details>
-                        <summary>[+] RUANG KEDUA: BEDAH BEKAL</summary>
+                        <summary>[+] RUANG KEDUA: RESENSI & BEDAH</summary>
                         <div class="bedah-inner">
-                            <b>Nalar (Aksara)</b> Strategi merebut kembali kedaulatan perhatian dari jeratan algoritma media sosial demi kualitas memori.
-                            <b>Kualitas (Jasad)</b> Jam Analog Casio adalah simbol kejujuran waktu; memantau durasi tanpa distraksi notifikasi ponsel.
-                            <b>Sasmita</b> Pulang dengan kedekatan murni bagi buah hati.
+                            <b>Resensi Aksara (Nalar)</b>
+                            <div class="resensi-box">
+                                <span class="resensi-title">Digital Minimalism — Cal Newport</span>
+                                <p>Strategi merebut kembali kedaulatan perhatian dari jeratan algoritma demi kualitas memori bersama keluarga.</p>
+                                <span class="resensi-title">Slow Down — Haemin Sunim</span>
+                                <p>Mengingatkan bahwa hubungan berkualitas membutuhkan perhatian yang tenang, bukan ketergesaan ritme modern.</p>
+                            </div>
+                            <b>Kualitas (Jasad)</b> 
+                            Tumbler Rosca & Jam Analog Casio. Simbol kejujuran waktu dan pemenuhan kebutuhan dasar tanpa distraksi layar gawai.
                         </div>
                     </details>
                 </div>
@@ -282,24 +248,6 @@
 
     </div>
 
-    <section class="sumur-hikmah">
-        <div class="section-title">Sumur Hikmah</div>
-        <div class="hikmah-list">
-            <div class="hikmah-item">
-                <h4>Stolen Focus — Johann Hari</h4>
-                <a href="#" class="btn-unduh">TIMBA ILMU</a>
-            </div>
-            <div class="hikmah-item">
-                <h4>Slilit Sang Kiai — Emha Ainun Najib</h4>
-                <a href="#" class="btn-unduh">TIMBA ILMU</a>
-            </div>
-            <div class="hikmah-item">
-                <h4>Arus Balik — Pramoedya Ananta Toer</h4>
-                <a href="#" class="btn-unduh">TIMBA ILMU</a>
-            </div>
-        </div>
-    </section>
-
     <footer>
         LOGIC WORLD | KURATOR: HILMI MULAZAMAN<br>
         © 2026 PRASANTI ADIKALA — Membangun Nalar, Merawat Peradaban.
@@ -307,59 +255,90 @@
 </div>
 
 <script>
-    // State Management
-    let selection = { pilar: "", paket: "", harga: "" };
+    // --- MANAJEMEN DATABASE HARGA & PAKET ---
+    const Catalog = {
+        BATAS: {
+            name: "NOMADEN GEAR",
+            aksara: { price: 150000, items: "2 Buku: Titik Nol & Siddhartha", bonus: "PDF Navigasi Psikologis" },
+            lengkap: { price: 795000, items: "Aksara + Daypack Naturehike & Victorinox" }
+        },
+        RISET: {
+            name: "NARASI PENGEMBARA",
+            aksara: { price: 145000, items: "2 Buku: 21 Pelajaran & Norwegian Wood", bonus: "PDF Arsitektur Makna" },
+            lengkap: { price: 348760, items: "Aksara + Mic Ulanzi, Powerbank Anker, Notebook" }
+        },
+        JEDA: {
+            name: "SELASAR HENING",
+            aksara: { price: 110000, items: "2 Buku: Search for Meaning & Sapardi", bonus: "PDF Ritual Sunyi" },
+            lengkap: { price: 175975, items: "Aksara + Sajadah Ringkas & Loop Earplugs" }
+        },
+        FOKUS: {
+            name: "NAVIGASI FOKUS",
+            aksara: { price: 135000, items: "2 Buku: Digital Minimalism & Haemin Sunim", bonus: "PDF Protokol Detoks" },
+            lengkap: { price: 399134, items: "Aksara + Tumbler Rosca & Jam Casio Analog" }
+        }
+    };
 
-    // FUNGSI NAVIGASI TAB (PERBAIKAN TOTAL)
+    let selection = { pilarName: "", paket: "", harga: "" };
+
+    // Fungsi Render Paket
+    function renderPricing() {
+        for (let id in Catalog) {
+            const data = Catalog[id];
+            const container = document.getElementById(`grid-${id.toLowerCase()}`);
+            container.innerHTML = `
+                <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', '${data.aksara.price}', '${data.name}')">
+                    <span class="tier-name">PAKET AKSARA (Jiwa)</span>
+                    <span class="tier-price">IDR ${parseInt(data.aksara.price).toLocaleString('id-ID')}</span>
+                    <span class="tier-items">${data.aksara.items}</span>
+                    <span class="tier-bonus">🎁 Bonus: ${data.aksara.bonus}</span>
+                </div>
+                <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', '${data.lengkap.price}', '${data.name}')">
+                    <span class="tier-name">PAKET LENGKAP (Raga & Jiwa)</span>
+                    <span class="tier-price">IDR ${parseInt(data.lengkap.price).toLocaleString('id-ID')}</span>
+                    <span class="tier-items">${data.lengkap.items}</span>
+                </div>
+            `;
+        }
+    }
+
     function switchPilar(evt, pilarID) {
-        // Sembunyikan semua pilar
-        const contents = document.getElementsByClassName("pilar-content");
-        for (let i = 0; i < contents.length; i++) {
-            contents[i].classList.remove("active");
-        }
-        // Nonaktifkan semua tombol
-        const buttons = document.getElementsByClassName("tab-btn");
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-        }
-        // Tampilkan yang dipilih
+        document.querySelectorAll(".pilar-content").forEach(c => c.classList.remove("active"));
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
         document.getElementById(pilarID).classList.add("active");
         evt.currentTarget.classList.add("active");
-
-        // Reset pilihan saat pindah tab
-        selection = { pilar: "", paket: "", harga: "" };
-        document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+        // Reset seleksi saat pindah pilar
+        selection = { pilarName: "", paket: "", harga: "" };
     }
 
-    // FUNGSI PILIH PAKET
-    function selectTier(element, paket, harga, pilar) {
-        // Hapus seleksi di grid pilar tersebut
-        const cards = element.parentElement.querySelectorAll('.tier-card');
-        cards.forEach(c => c.classList.remove('selected'));
-        
-        // Pilih kartu baru
+    function selectTier(element, paket, harga, pilarName) {
+        element.parentElement.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
         element.classList.add('selected');
-        selection = { pilar, paket, harga };
+        selection = { 
+            pilarName: pilarName, 
+            paket: paket, 
+            harga: parseInt(harga).toLocaleString('id-ID') 
+        };
     }
 
-    // FUNGSI WHATSAPP AKAD
     function kirimAkad() {
         if (!selection.paket) {
-            alert("Harap pilih salah satu paket (Aksara atau Lengkap) terlebih dahulu.");
+            alert("Sila pilih pintu paket Anda terlebih dahulu.");
             return;
         }
-
-        const nama = prompt("Siapa nama yang hendak mengikat akad ini?");
-        const alamat = prompt("Mohon sertakan alamat pengiriman (Jasad/Buku):");
-        const tujuan = prompt("Apa tujuan/niat perjalanan Anda kali ini?");
-
+        const nama = prompt("Nama Anda:");
+        const alamat = prompt("Alamat Pengiriman:");
+        const niat = prompt("Niat Perjalanan/Kegelisahan Anda saat ini:");
+        
         if (nama && alamat) {
-            const pesan = `Rahayu, saya ${nama}.\nAlamat: ${alamat}\n\nSaya merasa cocok dengan paket *${selection.paket}* dari Pilar *${selection.pilar}* karena saya sedang *${tujuan}*.\n\nMohon panduannya untuk akad investasi senilai ${selection.harga} ini.`;
-            
-            const waLink = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
-            window.open(waLink, '_blank');
+            const pesan = `Rahayu Kurator Lokagatra,\n\nSaya *${nama}*.\nAlamat: ${alamat}\n\nSaya telah menetapkan hati untuk memilih *${selection.paket}* dari pilar *${selection.pilarName}*.\n\nNiat saya: "${niat}"\n\nMohon bimbingan akad senilai IDR ${selection.harga}. Terima kasih.`;
+            window.open(`https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`, '_blank');
+        } else {
+            alert("Mohon lengkapi data diri untuk memulai akad.");
         }
     }
+
+    window.onload = renderPricing;
 </script>
 
 </body>

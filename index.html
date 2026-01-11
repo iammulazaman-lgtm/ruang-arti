@@ -6,161 +6,248 @@
     <title>LOKAGATRA | Ruang Arti</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #fdfdfb; --ink: #1a2a36; --gold: #a68911; --slate: #546e7a; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 580px; margin: 0 auto; padding: 60px 25px; }
+        :root {
+            --bg: #fdfdfb;
+            --ink: #1a2a36;
+            --gold: #a68911;
+            --slate: #546e7a;
+            --light-gold: #fffdf5;
+            --border: #eeeeee;
+        }
         
-        /* Selasar Persembahan */
-        header { text-align: center; margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0; letter-spacing: 4px; }
-        .tagline { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.5; margin-top: 10px; }
-        .gallery-intro { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--slate); margin: 35px 0; line-height: 1.9; }
-        .btn-menyelami { display: inline-block; padding: 12px 25px; border: 1px solid var(--ink); text-decoration: none; color: var(--ink); font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; transition: 0.4s; }
-        .btn-menyelami:hover { background: var(--ink); color: white; }
+        * { box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--ink); 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* Section Styling */
-        .section-label { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 60px 0 30px; border-left: 4px solid var(--gold); padding-left: 18px; }
-        .card { background: white; padding: 30px; border-radius: 2px; margin-bottom: 35px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); border: 1px solid #f2f2f2; }
-        .card h3 { font-family: 'Playfair Display', serif; margin: 0 0 8px; color: var(--ink); font-size: 1.2rem; }
-        .card p.sub { font-size: 0.8rem; font-style: italic; color: var(--slate); margin-bottom: 20px; }
-        
-        /* Items & Prices */
-        .item-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; font-size: 0.9rem; border-bottom: 1px solid #fafafa; padding-bottom: 10px; }
-        .price-tag { margin-left: auto; font-weight: 600; color: var(--gold); display: flex; flex-direction: column; align-items: flex-end; }
-        .strike { text-decoration: line-through; font-size: 0.7rem; opacity: 0.4; }
+        .container { max-width: 650px; margin: 0 auto; padding: 60px 20px; }
 
-        .btn-akad { width: 100%; padding: 18px; background: var(--ink); color: white; border: none; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 2px; cursor: pointer; margin-top: 15px; transition: 0.3s; }
-        .btn-akad:hover { opacity: 0.95; letter-spacing: 3px; }
+        /* Header */
+        header { text-align: center; margin-bottom: 50px; }
+        .brand { font-family: 'Playfair Display', serif; font-size: 2.4rem; letter-spacing: 6px; margin: 0; }
+        .tagline { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; opacity: 0.6; margin-top: 10px; }
+        .intro-text { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-size: 1.1rem; 
+            color: var(--slate); 
+            margin: 35px 0;
+            padding: 0 10px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px; 
+            margin-bottom: 40px; 
+        }
+        .tab-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 15px 5px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            color: var(--slate);
+        }
+        .tab-btn.active {
+            border-color: var(--ink);
+            color: var(--ink);
+            background: #f8f8f6;
+        }
+
+        /* Content Area */
+        .pilar-content { display: none; animation: fadeIn 0.5s ease; }
+        .pilar-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card-main { background: white; border: 1px solid var(--border); padding: 40px 30px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); margin-bottom: 30px; }
+        .label-pilar { color: var(--gold); font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 15px 0; }
+        .pilar-desc { font-size: 0.9rem; color: var(--slate); margin-bottom: 30px; }
+
+        /* Tiered Pricing Cards */
+        .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
+        .tier-card { 
+            border: 1px solid #f0f0f0; 
+            padding: 25px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            position: relative;
+            background: #fafafa;
+        }
+        .tier-card:hover { border-color: var(--gold); background: white; }
+        .tier-card.selected { border-color: var(--gold); background: var(--light-gold); box-shadow: 0 5px 15px rgba(166,137,17,0.1); }
         
+        .tier-name { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 5px; letter-spacing: 1px; }
+        .tier-price { font-size: 1.25rem; font-weight: 600; color: var(--ink); display: block; }
+        .tier-bonus { font-size: 0.75rem; color: var(--gold); margin-top: 10px; font-style: italic; display: block; }
+        .tier-items { font-size: 0.75rem; color: var(--slate); margin-top: 5px; display: block; line-height: 1.4; }
+
+        /* Bedah Bekal (Accordion) */
+        .bedah-bekal { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; }
+        details summary { 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            color: var(--gold); 
+            letter-spacing: 1px; 
+            list-style: none;
+            text-align: center;
+        }
+        .bedah-inner { font-size: 0.85rem; padding: 20px 0; color: var(--ink); }
+        .bedah-inner b { color: var(--slate); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; display: block; margin-top: 15px; }
+
+        .btn-akad { 
+            width: 100%; 
+            padding: 20px; 
+            background: var(--ink); 
+            color: white; 
+            border: none; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 600; 
+            letter-spacing: 3px; 
+            cursor: pointer; 
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn-akad:hover { background: var(--gold); letter-spacing: 4px; }
+
         /* Sumur Hikmah */
-        .spring-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #e0e0e0; }
-        .spring-item small { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.95rem; }
-        .spring-desc { font-size: 0.8rem; color: var(--slate); line-height: 1.5; margin-bottom: 10px; display: block; }
-        .btn-timba { font-size: 0.75rem; color: var(--gold); text-decoration: none; font-weight: 600; letter-spacing: 1px; border: 1px solid var(--gold); padding: 5px 12px; transition: 0.3s; }
-        .btn-timba:hover { background: var(--gold); color: white; }
+        .sumur-hikmah { margin-top: 80px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; border-left: 4px solid var(--gold); padding-left: 15px; margin-bottom: 30px; }
+        .hikmah-list { background: var(--light-gold); padding: 30px; border: 1px solid #f9f2d0; }
+        .hikmah-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eaddc0; }
+        .hikmah-item:last-child { border: none; margin: 0; padding: 0; }
+        .hikmah-item h4 { margin: 0 0 5px 0; font-size: 0.95rem; }
+        .hikmah-item p { font-size: 0.8rem; color: var(--slate); margin: 0 0 10px 0; }
+        .btn-unduh { font-size: 0.7rem; font-weight: 600; color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 5px 12px; display: inline-block; transition: 0.3s; }
+        .btn-unduh:hover { background: var(--gold); color: white; }
 
-        footer { text-align: center; margin-top: 100px; font-size: 0.75rem; letter-spacing: 1px; opacity: 0.5; border-top: 1px solid #eee; padding-top: 40px; padding-bottom: 60px; }
+        footer { text-align: center; margin-top: 100px; padding-bottom: 60px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>LOKAGATRA</h1>
+        <h1 class="brand">LOKAGATRA</h1>
         <div class="tagline">Prasanti Adikala</div>
-        <div class="gallery-intro">
-            "Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di selasar ini. Tulisan-tulisan ini adalah fragmen peta batin yang kami susun sebagai persembahan."
-        </div>
-        <a href="https://medium.com/@iammulazaman" class="btn-menyelami" target="_blank">MENYELAMI KARYA TULIS</a>
+        <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di selasar ini."</div>
     </header>
 
-    <div class="section-label">Gerbang Tebus Aksara</div>
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchPilar(event, 'pilar1')">Batas (Solo)</button>
+        <button class="tab-btn" onclick="switchPilar(event, 'pilar2')">Riset (Narasi)</button>
+        <button class="tab-btn" onclick="switchPilar(event, 'pilar3')">Jeda (Hening)</button>
+        <button class="tab-btn" onclick="switchPilar(event, 'pilar4')">Fokus (Keluarga)</button>
+    </div>
 
-    <div class="card">
-        <h3>🔥 NOMADEN GEAR</h3>
-        <p class="sub">Investasi Daya Tahan & Aksara Perjalanan.</p>
-        <div class="item-line">
-            <span>Paket Inti: Aksara & Logistik Dasar</span>
-            <div class="price-tag">
-                <span class="strike">IDR 850.000</span>
-                <span>IDR 795.000</span>
+    <div id="main-display">
+        <section id="pilar1" class="pilar-content active">
+            <div class="card-main">
+                <span class="label-pilar">The Seeker / Ketahanan</span>
+                <h2>NOMADEN GEAR</h2>
+                <p class="pilar-desc">Kedaulatan raga dan nalar di medan yang tak terpetakan.</p>
+                
+                <div class="pricing-grid">
+                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 150.000', 'NOMADEN')">
+                        <span class="tier-name">AKSARA SAJA</span>
+                        <span class="tier-price">IDR 150.000</span>
+                        <span class="tier-items">Buku: Titik Nol & Siddhartha</span>
+                        <span class="tier-bonus">🎁 Bonus PDF: Navigasi Psikologis di Titik Nol</span>
+                    </div>
+                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 795.000', 'NOMADEN')">
+                        <span class="tier-name">PAKET LENGKAP</span>
+                        <span class="tier-price">IDR 795.000</span>
+                        <span class="tier-items">Aksara + Daypack Naturehike & Multitool Victorinox</span>
+                    </div>
+                </div>
+
+                <div class="bedah-bekal">
+                    <details>
+                        <summary>[ BEDAH BEKAL ]</summary>
+                        <div class="bedah-inner">
+                            <b>Nalar (Aksara)</b>
+                            Buku Titik Nol dan Siddhartha mengajarkan bahwa tujuan bukanlah akhir, melainkan proses pelepasan ego di setiap langkah.
+                            <b>Jasad (Kualitas Gear)</b>
+                            Victorinox adalah standar kedaulatan teknis; alat yang tidak akan berkhianat saat darurat. Daypack Naturehike memastikan efisiensi gerak.
+                        </div>
+                    </details>
+                </div>
+                <button class="btn-akad" onclick="kirimAkad()">TEBUS KARYA</button>
             </div>
-        </div>
-        <button class="btn-akad" onclick="prosesAkad('NOMADEN GEAR', 'IDR 795.000')">TEBUS KARYA</button>
-    </div>
+        </section>
 
-    <div class="card">
-        <h3>🎤 VIDEO MAKER</h3>
-        <p class="sub">Fondasi Narasi yang Stabil & Jelas.</p>
-        <div class="item-line">
-            <span>Paket Inti: Aksara & Perangkat Suara</span>
-            <div class="price-tag">
-                <span class="strike">IDR 398.760</span>
-                <span>IDR 348.760</span>
+        <section id="pilar2" class="pilar-content">
+            <div class="card-main">
+                <span class="label-pilar">The Storyteller / Arsitek Makna</span>
+                <h2>NARASI PENGEMBARA</h2>
+                <p class="pilar-desc">Mengubah jejak langkah menjadi legasi sejarah yang berbobot.</p>
+                
+                <div class="pricing-grid">
+                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 145.000', 'NARASI')">
+                        <span class="tier-name">AKSARA SAJA</span>
+                        <span class="tier-price">IDR 145.000</span>
+                        <span class="tier-items">Buku: 21 Pelajaran Harari & Kayu Norwegia</span>
+                        <span class="tier-bonus">🎁 Bonus PDF: Arsitektur Makna & Storytelling</span>
+                    </div>
+                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 348.760', 'NARASI')">
+                        <span class="tier-name">PAKET LENGKAP</span>
+                        <span class="tier-price">IDR 348.760</span>
+                        <span class="tier-items">Aksara + Mic Ulanzi, Anker Powerbank, Notebook</span>
+                    </div>
+                </div>
+
+                <div class="bedah-bekal">
+                    <details>
+                        <summary>[ BEDAH BEKAL ]</summary>
+                        <div class="bedah-inner">
+                            <b>Nalar (Aksara)</b>
+                            Memahami konteks sejarah makro agar konten visual Anda tidak dangkal, melainkan memiliki ruh filosofis.
+                            <b>Jasad (Kualitas Gear)</b>
+                            Anker menjamin energi narasi tak terputus. Mic Ulanzi memastikan setiap frekuensi suara terekam dengan integritas tinggi.
+                        </div>
+                    </details>
+                </div>
+                <button class="btn-akad" onclick="kirimAkad()">TEBUS KARYA</button>
             </div>
-        </div>
-        <button class="btn-akad" onclick="prosesAkad('VIDEO MAKER', 'IDR 348.760')">TEBUS KARYA</button>
-    </div>
+        </section>
 
-    <div class="card">
-        <h3>🧘 IBADAH TRAVEL</h3>
-        <p class="sub">Jeda Sunyi dalam Gerak yang Ringkas.</p>
-        <div class="item-line">
-            <span>Paket Inti: Aksara & Perangkat Ibadah Mini</span>
-            <div class="price-tag">
-                <span class="strike">IDR 199.975</span>
-                <span>IDR 175.975</span>
-            </div>
-        </div>
-        <button class="btn-akad" onclick="prosesAkad('IBADAH TRAVEL', 'IDR 175.975')">TEBUS KARYA</button>
-    </div>
+        <section id="pilar3" class="pilar-content">
+            <div class="card-main">
+                <span class="label-pilar">The Introvert / Rekonsiliasi</span>
+                <h2>SELASAR HENING</h2>
+                <p class="pilar-desc">Menemukan kedamaian radikal di tengah kebisingan dunia.</p>
+                
+                <div class="pricing-grid">
+                    <div class="tier-card" onclick="selectTier(this, 'AKSARA SAJA', 'IDR 110.000', 'HENING')">
+                        <span class="tier-name">AKSARA SAJA</span>
+                        <span class="tier-price">IDR 110.000</span>
+                        <span class="tier-items">Buku: Man’s Search for Meaning & Hujan Bulan Juni</span>
+                        <span class="tier-bonus">🎁 Bonus PDF: Ritual Sunyi & Sains Ketenangan</span>
+                    </div>
+                    <div class="tier-card" onclick="selectTier(this, 'PAKET LENGKAP', 'IDR 175.975', 'HENING')">
+                        <span class="tier-name">PAKET LENGKAP</span>
+                        <span class="tier-price">IDR 175.975</span>
+                        <span class="tier-items">Aksara + Sajadah DS Modest & Loop Earplugs</span>
+                    </div>
+                </div>
 
-    <div class="card">
-        <h3>☕ QUICK FUEL</h3>
-        <p class="sub">Fokus Cepat, Investasi Produktivitas.</p>
-        <div class="item-line">
-            <span>Paket Inti: Aksara & Energi Penunjang</span>
-            <div class="price-tag">
-                <span class="strike">IDR 449.134</span>
-                <span>IDR 399.134</span>
-            </div>
-        </div>
-        <button class="btn-akad" onclick="prosesAkad('QUICK FUEL', 'IDR 399.134')">TEBUS KARYA</button>
-    </div>
-
-    <div class="section-label">Sumur Hikmah</div>
-    
-    <div class="card" style="border: 2px solid var(--gold); background: #fffdf5;">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <span style="background: var(--gold); color: white; padding: 4px 12px; font-size: 0.6rem; letter-spacing: 2px; font-weight: 600;">MATA AIR UTAMA 2026</span>
-        </div>
-        <div class="spring-item" style="border-bottom: none; text-align: center;">
-            <small style="font-size: 1.1rem;">STOLEN FOCUS — Johann Hari</small>
-            <span class="spring-desc" style="margin: 15px 0;">"Merebut kembali kedaulatan nalar dari pencurian perhatian digital. Inilah bekal paling mahal di era ini."</span>
-            <a href="https://www.google.com/search?q=filetype:pdf+Stolen+Focus+Johann+Hari+Indonesia" target="_blank" class="btn-timba">TIMBA MATA AIR</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="spring-item">
-            <small>Slilit Sang Kiai — Emha Ainun Najib</small>
-            <span class="spring-desc">Menemukan makna esensial dalam kesederhanaan langkah.</span>
-            <a href="https://www.google.com/search?q=filetype:pdf+Slilit+Sang+Kiai+Emha+Ainun+Najib" target="_blank" class="btn-timba">TIMBA</a>
-        </div>
-        <div class="spring-item">
-            <small>Arus Balik — Pramoedya Ananta Toer</small>
-            <span class="spring-desc">Membangkitkan nalar kedaulatan bangsa pengembara.</span>
-            <a href="https://www.google.com/search?q=filetype:pdf+Arus+Balik+Pramoedya+Ananta+Toer" target="_blank" class="btn-timba">TIMBA</a>
-        </div>
-        <div class="spring-item">
-            <small>Suluk Abdul Jalil — Agus Sunyoto</small>
-            <span class="spring-desc">Perjalanan sunyi menelusuri akar sejarah Nusantara.</span>
-            <a href="https://www.google.com/search?q=filetype:pdf+Suluk+Abdul+Jalil+Agus+Sunyoto" target="_blank" class="btn-timba">TIMBA</a>
-        </div>
-        <div class="spring-item" style="border:none;">
-            <small>Meditations — Marcus Aurelius</small>
-            <span class="spring-desc">Nalar dingin untuk tetap tenang di tengah badai dunia.</span>
-            <a href="https://www.google.com/search?q=filetype:pdf+Meditations+Marcus+Aurelius+Indonesia" target="_blank" class="btn-timba">TIMBA</a>
-        </div>
-    </div>
-
-    <footer>
-        LOGIC WORLD | KURATOR: HILMI MULAZAMAN<br>
-        © 2026 PRASANTI ADIKALA — Membangun Nalar, Merawat Peradaban.
-    </footer>
-</div>
-
-<script>
-    function prosesAkad(paket, total) {
-        const nama = prompt("Siapa nama yang hendak mengikat akad ini?");
-        const alamat = prompt("Mohon sertakan alamat pengiriman (Jasad):");
-        
-        if(nama && alamat) {
-            const pesan = `Rahayu, saya ${nama}.\nAlamat: ${alamat}\n\nSaya ingin menebus ${paket} dengan total investasi ${total}.\nBagaimana langkah selanjutnya?`;
-            window.location.href = `https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`;
-        }
-    }
-</script>
-
-</body>
-</html>
+                <div class="bedah-bekal">
+                    <details>
+                        <summary>[ BEDAH BEKAL ]</summary>
+                        <div class="bedah-inner">
+                            <b>Nalar (Aksara)</b>
+                            Viktor Frankl membuktikan makna adalah sauh utama. Puisi Sapardi melatih kelembutan batin dalam memandang sunyi.
+                            <b>Jasad (Kualitas Gear)</b>
+                            Loop Earplugs adalah "tembok hening" sensorik. Sajadah ringkas memastikan kedaulatan ib

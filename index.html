@@ -32,7 +32,8 @@
         .card { background: var(--glass); border: 1px solid var(--border); padding: 22px; margin-bottom: 12px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
         .card:hover { border-color: #555; }
         .card.selected { border-color: #fff; background: rgba(255,255,255,0.12); }
-        .price { font-size: 1.1rem; display: block; margin-top: 5px; color: #fff; }
+        .card-info { font-size: 0.7rem; color: var(--accent); margin-top: 8px; font-style: italic; }
+        .price { font-size: 1.1rem; display: block; margin-top: 5px; color: #fff; font-weight: 600; }
 
         .bedah-btn { width: 100%; padding: 15px; background: none; border: 1px dashed #444; color: var(--accent); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin: 25px 0; }
         .btn-akad { width: 100%; padding: 22px; background: #1a1a1a; color: #444; border: none; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 0.75rem; border-radius: 2px; cursor: not-allowed; transition: 0.4s; }
@@ -42,8 +43,9 @@
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; display: none; padding: 40px 24px; overflow-y: auto; }
         .overlay-inner { max-width: 500px; margin: 0 auto; }
         .resensi-item { margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 30px; }
-        .sanad-label { font-size: 0.6rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
-        .buku-t { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin: 10px 0; display: block; }
+        .sanad-label { font-size: 0.6rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; display: block; }
+        .buku-t { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin: 5px 0 15px; display: block; }
+        .sanad-author { font-size: 0.85rem; color: #fff; font-weight: 600; margin-bottom: 10px; display: block; }
 
         footer { text-align: center; margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); }
         .sumur { font-family: 'Playfair Display', serif; font-style: italic; color: #666; font-size: 0.85rem; letter-spacing: 1px; }
@@ -84,23 +86,27 @@
     const Catalog = {
         BATAS: { 
             spirit: "Ketahanan di titik terjauh.", bonus: "Peta Navigasi Batin di Wilayah Asing", aP: 195000, lP: 625000,
-            b1: { t: "Titik Nol", p: "Agustinus Wibowo", r: "Dekonstruksi jujur atas konsep 'tujuan'; musuh terbesar adalah trauma diri sendiri." },
-            b2: { t: "Siddhartha", p: "Hermann Hesse", r: "Cermin kebenaran dari lidah pengalaman; pusaka Berpikir, Menunggu, dan Berpuasa." }
+            aksesori: "Daypack & Victorinox",
+            b1: { t: "Titik Nol", s: "Agustinus Wibowo", pI: "Pionir travelog filosofis Indonesia yang mencari makna 'rumah' di wilayah konflik.", r: "Dekonstruksi jujur atas konsep 'tujuan'; musuh terbesar adalah trauma diri sendiri." },
+            b2: { t: "Siddhartha", s: "Hermann Hesse", pI: "Maestro Nobel perajut harmoni logika Barat dan spiritualitas Timur.", r: "Cermin kebenaran dari lidah pengalaman; pusaka Berpikir, Menunggu, dan Berpuasa." }
         },
         RISET: { 
             spirit: "Menanam legasi melalui tulisan.", bonus: "Arsitektur Narasi: Mengubah Data Menjadi Rasa", aP: 395000, lP: 1050000,
-            b1: { t: "21 Lessons", p: "Yuval Noah Harari", r: "Benteng kemanusiaan di era post-truth; menjaga fokus adalah pemberontakan tertinggi." },
-            b2: { t: "Norwegian Wood", p: "Haruki Murakami", r: "Ode untuk kehilangan; memahat duka menjadi detail sensorik yang hidup." }
+            aksesori: "Mic & Leather Journal",
+            b1: { t: "21 Lessons", s: "Yuval Noah Harari", pI: "Intelektual pembedah mitos; melihat kemanusiaan sebagai kumpulan narasi fiksi.", r: "Benteng kemanusiaan di era post-truth; menjaga fokus adalah pemberontakan tertinggi." },
+            b2: { t: "Norwegian Wood", s: "Haruki Murakami", pI: "Maestro yang menjahit dunia nyata dengan magis bawah sadar.", r: "Ode untuk kehilangan; memahat duka menjadi detail sensorik yang hidup." }
         },
         JEDA: { 
             spirit: "Ketenangan radikal.", bonus: "Protokol Logotherapy: Makna di Tengah Bising", aP: 135000, lP: 295000,
-            b1: { t: "Man’s Search for Meaning", p: "Viktor Frankl", r: "Ruang kebebasan untuk memilih sikap di tengah penderitaan." },
-            b2: { t: "Hujan Bulan Juni", p: "Sapardi Djoko Damono", r: "Puncak estetika ketabahan; protokol mencuci batin dari polusi kata-kata." }
+            aksesori: "Sajadah & Earplugs",
+            b1: { t: "Man’s Search for Meaning", s: "Viktor Frankl", pI: "Penyintas Auschwitz; saksi bahwa manusia bertahan karena makna batin.", r: "Ruang kebebasan untuk memilih sikap di tengah penderitaan." },
+            b2: { t: "Hujan Bulan Juni", s: "Sapardi Djoko Damono", pI: "Begawan sastra yang memuliakan kesederhanaan peristiwa kecil.", r: "Puncak estetika ketabahan; protokol mencuci batin dari polusi kata-kata." }
         },
         FOKUS: { 
             spirit: "Kehadiran utuh.", bonus: "Manual Fokus Keluarga: Kedaulatan Perhatian", aP: 245000, lP: 650000,
-            b1: { t: "Digital Minimalism", p: "Cal Newport", r: "Merebut kembali waktu dari algoritma agar jiwa hadir sepenuhnya bagi keluarga." },
-            b2: { t: "Slow Down", p: "Haemin Sunim", r: "Dunia terasa cepat karena pikiran terburu-buru; menemukan surga di setiap langkah kecil." }
+            aksesori: "Tumbler & Casio",
+            b1: { t: "Digital Minimalism", s: "Cal Newport", pI: "Pejuang kesadaran era ekonomi perhatian; fokus adalah keahlian langka.", r: "Merebut kembali waktu dari algoritma agar jiwa hadir sepenuhnya bagi keluarga." },
+            b2: { t: "Slow Down", s: "Haemin Sunim", pI: "Biksu Zen penerjemah nasihat kuno untuk problematika modern.", r: "Dunia terasa cepat karena pikiran yang terburu-buru; menemukan surga di setiap langkah kecil." }
         }
     };
 
@@ -116,12 +122,14 @@
                 <section id="${k}" class="pilar-content ${i===0?'active':''}">
                     <p style="text-align:center; font-size:0.8rem; color:#666; margin-bottom:30px;">Spirit: ${d.spirit}</p>
                     <div class="card" onclick="select(this,'${k}','Aksara','${d.aP.toLocaleString()}','${d.bonus}')">
-                        <div class="sanad-label">Akad Jiwa (Aksara)</div>
+                        <div class="sanad-label">Akad Aksara (Jiwa)</div>
                         <span class="price">IDR ${d.aP.toLocaleString()}</span>
+                        <div class="card-info">Buku: ${d.b1.t} & ${d.b2.t}</div>
                     </div>
                     <div class="card" onclick="select(this,'${k}','Lengkap','${d.lP.toLocaleString()}','${d.bonus}')">
-                        <div class="sanad-label">Akad Raga & Jiwa (Lengkap)</div>
+                        <div class="sanad-label">Akad Lengkap (Raga & Jiwa)</div>
                         <span class="price">IDR ${d.lP.toLocaleString()}</span>
+                        <div class="card-info">+ Gear: ${d.aksesori}</div>
                     </div>
                     <button class="bedah-btn" onclick="buka('${k}')">Bedah Aksara (Wajib Baca)</button>
                     <button id="btn-${k}" class="btn-akad" onclick="akad()">Mulai Akad</button>
@@ -144,8 +152,22 @@
     function buka(k) {
         const d = Catalog[k];
         document.getElementById('overlay-content').innerHTML = `
-            <div class="resensi-item"><span class="sanad-label">Sanad: ${d.b1.p}</span><span class="buku-t">${d.b1.t}</span><p style="color:#999">${d.b1.r}</p></div>
-            <div class="resensi-item"><span class="sanad-label">Sanad: ${d.b2.p}</span><span class="buku-t">${d.b2.t}</span><p style="color:#999">${d.b2.r}</p></div>
+            <div class="resensi-item">
+                <span class="sanad-label">Tentang Penulis (Sanad)</span>
+                <span class="sanad-author">${d.b1.s}</span>
+                <p style="color:#777; font-size:0.8rem; margin-top:-5px;">${d.b1.pI}</p>
+                <span class="sanad-label" style="margin-top:15px;">Resensi (Intisari)</span>
+                <span class="buku-t">${d.b1.t}</span>
+                <p style="color:#999">${d.b1.r}</p>
+            </div>
+            <div class="resensi-item">
+                <span class="sanad-label">Tentang Penulis (Sanad)</span>
+                <span class="sanad-author">${d.b2.s}</span>
+                <p style="color:#777; font-size:0.8rem; margin-top:-5px;">${d.b2.pI}</p>
+                <span class="sanad-label" style="margin-top:15px;">Resensi (Intisari)</span>
+                <span class="buku-t">${d.b2.t}</span>
+                <p style="color:#999">${d.b2.r}</p>
+            </div>
         `;
         document.getElementById('overlay').style.display = 'block';
     }
@@ -160,16 +182,17 @@
     }
 
     function akad() {
-        if(!s.paket || !s.bedah) return alert("Pilih paket dan tuntaskan Bedah Aksara dahulu.");
-        const n = prompt("Siapa namamu sebagai penanggung beban nalar?");
-        const l = prompt("Ke mana jasad ini harus kami hantarkan (Alamat Labuh)?");
-        const r = prompt("Apa kegelisahan batin atau niat yang membawamu memilih wasilah ini?");
+        if(!s.paket || !s.bedah) return alert("Selesaikan Bedah Aksara dan Pilih Akad terlebih dahulu.");
         
-        if(!n || !l || !r) return alert("Akad membutuhkan niat dan identitas yang jernih.");
+        const n = prompt("Siapa namamu sebagai penanggung beban nalar dalam perjalanan ini?");
+        if(!n) return;
+        const l = prompt("Ke mana jasad (paket) ini harus kami hantarkan agar sampai dengan selamat ke titik labuhmu? (Alamat Lengkap)");
+        if(!l) return;
+        const r = prompt("Apa kegelisahan batin atau niat yang membawamu memilih wasilah ini? (Syarat sah akad)");
+        if(!r) return;
 
         const text = `Rahayu Kurator Lokagatra, saya *${n}* bermaksud melakukan Akad *${s.key}* (${s.paket}).\n\n*Niat Akad:* ${r}\n*Alamat Labuh:* ${l}\n*Total:* IDR ${s.harga}\n*PDF Bonus:* ${s.bonus}\n\n— _Prasanti Adikala_`;
         
-        // DIRECT REDIRECT WHATSAPP
         window.location.href = `https://api.whatsapp.com/send?phone=6288989764121&text=${encodeURIComponent(text)}`;
     }
 

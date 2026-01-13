@@ -5,216 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOKAGATRA | RUANG ARTI</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0d0d0d;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --text-main: #d4d4d4;
-            --accent: #a3a3a3;
+            --bg-light: #fcfcfc;
+            --text-dark: #1a1a1a;
+            --text-soft: #666666;
+            --accent-soft: #e5e7eb;
+            --frosted: rgba(255, 255, 255, 0.7);
         }
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text-main); 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
             scroll-behavior: smooth;
         }
         .serif { font-family: 'Cormorant Garamond', serif; }
-        .glass { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(20px); 
-            border: 1px solid rgba(255, 255, 255, 0.03); 
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        .glass-card { 
+            background: white;
+            border: 1px solid var(--accent-soft);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .glass:hover { 
-            border-color: rgba(255, 255, 255, 0.1); 
-            background: rgba(255, 255, 255, 0.04); 
+        .glass-card:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border-color: #d1d5db;
         }
-        .modal-content::-webkit-scrollbar { width: 2px; }
-        .modal-content::-webkit-scrollbar-thumb { background: #333; }
-        .btn-locked { opacity: 0.2; cursor: not-allowed; filter: grayscale(1); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in { animation: fadeIn 2s ease-out forwards; }
+        .modal-overlay {
+            background: rgba(249, 250, 251, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .btn-locked { opacity: 0.3; cursor: not-allowed; }
+        .modal-content::-webkit-scrollbar { width: 3px; }
+        .modal-content::-webkit-scrollbar-thumb { background: #e5e7eb; }
+        @keyframes subtleFade { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: subtleFade 1.5s ease-in; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center p-6 md:p-20 overflow-x-hidden">
+<body class="min-h-screen flex flex-col items-center p-6 md:p-16">
 
-    <header class="text-center max-w-3xl mb-32 fade-in">
-        <h1 class="serif text-6xl md:text-8xl tracking-[0.3em] text-white mb-6">LOKAGATRA</h1>
-        <h2 class="serif text-xs md:text-sm tracking-[0.7em] text-gray-500 mb-16 uppercase italic">Prasanti Adikala</h2>
+    <header class="text-center max-w-4xl mb-24 fade-in">
+        <h1 class="serif text-5xl md:text-7xl tracking-[0.25em] mb-4 text-zinc-900">LOKAGATRA</h1>
+        <h2 class="serif text-xs tracking-[0.6em] text-zinc-400 mb-12 uppercase">Prasanti Adikala</h2>
         
-        <div class="h-px w-20 bg-zinc-800 mx-auto mb-16"></div>
+        <div class="h-px w-12 bg-zinc-200 mx-auto mb-12"></div>
         
-        <p class="serif text-xl md:text-2xl italic text-gray-400 mb-12 leading-relaxed px-4">
-            "Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini."
+        <p class="serif text-xl md:text-2xl italic text-zinc-500 mb-10 leading-relaxed px-4">
+            "Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini."
         </p>
 
-        <div class="text-[11px] leading-loose text-zinc-500 max-w-xl mx-auto mb-16 text-center px-6 italic">
-            "Lokagatra bukan sekadar tempat bertukar benda. Ini adalah ruang untuk memuliakan kembali proses kepemilikan. Kami menyediakan 'Aksara' sebagai bekal jiwa dan 'Gear' sebagai alat bantu raga. Setiap transaksi di sini disebut Akad, sebuah janji antara pengembara dan kurator yang didasari oleh kejujuran niat."
+        <div class="text-[12px] leading-relaxed text-zinc-400 max-w-2xl mx-auto mb-12 text-center px-6">
+            Lokagatra adalah museum nalar untuk memuliakan kembali proses kepemilikan. Kami menyediakan <strong>Aksara</strong> sebagai bekal jiwa dan <strong>Gear</strong> sebagai alat bantu raga melalui janji yang kami sebut <strong>Akad</strong>.
         </div>
 
-        <a href="https://medium.com/@iammulazaman" target="_blank" class="inline-block text-[10px] tracking-[0.6em] border border-zinc-800 px-12 py-5 hover:bg-white hover:text-black transition-all duration-1000 uppercase">
-            Masuki Pemikiran @iammulazaman
+        <a href="https://medium.com/@iammulazaman" target="_blank" class="inline-block text-[10px] tracking-[0.4em] border border-zinc-200 px-10 py-4 hover:bg-zinc-900 hover:text-white transition-all duration-500 uppercase font-medium">
+            Membaca @iammulazaman
         </a>
     </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl w-full mb-40 fade-in" style="animation-delay: 0.5s;">
-        <div class="glass p-12 group cursor-pointer" onclick="openPilar('BATAS')">
-            <h3 class="serif text-4xl text-white mb-3 tracking-widest">BATAS</h3>
-            <p class="text-[10px] tracking-[0.5em] text-zinc-600 mb-8 uppercase italic">Nomaden Gear</p>
-            <p class="text-sm italic text-zinc-500 mb-12">"Ketahanan di titik terjauh."</p>
-            <div class="text-[9px] tracking-[0.5em] text-zinc-400 group-hover:text-white transition-all uppercase underline underline-offset-8">Bedah Aksara</div>
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full mb-32">
+        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('BATAS')">
+            <h3 class="serif text-2xl tracking-widest mb-2">BATAS</h3>
+            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Nomaden Gear</p>
+            <p class="text-sm text-zinc-500 mb-10">Ketahanan di titik terjauh.</p>
+            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
         </div>
 
-        <div class="glass p-12 group cursor-pointer" onclick="openPilar('RISET')">
-            <h3 class="serif text-4xl text-white mb-3 tracking-widest">RISET</h3>
-            <p class="text-[10px] tracking-[0.5em] text-zinc-600 mb-8 uppercase italic">Narasi Pengembara</p>
-            <p class="text-sm italic text-zinc-500 mb-12">"Menanam legasi melalui tulisan."</p>
-            <div class="text-[9px] tracking-[0.5em] text-zinc-400 group-hover:text-white transition-all uppercase underline underline-offset-8">Bedah Aksara</div>
+        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('RISET')">
+            <h3 class="serif text-2xl tracking-widest mb-2">RISET</h3>
+            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Narasi Pengembara</p>
+            <p class="text-sm text-zinc-500 mb-10">Menanam legasi melalui tulisan.</p>
+            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
         </div>
 
-        <div class="glass p-12 group cursor-pointer" onclick="openPilar('JEDA')">
-            <h3 class="serif text-4xl text-white mb-3 tracking-widest">JEDA</h3>
-            <p class="text-[10px] tracking-[0.5em] text-zinc-600 mb-8 uppercase italic">Selasar Hening</p>
-            <p class="text-sm italic text-zinc-500 mb-12">"Ketenangan radikal."</p>
-            <div class="text-[9px] tracking-[0.5em] text-zinc-400 group-hover:text-white transition-all uppercase underline underline-offset-8">Bedah Aksara</div>
+        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('JEDA')">
+            <h3 class="serif text-2xl tracking-widest mb-2">JEDA</h3>
+            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Selasar Hening</p>
+            <p class="text-sm text-zinc-500 mb-10">Ketenangan radikal.</p>
+            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
         </div>
 
-        <div class="glass p-12 group cursor-pointer" onclick="openPilar('FOKUS')">
-            <h3 class="serif text-4xl text-white mb-3 tracking-widest">FOKUS</h3>
-            <p class="text-[10px] tracking-[0.5em] text-zinc-600 mb-8 uppercase italic">Navigasi Fokus</p>
-            <p class="text-sm italic text-zinc-500 mb-12">"Kehadiran utuh."</p>
-            <div class="text-[9px] tracking-[0.5em] text-zinc-400 group-hover:text-white transition-all uppercase underline underline-offset-8">Bedah Aksara</div>
+        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('FOKUS')">
+            <h3 class="serif text-2xl tracking-widest mb-2">FOKUS</h3>
+            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Navigasi Fokus</p>
+            <p class="text-sm text-zinc-500 mb-10">Kehadiran utuh.</p>
+            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
         </div>
     </main>
 
-    <footer class="text-center pb-20 fade-in" style="animation-delay: 1s;">
-        <p class="text-[9px] tracking-[0.6em] text-zinc-800 uppercase mb-6">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
-        <p class="text-[10px] tracking-[0.2em] text-zinc-600 italic mb-2">Curated by Hilmi Mulazaman © 2026</p>
+    <footer class="text-center pb-12 border-t border-zinc-100 w-full pt-12">
+        <p class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-4">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
+        <p class="text-[10px] text-zinc-400 font-light italic">Curated by Hilmi Mulazaman © 2026</p>
     </footer>
 
-    <div id="modalOverlay" class="fixed inset-0 bg-black/98 hidden z-50 flex items-center justify-center p-4 backdrop-blur-xl transition-all duration-500">
-        <div class="max-w-6xl w-full h-[90vh] glass flex flex-col overflow-hidden shadow-2xl border-white/5">
-            <div class="p-10 border-b border-white/5 flex justify-between items-center bg-zinc-900/10">
+    <div id="modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-5xl h-[85vh] shadow-2xl flex flex-col border border-zinc-100 overflow-hidden">
+            <div class="p-8 border-b border-zinc-50 flex justify-between items-center">
                 <div>
-                    <h2 id="modalJudul" class="serif text-5xl text-white tracking-[0.2em]"></h2>
-                    <p id="modalSpirit" class="text-[10px] tracking-[0.5em] text-zinc-500 uppercase mt-4"></p>
+                    <h2 id="mJudul" class="serif text-3xl tracking-widest"></h2>
+                    <p id="mSpirit" class="text-[10px] tracking-[0.4em] text-zinc-400 uppercase mt-2"></p>
                 </div>
-                <button onclick="closeModal()" class="text-zinc-600 hover:text-white text-4xl font-thin transition-all">✕</button>
+                <button onclick="tutupNalar()" class="text-zinc-300 hover:text-zinc-900 text-2xl font-light">✕</button>
             </div>
 
-            <div class="flex-1 overflow-y-auto modal-content p-10 md:p-20">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+            <div class="flex-1 overflow-y-auto modal-content p-8 md:p-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
                     <div>
-                        <h4 class="text-[10px] tracking-[0.6em] text-zinc-700 uppercase mb-12 border-b border-zinc-900 pb-4">Sang Pendahulu (Sanad)</h4>
-                        <div id="modalPenulis" class="text-[14px] leading-relaxed text-zinc-400 space-y-10 font-light tracking-wide"></div>
+                        <h4 class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-8 border-b border-zinc-50 pb-2 italic">Sanad Penulis</h4>
+                        <div id="mPenulis" class="text-sm leading-relaxed text-zinc-500 space-y-6"></div>
                     </div>
                     <div>
-                        <h4 class="text-[10px] tracking-[0.6em] text-zinc-700 uppercase mb-12 border-b border-zinc-900 pb-4">Intisari (Resensi)</h4>
-                        <div id="modalResensi" class="text-[14px] italic leading-relaxed text-zinc-500 space-y-10 font-light tracking-wide"></div>
+                        <h4 class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-8 border-b border-zinc-50 pb-2 italic">Intisari</h4>
+                        <div id="mResensi" class="text-sm leading-relaxed text-zinc-500 space-y-6 italic"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="p-10 border-t border-white/5 bg-zinc-950/50">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                    <div id="modalHarga" class="text-[11px] tracking-[0.2em] text-zinc-400"></div>
-                    <div class="flex flex-col items-center gap-4">
-                        <button id="btnAkad" onclick="startAkad()" class="bg-white text-black px-16 py-5 text-[10px] tracking-[0.7em] font-bold hover:bg-zinc-200 transition-all uppercase shadow-2xl btn-locked" disabled>
-                            Mulai Akad
-                        </button>
-                        <p id="lockWarning" class="text-[9px] tracking-[0.3em] text-rose-900 uppercase">Selesaikan Bedah Aksara untuk mengaktifkan Akad</p>
-                    </div>
+            <div class="p-8 bg-zinc-50/50 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div id="mHarga" class="text-[11px] tracking-widest text-zinc-400"></div>
+                <div class="text-center">
+                    <button id="btnAkad" onclick="prosesAkad()" class="bg-zinc-900 text-white px-12 py-4 text-[10px] tracking-[0.5em] font-bold hover:bg-black transition-all uppercase btn-locked" disabled>
+                        Mulai Akad
+                    </button>
+                    <p id="lockLabel" class="text-[8px] text-rose-400 tracking-widest mt-2 uppercase">Wajib bedah aksara sejenak untuk aktif</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const WA_NUMBER = "6288989764121";
-        let currentPilar = "";
+        const WA_PHONE = "6288989764121";
+        let activeId = "";
 
         const DATA = {
             BATAS: {
                 judul: "BATAS", spirit: "Ketahanan di titik terjauh",
                 bonus: "Peta Navigasi Batin di Wilayah Asing",
-                harga: "Aksara Rp195.000 — Lengkap Rp625.000",
-                penulis: `<strong>Agustinus Wibowo:</strong> Seorang pionir travelog filosofis Indonesia yang meninggalkan karier fotografer di Afghanistan demi mencari makna "rumah". Ia bukan sekadar pelancong, melainkan pertapa jalanan yang menggunakan debu konflik Asia Tengah sebagai tinta untuk menuliskan kegelisahan identitasnya. Ia membuktikan bahwa perjalanan terjauh bukanlah melintasi benua, melainkan menembus dinding prasangka di dalam kepala kita sendiri.<br><br><strong>Hermann Hesse:</strong> Maestro sastra Jerman-Swiss peraih Nobel (1946) yang berdiri di ambang dua dunia. Melalui pengaruh psikoanalisis Carl Jung, Hesse mengeksplorasi dualitas manusia: cahaya dan kegelapan, ketertiban dan kekacauan. Ia adalah perajut harmoni antara logika rasional Barat dan keheningan spiritual Timur.`,
-                resensi: `<strong>Titik Nol:</strong> Sebuah dekonstruksi jujur atas konsep "tujuan". Agustinus membawa kita melintasi Tibet hingga Afghanistan hanya untuk menemukan bahwa musuh terbesar sekaligus jawaban tercanggih adalah trauma diri sendiri. Buku ini adalah tamparan bagi mereka yang percaya perjalanan adalah pelarian; karena pada akhirnya, kita akan selalu bertemu dengan diri kita yang lama di "Titik Nol" yang berbeda.<br><br><strong>Siddhartha:</strong> Hesse tidak memberikan dogmatika, ia memberikan cermin. Mengisahkan Siddhartha yang menolak doktrin otoritas demi mengecap kebenaran langsung dari lidah pengalaman. Prosa ini menawarkan tiga pusaka batin bagi pengembara: Berpikir (kecerdasan), Menunggu (kesabaran), dan Berpuasa (kedaulatan atas keinginan).`
+                harga: "Aksara Rp195.000 | Lengkap Rp625.000",
+                penulis: `<strong>Agustinus Wibowo:</strong> Pionir travelog filosofis Indonesia yang mencari makna "rumah" di wilayah konflik. <strong>Hermann Hesse:</strong> Maestro Nobel perajut harmoni logika Barat dan spiritualitas Timur.`,
+                resensi: `<strong>Titik Nol:</strong> Dekonstruksi jujur atas konsep tujuan; musuh terbesar adalah trauma diri sendiri. <strong>Siddhartha:</strong> Cermin kebenaran dari lidah pengalaman; pusaka Berpikir, Menunggu, dan Berpuasa.`
             },
             RISET: {
                 judul: "RISET", spirit: "Menanam legasi melalui tulisan",
                 bonus: "Arsitektur Narasi: Mengubah Data Menjadi Rasa",
-                harga: "Aksara Rp395.000 — Lengkap Rp1.050.000",
-                penulis: `<strong>Yuval Noah Harari:</strong> Intelektual publik yang memiliki "mata Tuhan"—melihat sejarah manusia dari ketinggian ribuan tahun. Harari adalah pembedah mitos yang mempertanyakan apa yang selama ini kita anggap suci, menantang kita untuk menyadari bahwa kemanusiaan hanyalah kumpulan narasi fiksi yang kebetulan kita sepakati bersama agar bisa bekerja sama dalam skala besar.<br><br><strong>Haruki Murakami:</strong> Maestro kontemporer Jepang yang mahir menjahit dunia nyata dengan lapisan magis bawah sadar. Murakami adalah pelari maraton yang mentransformasikan kedisiplinan raga menjadi ketajaman prosa. Karyanya adalah kawan bagi jiwa-jiwa yang merasa asing, yang percaya bahwa di balik rutinitas keseharian, terdapat kedalaman sublim yang hanya bisa disentuh melalui tulisan yang jujur.`,
-                resensi: `<strong>21 Lessons for the 21st Century:</strong> Ini bukan buku prediksi, tapi benteng kemanusiaan. Harari membedah ancaman algoritma, krisis identitas, dan hilangnya makna kerja di era post-truth. Bagi seorang periset, buku ini adalah kompas untuk memahami bahwa di tengah banjir informasi, kemampuan untuk menjaga fokus dan kejujuran narasi adalah bentuk pemberontakan tertinggi.<br><br><strong>Norwegian Wood:</strong> Sebuah ode untuk kehilangan dan kerinduan. Murakami membuktikan bahwa menulis riset tentang perasaan adalah pekerjaan tersulit. Melalui tokoh Toru Watanabe, kita diajak mengasah kepekaan sensorik—memahat duka menjadi detail yang hidup: suara hujan, aroma hutan, hingga sunyinya kematian.`
+                harga: "Aksara Rp395.000 | Lengkap Rp1.050.000",
+                penulis: `<strong>Yuval Noah Harari:</strong> Intelektual pembedah mitos kemanusiaan. <strong>Haruki Murakami:</strong> Maestro yang menjahit dunia nyata dengan magis bawah sadar.`,
+                resensi: `<strong>21 Lessons:</strong> Benteng kemanusiaan di era banjir informasi. <strong>Norwegian Wood:</strong> Ode untuk kehilangan; memahat duka menjadi detail yang hidup.`
             },
             JEDA: {
                 judul: "JEDA", spirit: "Ketenangan radikal",
                 bonus: "Protokol Logotherapy: Makna di Tengah Bising",
-                harga: "Aksara Rp135.000 — Lengkap Rp295.000",
-                penulis: `<strong>Viktor Frankl:</strong> Psikiater Austria penyintas empat kamp konsentrasi Nazi, termasuk Auschwitz. Ia bukan sekadar ilmuwan, ia adalah saksi hidup bahwa manusia memiliki kekuatan transendental. Frankl menemukan bahwa mereka yang bertahan bukanlah yang fisiknya terkuat, melainkan mereka yang memiliki "makna" atau alasan batin untuk terus melanjutkan hidup.<br><br><strong>Sapardi Djoko Damono:</strong> Begawan sastra Indonesia yang mengubah bahasa menjadi rangkaian dawai bening dan jernih. Sapardi adalah penyair yang tidak butuh berteriak untuk didengar. Ia memuliakan kesederhanaan, menjadikan peristiwa kecil sebagai wasilah untuk menyentuh relung batin yang paling sublim dan rahasia.`,
-                resensi: `<strong>Man’s Search for Meaning:</strong> Buku ini adalah obat bagi jiwa yang lelah. Frankl merumuskan bahwa di antara penderitaan dan respon, terdapat satu ruang: kebebasan manusia untuk memilih sikap. Membaca karya ini akan mengubah cara Anda memandang nasib; menjadikannya bukan sebagai beban yang mengutuk, melainkan sebagai tugas hidup yang bermartabat.<br><br><strong>Hujan Bulan Juni:</strong> Puncak estetika ketabahan dan penyerahan diri yang aktif. Kumpulan puisi ini adalah protokol untuk mencuci batin dari polusi kata-kata penuh pretensi. Sapardi mengajarkan tentang cinta yang tidak menuntut, tentang hujan yang menahan rintiknya dan bunga yang memendam rahasianya di dalam keheningan bahasa.`
+                harga: "Aksara Rp135.000 | Lengkap Rp295.000",
+                penulis: `<strong>Viktor Frankl:</strong> Saksi hidup bahwa manusia bertahan karena memiliki "makna". <strong>Sapardi Djoko Damono:</strong> Begawan sastra yang memuliakan kesederhanaan batin.`,
+                resensi: `<strong>Man’s Search for Meaning:</strong> Kebebasan memilih sikap di tengah penderitaan. <strong>Hujan Bulan Juni:</strong> Puncak estetika ketabahan dan penyerahan diri.`
             },
             FOKUS: {
                 judul: "FOKUS", spirit: "Kehadiran utuh",
                 bonus: "Manual Fokus Keluarga: Kedaulatan Perhatian",
-                harga: "Aksara Rp245.000 — Lengkap Rp650.000",
-                penulis: `<strong>Cal Newport:</strong> Profesor Ilmu Komputer yang memilih hidup tanpa media sosial demi menjaga kedaulatan perhatian. Newport adalah pejuang kesadaran di era ekonomi perhatian. Ia berargumen bahwa kemampuan untuk fokus secara mendalam (Deep Work) adalah keahlian langka yang akan menjadi sangat berharga di masa depan.<br><br><strong>Haemin Sunim:</strong> Biksu Zen lulusan Harvard yang menjembatani kebijaksanaan biara dengan kegelisahan manusia urban yang terburu-buru. Sunim memiliki kemampuan langka untuk menerjemahkan nasihat spiritual kuno menjadi relevan bagi problematika modern tentang hubungan, pekerjaan, dan cara berdamai dengan kegagalan diri sendiri.`,
-                resensi: `<strong>Digital Minimalism:</strong> Sebuah manifesto untuk merebut kembali waktu kita dari manipulasi algoritma. Newport menawarkan filosofi di mana kita menaruh teknologi kembali sebagai alat, bukan sebagai tuan yang mendikte hidup. Tujuannya agar kehadiran kita di depan keluarga bukan sekadar raga, tapi jiwa yang hadir sepenuhnya secara utuh.<br><br><strong>Slow Down:</strong> Pengingat bahwa "Dunia terasa cepat karena pikiranmu yang terburu-buru." Sunim mengajak kita melambat agar mampu melihat luka pasangan, mendengarkan tawa anak, dan menyadari kebahagiaan di dalam momen yang tenang. Buku ini adalah panduan logis untuk menemukan surga di dalam setiap langkah kecil yang sedang kita pijak saat ini.`
+                harga: "Aksara Rp245.000 | Lengkap Rp650.000",
+                penulis: `<strong>Cal Newport:</strong> Pejuang kesadaran di era ekonomi perhatian. <strong>Haemin Sunim:</strong> Biksu Zen penerjemah kebijaksanaan kuno untuk era modern.`,
+                resensi: `<strong>Digital Minimalism:</strong> Merebut kembali waktu dari algoritma. <strong>Slow Down:</strong> Dunia terasa cepat karena pikiranmu yang terburu-buru.`
             }
         };
 
-        function openPilar(id) {
-            currentPilar = id;
+        function bukaNalar(id) {
+            activeId = id;
             const p = DATA[id];
-            document.getElementById('modalJudul').innerText = p.judul;
-            document.getElementById('modalSpirit').innerText = p.spirit;
-            document.getElementById('modalPenulis').innerHTML = p.penulis;
-            document.getElementById('modalResensi').innerHTML = p.resensi;
-            document.getElementById('modalHarga').innerHTML = `${p.harga}<br><span class="text-zinc-600 italic">Bonus: ${p.bonus}</span>`;
+            document.getElementById('mJudul').innerText = p.judul;
+            document.getElementById('mSpirit').innerText = p.spirit;
+            document.getElementById('mPenulis').innerHTML = p.penulis;
+            document.getElementById('mResensi').innerHTML = p.resensi;
+            document.getElementById('mHarga').innerHTML = `${p.harga}<br><span class="text-[9px] italic">Bonus: ${p.bonus}</span>`;
             
-            // Reset Button State
             const btn = document.getElementById('btnAkad');
-            btn.classList.add('btn-locked');
             btn.disabled = true;
-            document.getElementById('lockWarning').classList.remove('hidden');
+            btn.classList.add('btn-locked');
+            document.getElementById('lockLabel').classList.remove('hidden');
 
-            document.getElementById('modalOverlay').classList.remove('hidden');
+            document.getElementById('modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
 
-            // Logic: Unlock button after 3 seconds (simulating reading time)
+            // Timer Pengunci (3 detik untuk membaca)
             setTimeout(() => {
-                btn.classList.remove('btn-locked');
                 btn.disabled = false;
-                document.getElementById('lockWarning').classList.add('hidden');
+                btn.classList.remove('btn-locked');
+                document.getElementById('lockLabel').classList.add('hidden');
             }, 3000);
         }
 
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.add('hidden');
+        function tutupNalar() {
+            document.getElementById('modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
-        function startAkad() {
-            const p = DATA[currentPilar];
-            const nama = prompt("DIALOG IDENTITAS:\nSiapa namamu sebagai penanggung beban nalar dalam perjalanan ini?");
+        function prosesAkad() {
+            const p = DATA[activeId];
+            const nama = prompt("DIALOG IDENTITAS:\nSiapa namamu sebagai penanggung beban nalar?");
             if (!nama) return;
 
-            const alamat = prompt("DIALOG LABUH:\nKe mana jasad (paket) ini harus kami hantarkan agar sampai dengan selamat ke titik labuhmu? (Alamat Lengkap)");
+            const alamat = prompt("DIALOG LABUH:\nKe mana jasad (paket) ini harus kami hantarkan?");
             if (!alamat) return;
 
-            const niat = prompt("DIALOG RUH:\nApa kegelisahan batin atau niat yang membawamu memilih wasilah ini? (Wajib sebagai syarat sah akad)");
+            const niat = prompt("DIALOG RUH:\nApa kegelisahan batin atau niat yang membawamu memilih wasilah ini?");
             if (!niat) return;
 
-            const breakLine = "%0A";
-            const message = `Rahayu Kurator Lokagatra, saya *${nama}* bermaksud melakukan Akad *${currentPilar}*.${breakLine}${breakLine}` +
-                            `*Niat Akad:* ${niat}${breakLine}` +
-                            `*Alamat Labuh:* ${alamat}${breakLine}` +
-                            `*PDF Bonus:* ${p.bonus}${breakLine}${breakLine}` +
-                            `— _Prasanti Adikala_`;
-
-            window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
+            // Membangun URL WhatsApp dengan encode yang aman
+            const textHeader = `Rahayu Kurator Lokagatra, saya *${nama}* bermaksud melakukan Akad *${activeId}*.`;
+            const textBody = `\n\n*Niat Akad:* ${niat}\n*Alamat Labuh:* ${alamat}\n*PDF Bonus:* ${p.bonus}\n\n— _Prasanti Adikala_`;
+            
+            const finalLink = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodeURIComponent(textHeader + textBody)}`;
+            
+            window.open(finalLink, '_blank');
         }
     </script>
 </body>

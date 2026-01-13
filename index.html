@@ -9,7 +9,7 @@
         :root {
             --bg: #ffffff;
             --ink: #111111;
-            --accent: #a68911; /* Gold */
+            --accent: #a68911; 
             --border: #e8e8e8;
             --slate: #555555;
             --soft-bg: #fafafa;
@@ -19,13 +19,11 @@
         body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
         .container { max-width: 600px; margin: 0 auto; padding: 80px 24px; }
 
-        /* HEADER SECTION */
         header { text-align: center; margin-bottom: 60px; }
         .brand { font-family: 'Playfair Display', serif; font-size: 2.6rem; letter-spacing: 8px; text-transform: uppercase; margin: 0; font-weight: 700; }
         .tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-top: 10px; font-weight: 600; }
         .intro-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--slate); margin: 40px 0; line-height: 1.8; }
 
-        /* PROFESSIONAL MEDIUM CTA */
         .medium-link-box { margin: 30px 0 60px; text-align: center; }
         .medium-cta {
             display: inline-flex;
@@ -48,7 +46,6 @@
         }
         .medium-cta:hover .medium-btn { background: var(--ink); color: white; }
 
-        /* NAV PILAR */
         .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin-bottom: 50px; }
         .tab-btn {
             background: none; border: none; padding: 15px 5px; cursor: pointer;
@@ -58,7 +55,6 @@
         .tab-btn.active { color: var(--ink); }
         .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--ink); }
 
-        /* CONTENT PILAR */
         .pilar-content { display: none; }
         .pilar-content.active { display: block; animation: fadeIn 0.8s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -67,7 +63,6 @@
         h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 400; }
         .spirit-text { font-size: 0.85rem; color: var(--slate); margin-bottom: 35px; display: block; font-style: italic; }
 
-        /* CARDS & PRICING */
         .tier-card { 
             padding: 24px; border: 1px solid var(--border); margin-bottom: 12px;
             cursor: pointer; transition: 0.3s ease; background: var(--soft-bg);
@@ -78,17 +73,16 @@
         .tier-price { display: block; font-size: 1.1rem; margin: 8px 0; font-weight: 400; }
         .tier-items { font-size: 0.75rem; color: var(--slate); line-height: 1.4; display: block; }
 
-        /* DETAILS SECTION */
         details { margin-top: 40px; border-top: 1px solid var(--border); }
         summary { padding: 25px 0; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; cursor: pointer; text-align: center; list-style: none; color: var(--slate); }
         .bedah-inner { padding-bottom: 40px; }
-        .resensi-item { margin-bottom: 30px; }
+        .resensi-item { margin-bottom: 30px; border-bottom: 1px solid #f5f5f5; padding-bottom: 20px; }
+        .resensi-item:last-child { border-bottom: none; }
         .resensi-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 4px; }
         .penulis-meta { font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 10px; display: block; font-weight: 600; }
         .resensi-text { font-size: 0.9rem; color: var(--slate); margin: 0; line-height: 1.7; }
         .jasad-info { font-size: 0.8rem; background: #fcfcfc; padding: 20px; border-left: 1px solid var(--accent); margin-top: 25px; line-height: 1.6; }
 
-        /* BUTTON AKAD */
         .btn-akad { 
             width: 100%; padding: 24px; background: var(--ink); color: white; border: none; 
             font-weight: 600; letter-spacing: 4px; cursor: pointer; transition: 0.3s;
@@ -96,15 +90,13 @@
         }
         .btn-akad:hover { background: var(--accent); }
 
-        /* SUMUR HIKMAH & FOOTER */
         .sumur-hikmah { margin-top: 80px; padding: 60px 0; border-top: 1px solid var(--border); text-align: center; }
         .sumur-list { list-style: none; padding: 0; font-size: 0.85rem; color: var(--slate); letter-spacing: 0.5px; }
-        .sumur-list li { margin-bottom: 12px; }
         footer { text-align: center; padding: 60px 0; font-size: 0.6rem; opacity: 0.4; letter-spacing: 3px; text-transform: uppercase; line-height: 2; }
 
         @media (max-width: 480px) {
             .brand { font-size: 2rem; }
-            .nav-tabs { overflow-x: auto; gap: 20px; justify-content: flex-start; }
+            .nav-tabs { overflow-x: auto; gap: 20px; justify-content: flex-start; padding-bottom: 10px; }
             .tab-btn { white-space: nowrap; }
         }
     </style>
@@ -142,17 +134,17 @@
                 <summary>BEDAH AKSARA & JASAD</summary>
                 <div class="bedah-inner">
                     <div class="resensi-item">
-                        <span class="penulis-meta">Agustinus Wibowo - Pionir Narasi Perjalanan</span>
+                        <span class="penulis-meta">Agustinus Wibowo — Pionir Narasi Perjalanan</span>
                         <span class="resensi-title">Titik Nol</span>
-                        <p class="resensi-text">Mendekonstruksi makna "tujuan". Setiap batas negara yang dilalui adalah cermin dari batas trauma dan prasangka di dalam diri. Valid bagi musafir untuk menemukan "rumah" di dalam batin saat berada di titik paling asing.</p>
+                        <p class="resensi-text">Mendekonstruksi makna "tujuan". Setiap batas negara adalah cermin trauma diri. Menemukan "rumah" di titik paling asing.</p>
                     </div>
                     <div class="resensi-item">
-                        <span class="penulis-meta">Hermann Hesse - Nobel Sastra 1946</span>
+                        <span class="penulis-meta">Hermann Hesse — Nobel Sastra 1946</span>
                         <span class="resensi-title">Siddhartha</span>
-                        <p class="resensi-text">Sebuah alegori pencarian pencerahan. Hesse menekankan tiga kekuatan utama: Berpikir (Nalar), Menunggu (Sabar), dan Berpuasa (Ketahanan). Bekal mental agar tidak didikte nafsu duniawi.</p>
+                        <p class="resensi-text">Alegori pencerahan melalui tiga kekuatan: Berpikir (Nalar), Menunggu (Sabar), dan Berpuasa (Ketahanan).</p>
                     </div>
                     <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Daypack Naturehike 22L (Ringan/Tangguh) & Victorinox Spartan Original Swiss. Baja yang tak akan mengkhianati Anda di titik kritis.<br>
+                        <strong>Jasad (Kualitas):</strong> Daypack Naturehike 22L (Ringan & Tangguh) & Multi Tool VICTORINOX Spartan 91mm (Authentic Quality). Baja yang tak akan mengkhianati di titik kritis.<br>
                         <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Navigasi Psikologis</span>
                     </div>
                 </div>
@@ -169,17 +161,17 @@
                 <summary>BEDAH AKSARA & JASAD</summary>
                 <div class="bedah-inner">
                     <div class="resensi-item">
-                        <span class="penulis-meta">Yuval Noah Harari - Sejarawan Dunia</span>
+                        <span class="penulis-meta">Yuval Noah Harari — Sejarawan Intelektual Dunia</span>
                         <span class="resensi-title">21 Lessons for the 21st Century</span>
-                        <p class="resensi-text">Memberikan peta besar tentang kondisi dunia hari ini: algoritma dan krisis narasi. Valid sebagai kompas agar karya memiliki bobot sejarah, bukan sekadar konten kosong.</p>
+                        <p class="resensi-text">Peta kondisi dunia (Algoritma & Krisis Narasi). Kompas agar karya memiliki bobot sejarah, bukan sekadar konten kosong.</p>
                     </div>
                     <div class="resensi-item">
-                        <span class="penulis-meta">Haruki Murakami - Maestro Realisme Magis</span>
+                        <span class="penulis-meta">Haruki Murakami — Maestro Realisme Magis Jepang</span>
                         <span class="resensi-title">Norwegian Wood</span>
-                        <p class="resensi-text">Mengasah kepekaan untuk menangkap melankoli dan detail-detail kecil yang kasat mata. Mengajarkan periset narasi untuk memiliki ketajaman rasa terhadap setiap memori.</p>
+                        <p class="resensi-text">Mengasah kepekaan menangkap melankoli dan detail sensorik yang hidup dalam setiap memori.</p>
                     </div>
                     <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Mic Wireless Ulanzi, Anker Powerbank 10.000mAh, & Notebook Eksklusif Lokagatra.<br>
+                        <strong>Jasad (Kualitas):</strong> Mic Wireless Ulanzi WM-10, Anker Powerbank 10k mAh, & Leather Myntydori Passport Size. Menjamin integritas suara dan energi narasi tak terputus.<br>
                         <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Arsitektur Makna</span>
                     </div>
                 </div>
@@ -196,17 +188,17 @@
                 <summary>BEDAH AKSARA & JASAD</summary>
                 <div class="bedah-inner">
                     <div class="resensi-item">
-                        <span class="penulis-meta">Viktor Frankl - Psikiater & Penyintas Nazi</span>
+                        <span class="penulis-meta">Viktor Frankl — Psikiater & Penyintas Nazi</span>
                         <span class="resensi-title">Man’s Search for Meaning</span>
-                        <p class="resensi-text">Rumusan tentang cara bertahan hidup melalui penemuan makna. Nalar paling valid untuk menemukan "titik diam" di tengah penderitaan pekat.</p>
+                        <p class="resensi-text">Rumusan bertahan hidup melalui penemuan makna. Nalar valid untuk menemukan "titik diam" di tengah penderitaan pekat.</p>
                     </div>
                     <div class="resensi-item">
-                        <span class="penulis-meta">Sapardi Djoko Damono - Begawan Sastra</span>
+                        <span class="penulis-meta">Sapardi Djoko Damono — Begawan Sastra Indonesia</span>
                         <span class="resensi-title">Hujan Bulan Juni</span>
-                        <p class="resensi-text">Mengajarkan ketabahan dalam hal-hal yang tidak tersampaikan. Media meditatif untuk menyucikan rasa dari polusi kata-kata dunia modern.</p>
+                        <p class="resensi-text">Mengajarkan ketabahan dalam hal yang tidak tersampaikan. Media meditatif penyucian rasa dari polusi kata-kata dunia modern.</p>
                     </div>
                     <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Sajadah Ringkas (Pocket Size) & Loop Earplugs Experience. Menciptakan tembok hening untuk kejernihan batin.<br>
+                        <strong>Jasad (Kualitas):</strong> Sajadah Genggam MURI Waterproof & Mack's Silicone Earplugs. Menciptakan tembok hening sensorik untuk menjaga kewarasan batin.<br>
                         <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Ritual Sunyi</span>
                     </div>
                 </div>
@@ -223,17 +215,17 @@
                 <summary>BEDAH AKSARA & JASAD</summary>
                 <div class="bedah-inner">
                     <div class="resensi-item">
-                        <span class="penulis-meta">Cal Newport - Profesor Ilmu Komputer</span>
+                        <span class="penulis-meta">Cal Newport — Profesor Ilmu Komputer</span>
                         <span class="resensi-title">Digital Minimalism</span>
-                        <p class="resensi-text">Strategi merebut kembali kedaulatan perhatian dari jeratan algoritma demi kualitas waktu dan memori nyata bersama keluarga.</p>
+                        <p class="resensi-text">Strategi merebut kedaulatan perhatian dari jeratan algoritma demi kualitas waktu dan memori nyata bersama keluarga.</p>
                     </div>
                     <div class="resensi-item">
-                        <span class="penulis-meta">Haemin Sunim - Guru Meditasi Zen</span>
+                        <span class="penulis-meta">Haemin Sunim — Guru Meditasi Zen</span>
                         <span class="resensi-title">Slow Down</span>
-                        <p class="resensi-text">Mengingatkan bahwa saat dunia bergerak terlalu cepat, kita perlu melambat untuk melihat luka dan kebutuhan orang-orang tersayang yang terlewatkan.</p>
+                        <p class="resensi-text">Mengingatkan untuk melambat demi melihat luka dan kebutuhan orang tersayang yang selama ini terlewatkan.</p>
                     </div>
                     <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Tumbler Rosca Thermal & Jam Tangan Casio Analog. Simbol kejujuran waktu tanpa distraksi gawai.<br>
+                        <strong>Jasad (Kualitas):</strong> Tumbler Rosca Thermal 1L & Jam Tangan Casio Analog MQ-24. Simbol kejujuran waktu dan kehadiran tanpa distraksi layar gawai.<br>
                         <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Protokol Detoks</span>
                     </div>
                 </div>
@@ -259,10 +251,34 @@
 
 <script>
     const Catalog = {
-        BATAS: { name: "Nomaden Gear", aPrice: 150000, lPrice: 795000, aDesc: "2 Aksara: Titik Nol & Siddhartha", lDesc: "Aksara + Daypack & Victorinox" },
-        RISET: { name: "Narasi Pengembara", aPrice: 145000, lPrice: 348760, aDesc: "2 Aksara: 21 Lessons & Norwegian Wood", lDesc: "Aksara + Mic, Powerbank, & Notebook" },
-        JEDA: { name: "Selasar Hening", aPrice: 110000, lPrice: 175975, aDesc: "2 Aksara: Frankl & Sapardi", lDesc: "Aksara + Sajadah & Earplugs" },
-        FOKUS: { name: "Navigasi Fokus", aPrice: 135000, lPrice: 399134, aDesc: "2 Aksara: Cal Newport & Haemin Sunim", lDesc: "Aksara + Tumbler & Jam Casio" }
+        BATAS: { 
+            name: "Nomaden Gear", 
+            aPrice: 184000, 
+            lPrice: 569740, 
+            aDesc: "2 Aksara: Titik Nol & Siddhartha", 
+            lDesc: "Aksara + Daypack & Victorinox" 
+        },
+        RISET: { 
+            name: "Narasi Pengembara", 
+            aPrice: 377000, 
+            lPrice: 962000, 
+            aDesc: "2 Aksara: 21 Lessons & Norwegian Wood", 
+            lDesc: "Aksara + Mic, Powerbank, & Notebook" 
+        },
+        JEDA: { 
+            name: "Selasar Hening", 
+            aPrice: 122250, 
+            lPrice: 259348, 
+            aDesc: "2 Aksara: Frankl & Sapardi", 
+            lDesc: "Aksara + Sajadah & Earplugs" 
+        },
+        FOKUS: { 
+            name: "Navigasi Fokus", 
+            aPrice: 224400, 
+            lPrice: 588364, 
+            aDesc: "2 Aksara: Digital Minimalism & Slow Down", 
+            lDesc: "Aksara + Tumbler & Jam Casio" 
+        }
     };
 
     let selection = { pilar: "", paket: "", harga: "" };

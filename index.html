@@ -4,220 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOKAGATRA | RUANG ARTI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-light: #fcfcfc;
-            --text-dark: #1a1a1a;
-            --text-soft: #666666;
-            --accent-soft: #e5e7eb;
-            --frosted: rgba(255, 255, 255, 0.7);
+        :root { --bg: #ffffff; --ink: #111111; --accent: #a68911; --border: #e8e8e8; --slate: #555555; --soft-bg: #fcfcfc; }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
+        .container { max-width: 650px; margin: 0 auto; padding: 80px 24px; }
+        
+        /* HEADER */
+        header { text-align: center; margin-bottom: 70px; }
+        .brand-top { font-size: 0.75rem; letter-spacing: 8px; text-transform: uppercase; color: var(--slate); font-weight: 600; }
+        .platform-title { font-family: 'Playfair Display', serif; font-size: 3.2rem; margin: 10px 0 0; font-weight: 700; letter-spacing: -1px; }
+        .tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-top: 12px; font-weight: 600; }
+        .intro-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--slate); margin: 40px 0; line-height: 1.9; padding: 0 15px; }
+        .medium-btn { border: 1px solid var(--ink); padding: 16px 32px; font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--ink); transition: 0.3s; display: inline-block; }
+        .medium-btn:hover { background: var(--ink); color: white; }
+
+        /* NAVIGATION */
+        .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin: 50px 0; overflow-x: auto; gap: 10px; }
+        .tab-btn { background: none; border: none; padding: 15px 5px; cursor: pointer; font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #aaa; transition: 0.3s; position: relative; white-space: nowrap; }
+        .tab-btn.active { color: var(--ink); }
+        .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
+
+        /* CONTENT */
+        .pilar-content { display: none; }
+        .pilar-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* CARDS */
+        .tier-card { padding: 25px; border: 1px solid var(--border); margin-bottom: 12px; cursor: pointer; background: var(--soft-bg); transition: 0.3s; }
+        .tier-card.selected { border-color: var(--accent); background: #fffdf5; }
+        .tier-price { font-size: 1.25rem; font-weight: 400; display: block; margin: 8px 0; }
+        .jasad-info { font-size: 0.65rem; color: var(--accent); margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* BEDAH AKSARA */
+        .bedah-aksara { margin-top: 40px; border: 1px solid var(--border); padding: 25px; border-radius: 2px; background: #fff; }
+        .bedah-nav { display: flex; gap: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+        .sub-tab { background: none; border: none; padding: 10px 0; font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; color: #aaa; position: relative; }
+        .sub-tab.active { color: var(--accent); }
+        .sub-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
+        
+        .ruang-isi { display: none; font-size: 0.9rem; color: var(--slate); animation: fadeIn 0.4s; text-align: justify; line-height: 1.8; }
+        .ruang-isi.active { display: block; }
+        
+        .buku-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 20px 0 8px; display: block; border-left: 3px solid var(--accent); padding-left: 12px; }
+        .penulis-label { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; display: block; margin-top: 25px; }
+
+        /* BUTTONS */
+        .btn-akad { width: 100%; padding: 22px; background: var(--ink); color: white; border: none; font-weight: 600; letter-spacing: 5px; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; margin-top: 35px; transition: 0.3s; }
+        .btn-akad:hover { background: var(--accent); letter-spacing: 7px; }
+
+        /* FOOTER */
+        .sumur-hikmah { margin-top: 80px; padding: 50px 30px; background: #111; color: #fff; text-align: center; }
+        .status-msg { font-size: 0.65rem; color: #777; letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; border-top: 1px solid #333; padding-top: 20px; font-style: italic; }
+        footer { text-align: center; padding: 80px 0 40px; font-size: 0.6rem; letter-spacing: 4px; color: #bbb; text-transform: uppercase; line-height: 2; }
+
+        @media (max-width: 480px) {
+            .platform-title { font-size: 2.2rem; }
+            .container { padding: 40px 20px; }
         }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-light); 
-            color: var(--text-dark); 
-            scroll-behavior: smooth;
-        }
-        .serif { font-family: 'Cormorant Garamond', serif; }
-        .glass-card { 
-            background: white;
-            border: 1px solid var(--accent-soft);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .glass-card:hover { 
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            border-color: #d1d5db;
-        }
-        .modal-overlay {
-            background: rgba(249, 250, 251, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .btn-locked { opacity: 0.3; cursor: not-allowed; }
-        .modal-content::-webkit-scrollbar { width: 3px; }
-        .modal-content::-webkit-scrollbar-thumb { background: #e5e7eb; }
-        @keyframes subtleFade { from { opacity: 0; } to { opacity: 1; } }
-        .fade-in { animation: subtleFade 1.5s ease-in; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center p-6 md:p-16">
+<body>
 
-    <header class="text-center max-w-4xl mb-24 fade-in">
-        <h1 class="serif text-5xl md:text-7xl tracking-[0.25em] mb-4 text-zinc-900">LOKAGATRA</h1>
-        <h2 class="serif text-xs tracking-[0.6em] text-zinc-400 mb-12 uppercase">Prasanti Adikala</h2>
-        
-        <div class="h-px w-12 bg-zinc-200 mx-auto mb-12"></div>
-        
-        <p class="serif text-xl md:text-2xl italic text-zinc-500 mb-10 leading-relaxed px-4">
-            "Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini."
-        </p>
-
-        <div class="text-[12px] leading-relaxed text-zinc-400 max-w-2xl mx-auto mb-12 text-center px-6">
-            Lokagatra adalah museum nalar untuk memuliakan kembali proses kepemilikan. Kami menyediakan <strong>Aksara</strong> sebagai bekal jiwa dan <strong>Gear</strong> sebagai alat bantu raga melalui janji yang kami sebut <strong>Akad</strong>.
-        </div>
-
-        <a href="https://medium.com/@iammulazaman" target="_blank" class="inline-block text-[10px] tracking-[0.4em] border border-zinc-200 px-10 py-4 hover:bg-zinc-900 hover:text-white transition-all duration-500 uppercase font-medium">
-            Membaca @iammulazaman
-        </a>
+<div class="container">
+    <header>
+        <div class="brand-top">LOKAGATRA</div>
+        <h1 class="platform-title">RUANG ARTI</h1>
+        <div class="tagline">Prasanti Adikala</div>
+        <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini."</div>
+        <a href="https://medium.com/@iammulazaman" target="_blank" class="medium-btn">Masuki Pemikiran @iammulazaman</a>
     </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full mb-32">
-        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('BATAS')">
-            <h3 class="serif text-2xl tracking-widest mb-2">BATAS</h3>
-            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Nomaden Gear</p>
-            <p class="text-sm text-zinc-500 mb-10">Ketahanan di titik terjauh.</p>
-            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
-        </div>
+    <nav class="nav-tabs" id="mainNav"></nav>
 
-        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('RISET')">
-            <h3 class="serif text-2xl tracking-widest mb-2">RISET</h3>
-            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Narasi Pengembara</p>
-            <p class="text-sm text-zinc-500 mb-10">Menanam legasi melalui tulisan.</p>
-            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
-        </div>
+    <div id="pilar-container"></div>
 
-        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('JEDA')">
-            <h3 class="serif text-2xl tracking-widest mb-2">JEDA</h3>
-            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Selasar Hening</p>
-            <p class="text-sm text-zinc-500 mb-10">Ketenangan radikal.</p>
-            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
-        </div>
-
-        <div class="glass-card p-10 cursor-pointer group" onclick="bukaNalar('FOKUS')">
-            <h3 class="serif text-2xl tracking-widest mb-2">FOKUS</h3>
-            <p class="text-[9px] tracking-[0.4em] text-zinc-400 mb-6 uppercase italic">Navigasi Fokus</p>
-            <p class="text-sm text-zinc-500 mb-10">Kehadiran utuh.</p>
-            <div class="text-[9px] tracking-[0.3em] text-zinc-300 group-hover:text-zinc-900 transition-colors uppercase font-bold italic underline underline-offset-4">Bedah Aksara</div>
-        </div>
-    </main>
-
-    <footer class="text-center pb-12 border-t border-zinc-100 w-full pt-12">
-        <p class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-4">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
-        <p class="text-[10px] text-zinc-400 font-light italic">Curated by Hilmi Mulazaman © 2026</p>
-    </footer>
-
-    <div id="modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-5xl h-[85vh] shadow-2xl flex flex-col border border-zinc-100 overflow-hidden">
-            <div class="p-8 border-b border-zinc-50 flex justify-between items-center">
-                <div>
-                    <h2 id="mJudul" class="serif text-3xl tracking-widest"></h2>
-                    <p id="mSpirit" class="text-[10px] tracking-[0.4em] text-zinc-400 uppercase mt-2"></p>
-                </div>
-                <button onclick="tutupNalar()" class="text-zinc-300 hover:text-zinc-900 text-2xl font-light">✕</button>
-            </div>
-
-            <div class="flex-1 overflow-y-auto modal-content p-8 md:p-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-                    <div>
-                        <h4 class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-8 border-b border-zinc-50 pb-2 italic">Sanad Penulis</h4>
-                        <div id="mPenulis" class="text-sm leading-relaxed text-zinc-500 space-y-6"></div>
-                    </div>
-                    <div>
-                        <h4 class="text-[9px] tracking-[0.5em] text-zinc-300 uppercase mb-8 border-b border-zinc-50 pb-2 italic">Intisari</h4>
-                        <div id="mResensi" class="text-sm leading-relaxed text-zinc-500 space-y-6 italic"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8 bg-zinc-50/50 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div id="mHarga" class="text-[11px] tracking-widest text-zinc-400"></div>
-                <div class="text-center">
-                    <button id="btnAkad" onclick="prosesAkad()" class="bg-zinc-900 text-white px-12 py-4 text-[10px] tracking-[0.5em] font-bold hover:bg-black transition-all uppercase btn-locked" disabled>
-                        Mulai Akad
-                    </button>
-                    <p id="lockLabel" class="text-[8px] text-rose-400 tracking-widest mt-2 uppercase">Wajib bedah aksara sejenak untuk aktif</p>
-                </div>
-            </div>
-        </div>
+    <div class="sumur-hikmah">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px;">Sumur Hikmah</h3>
+        <p style="font-size: 0.85rem; opacity: 0.8; letter-spacing: 1px;">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
+        <div class="status-msg">Terpahat Bening di Atas Waktu</div>
     </div>
 
-    <script>
-        const WA_PHONE = "6288989764121";
-        let activeId = "";
+    <footer>
+        Lokagatra : Ruang Arti — Curated by Hilmi Mulazaman<br>© 2026
+    </footer>
+</div>
 
-        const DATA = {
-            BATAS: {
-                judul: "BATAS", spirit: "Ketahanan di titik terjauh",
-                bonus: "Peta Navigasi Batin di Wilayah Asing",
-                harga: "Aksara Rp195.000 | Lengkap Rp625.000",
-                penulis: `<strong>Agustinus Wibowo:</strong> Pionir travelog filosofis Indonesia yang mencari makna "rumah" di wilayah konflik. <strong>Hermann Hesse:</strong> Maestro Nobel perajut harmoni logika Barat dan spiritualitas Timur.`,
-                resensi: `<strong>Titik Nol:</strong> Dekonstruksi jujur atas konsep tujuan; musuh terbesar adalah trauma diri sendiri. <strong>Siddhartha:</strong> Cermin kebenaran dari lidah pengalaman; pusaka Berpikir, Menunggu, dan Berpuasa.`
+<script>
+    const Catalog = {
+        BATAS: {
+            title: "BATAS", spirit: "Ketahanan di titik terjauh", aP: 195000, lP: 625000,
+            jasad: "Nomaden Gear: Daypack & Victorinox Spartan",
+            bonus: "Peta Navigasi Batin di Wilayah Asing",
+            b1: { 
+                t: "Titik Nol", p: "Agustinus Wibowo", 
+                pInfo: "Pionir travelog filosofis Indonesia yang mencari makna 'rumah' di wilayah konflik.", 
+                rInfo: "Dekonstruksi konsep 'tujuan'. Menemukan bahwa musuh terbesar adalah trauma diri sendiri." 
             },
-            RISET: {
-                judul: "RISET", spirit: "Menanam legasi melalui tulisan",
-                bonus: "Arsitektur Narasi: Mengubah Data Menjadi Rasa",
-                harga: "Aksara Rp395.000 | Lengkap Rp1.050.000",
-                penulis: `<strong>Yuval Noah Harari:</strong> Intelektual pembedah mitos kemanusiaan. <strong>Haruki Murakami:</strong> Maestro yang menjahit dunia nyata dengan magis bawah sadar.`,
-                resensi: `<strong>21 Lessons:</strong> Benteng kemanusiaan di era banjir informasi. <strong>Norwegian Wood:</strong> Ode untuk kehilangan; memahat duka menjadi detail yang hidup.`
-            },
-            JEDA: {
-                judul: "JEDA", spirit: "Ketenangan radikal",
-                bonus: "Protokol Logotherapy: Makna di Tengah Bising",
-                harga: "Aksara Rp135.000 | Lengkap Rp295.000",
-                penulis: `<strong>Viktor Frankl:</strong> Saksi hidup bahwa manusia bertahan karena memiliki "makna". <strong>Sapardi Djoko Damono:</strong> Begawan sastra yang memuliakan kesederhanaan batin.`,
-                resensi: `<strong>Man’s Search for Meaning:</strong> Kebebasan memilih sikap di tengah penderitaan. <strong>Hujan Bulan Juni:</strong> Puncak estetika ketabahan dan penyerahan diri.`
-            },
-            FOKUS: {
-                judul: "FOKUS", spirit: "Kehadiran utuh",
-                bonus: "Manual Fokus Keluarga: Kedaulatan Perhatian",
-                harga: "Aksara Rp245.000 | Lengkap Rp650.000",
-                penulis: `<strong>Cal Newport:</strong> Pejuang kesadaran di era ekonomi perhatian. <strong>Haemin Sunim:</strong> Biksu Zen penerjemah kebijaksanaan kuno untuk era modern.`,
-                resensi: `<strong>Digital Minimalism:</strong> Merebut kembali waktu dari algoritma. <strong>Slow Down:</strong> Dunia terasa cepat karena pikiranmu yang terburu-buru.`
+            b2: { 
+                t: "Siddhartha", p: "Hermann Hesse", 
+                pInfo: "Sastrawan Nobel 1946. Perajut harmoni logika Barat dan spiritualitas Timur.", 
+                rInfo: "Tiga kekuatan inti pengembara batin: Aku bisa berpikir, aku bisa menunggu, dan aku bisa berpuasa." 
             }
-        };
-
-        function bukaNalar(id) {
-            activeId = id;
-            const p = DATA[id];
-            document.getElementById('mJudul').innerText = p.judul;
-            document.getElementById('mSpirit').innerText = p.spirit;
-            document.getElementById('mPenulis').innerHTML = p.penulis;
-            document.getElementById('mResensi').innerHTML = p.resensi;
-            document.getElementById('mHarga').innerHTML = `${p.harga}<br><span class="text-[9px] italic">Bonus: ${p.bonus}</span>`;
-            
-            const btn = document.getElementById('btnAkad');
-            btn.disabled = true;
-            btn.classList.add('btn-locked');
-            document.getElementById('lockLabel').classList.remove('hidden');
-
-            document.getElementById('modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-
-            // Timer Pengunci (3 detik untuk membaca)
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.classList.remove('btn-locked');
-                document.getElementById('lockLabel').classList.add('hidden');
-            }, 3000);
+        },
+        RISET: {
+            title: "RISET", spirit: "Menanam legasi melalui tulisan", aP: 395000, lP: 1050000,
+            jasad: "Narasi Pengembara: Mic Wireless, Powerbank & Leather Journal",
+            bonus: "Arsitektur Narasi: Mengubah Data Menjadi Rasa",
+            b1: { 
+                t: "21 Lessons", p: "Yuval Noah Harari", 
+                pInfo: "Intelektual pembedah mitos peradaban melalui narasi besar sejarah.", 
+                rInfo: "Kemampuan menjaga fokus dan kejujuran narasi adalah pemberontakan tertinggi di era post-truth." 
+            },
+            b2: { 
+                t: "Norwegian Wood", p: "Haruki Murakami", 
+                pInfo: "Maestro kontemporer Jepang yang menjahit keseharian dengan kedalaman magis.", 
+                rInfo: "Mengasah kepekaan terhadap kehilangan. Memahat duka menjadi detail rasa yang hidup." 
+            }
+        },
+        JEDA: {
+            title: "JEDA", spirit: "Ketenangan radikal", aP: 135000, lP: 295000,
+            jasad: "Selasar Hening: Sajadah Genggam & Earplugs",
+            bonus: "Protokol Logotherapy: Makna di Tengah Bising",
+            b1: { 
+                t: "Man’s Search for Meaning", p: "Viktor Frankl", 
+                pInfo: "Psikiater Austria penyintas kamp Nazi. Penemu makna hidup di tengah penderitaan.", 
+                rInfo: "Di antara penderitaan dan respon, terdapat satu ruang: kebebasan manusia untuk memilih sikap." 
+            },
+            b2: { 
+                t: "Hujan Bulan Juni", p: "Sapardi Djoko Damono", 
+                pInfo: "Begawan sastra Indonesia. Maestro puitika kesederhanaan yang jernih.", 
+                rInfo: "Pelajaran tentang ketabahan: hujan yang menahan rintiknya di dalam keheningan bahasa." 
+            }
+        },
+        FOKUS: {
+            title: "FOKUS", spirit: "Kehadiran utuh", aP: 245000, lP: 650000,
+            jasad: "Navigasi Fokus: Tumbler Thermal & Casio Analog",
+            bonus: "Manual Fokus Keluarga: Kedaulatan Perhatian",
+            b1: { 
+                t: "Digital Minimalism", p: "Cal Newport", 
+                pInfo: "Profesor pemikir kedaulatan perhatian di era distraksi digital.", 
+                rInfo: "Merebut kembali kedaulatan waktu agar kehadiran di depan keluarga menjadi jiwa yang utuh." 
+            },
+            b2: { 
+                t: "Slow Down", p: "Haemin Sunim", 
+                pInfo: "Biksu Zen penyedia nasihat spiritual bagi problematika manusia urban.", 
+                rInfo: "Dunia terasa cepat karena pikiran yang terburu-buru. Melambatlah untuk menyadari kebahagiaan." 
+            }
         }
+    };
 
-        function tutupNalar() {
-            document.getElementById('modal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
+    let selected = { key: "", paket: "", harga: "", bonus: "" };
 
-        function prosesAkad() {
-            const p = DATA[activeId];
-            const nama = prompt("DIALOG IDENTITAS:\nSiapa namamu sebagai penanggung beban nalar?");
-            if (!nama) return;
-
-            const alamat = prompt("DIALOG LABUH:\nKe mana jasad (paket) ini harus kami hantarkan?");
-            if (!alamat) return;
-
-            const niat = prompt("DIALOG RUH:\nApa kegelisahan batin atau niat yang membawamu memilih wasilah ini?");
-            if (!niat) return;
-
-            // Membangun URL WhatsApp dengan encode yang aman
-            const textHeader = `Rahayu Kurator Lokagatra, saya *${nama}* bermaksud melakukan Akad *${activeId}*.`;
-            const textBody = `\n\n*Niat Akad:* ${niat}\n*Alamat Labuh:* ${alamat}\n*PDF Bonus:* ${p.bonus}\n\n— _Prasanti Adikala_`;
+    function init() {
+        const nav = document.getElementById('mainNav');
+        const container = document.getElementById('pilar-container');
+        
+        Object.keys(Catalog).forEach((key, index) => {
+            const data = Catalog[key];
+            nav.innerHTML += `<button class="tab-btn ${index===0?'active':''}" onclick="showPilar(event, '${key}')">${key}</button>`;
             
-            const finalLink = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodeURIComponent(textHeader + textBody)}`;
-            
-            window.open(finalLink, '_blank');
-        }
-    </script>
+            container.innerHTML += `
+                <section id="${key}" class="pilar-content ${index===0?'active':''}">
+                    <span style="font-size:0.6rem; letter-spacing:2px; color:var(--accent); font-weight:600; text-transform:uppercase;">Spirit: ${data.spirit}</span>
+                    <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin:10px 0 25px;">${data.title}</h2>
+                    
+                    <div class="tier-card" onclick="pick(this, '${key}', 'Aksara', ${data.aP}, '${data.bonus}')">
+                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate);">Akad Aksara (Jiwa)</span>
+                        <span class="tier-price">IDR ${data.aP.toLocaleString('id-ID')}</span>
+                    </div>
+
+                    <div class="tier-card" onclick="pick(this, '${key}', 'Lengkap', ${data.lP}, '${data.bonus}')">
+                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate);">Akad Lengkap (Raga & Jiwa)</span>
+                        <span class="tier-price">IDR ${data.lP.toLocaleString('id-ID')}</span>
+                        <div class="jasad-info">+ ${data.jasad}</div>
+                    </div>
+
+                    <div class="bedah-aksara">
+                        <div class="bedah-nav">
+                            <button class="sub-tab active" onclick="subTab(this, '${key}', 'penulis')">Sanad Penulis</button>
+                            <button class="sub-tab" onclick="subTab(this, '${key}', 'resensi')">Bedah Nalar</button>
+                        </div>
+                        <div id="${key}-penulis" class="ruang-isi active">
+                            <span class="penulis-label">${data.b1.p}</span>
+                            <span class="buku-title">${data.b1.t}</span>
+                            <p>${data.b1.pInfo}</p>
+                            <span class="penulis-label">${data.b2.p}</span>
+                            <span class="buku-title">${data.b2.t}</span>
+                            <p>${data.b2.pInfo}</p>
+                        </div>
+                        <div id="${key}-resensi" class="ruang-isi">
+                            <span class="buku-title">${data.b1.t}</span>
+                            <p>${data.b1.rInfo}</p>
+                            <div style="height:20px; border-bottom:1px solid #eee; margin-bottom:20px;"></div>
+                            <span class="buku-title">${data.b2.t}</span>
+                            <p>${data.b2.rInfo}</p>
+                        </div>
+                    </div>
+
+                    <button class="btn-akad" onclick="submit()">Mulai Akad</button>
+                </section>
+            `;
+        });
+    }
+
+    function showPilar(e, key) {
+        document.querySelectorAll('.tab-btn, .pilar-content').forEach(el => el.classList.remove('active'));
+        e.target.classList.add('active');
+        document.getElementById(key).classList.add('active');
+        selected = { key: "", paket: "", harga: "", bonus: "" };
+        document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+    }
+
+    function subTab(btn, key, type) {
+        btn.parentElement.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(`${key}-penulis`).classList.remove('active');
+        document.getElementById(`${key}-resensi`).classList.remove('active');
+        document.getElementById(`${key}-${type}`).classList.add('active');
+    }
+
+    function pick(el, key, paket, harga, bonus) {
+        el.parentElement.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        selected = { key, paket, harga: harga.toLocaleString('id-ID'), bonus };
+    }
+
+    function submit() {
+        if(!selected.paket) return alert("Sila pilih pintu akad Anda.");
+        
+        const nama = prompt("DIALOG IDENTITAS:\nSiapa namamu sebagai penanggung beban nalar?");
+        if(!nama) return;
+        
+        const alamat = prompt("DIALOG LABUH:\nKe mana jasad (paket) ini harus kami hantarkan?");
+        if(!alamat) return;
+        
+        const niat = prompt("DIALOG RUH:\nApa niat atau kegelisahan batinmu?");
+        if(!niat) return;
+
+        const header = `Rahayu Kurator Lokagatra, saya *${nama}* bermaksud Akad *${selected.key}* (${selected.paket}).`;
+        const body = `\n\n*Niat Akad:* ${niat}\n*Alamat Labuh:* ${alamat}\n*Bonus PDF:* ${selected.bonus}\n*Total Akad:* IDR ${selected.harga}\n\n— _Prasanti Adikala_`;
+        
+        window.open(`https://api.whatsapp.com/send?phone=6288989764121&text=${encodeURIComponent(header + body)}`);
+    }
+
+    window.onload = init;
+</script>
+
 </body>
 </html>

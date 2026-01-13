@@ -10,6 +10,8 @@
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
         .container { max-width: 650px; margin: 0 auto; padding: 80px 24px; }
+        
+        /* HEADER */
         header { text-align: center; margin-bottom: 70px; }
         .brand-top { font-size: 0.75rem; letter-spacing: 8px; text-transform: uppercase; color: var(--slate); font-weight: 600; }
         .platform-title { font-family: 'Playfair Display', serif; font-size: 3.2rem; margin: 10px 0 0; font-weight: 700; letter-spacing: -1px; }
@@ -17,32 +19,54 @@
         .intro-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--slate); margin: 40px 0; line-height: 1.9; padding: 0 15px; }
         .medium-btn { border: 1px solid var(--ink); padding: 16px 32px; font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--ink); transition: 0.3s; display: inline-block; }
         .medium-btn:hover { background: var(--ink); color: white; }
+
+        /* NAVIGATION */
         .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin: 50px 0; overflow-x: auto; gap: 10px; }
         .tab-btn { background: none; border: none; padding: 15px 5px; cursor: pointer; font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #aaa; transition: 0.3s; position: relative; white-space: nowrap; }
         .tab-btn.active { color: var(--ink); }
         .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
+
+        /* CONTENT */
         .pilar-content { display: none; }
         .pilar-content.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* CARDS */
         .tier-card { padding: 25px; border: 1px solid var(--border); margin-bottom: 12px; cursor: pointer; background: var(--soft-bg); transition: 0.3s; }
         .tier-card.selected { border-color: var(--accent); background: #fffdf5; }
         .tier-price { font-size: 1.25rem; font-weight: 400; display: block; margin: 8px 0; }
-        .bedah-aksara { margin-top: 40px; border: 1px solid var(--border); padding: 25px; border-radius: 2px; }
+        .jasad-info { font-size: 0.65rem; color: var(--accent); margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* BEDAH AKSARA (SELASAR KEDUA) */
+        .bedah-aksara { margin-top: 40px; border: 1px solid var(--border); padding: 25px; border-radius: 2px; background: #fff; }
         .bedah-nav { display: flex; gap: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
         .sub-tab { background: none; border: none; padding: 10px 0; font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; color: #aaa; position: relative; }
         .sub-tab.active { color: var(--accent); }
         .sub-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
-        .ruang-isi { display: none; font-size: 0.9rem; color: var(--slate); animation: fadeIn 0.4s; text-align: justify; }
+        
+        .ruang-isi { display: none; font-size: 0.9rem; color: var(--slate); animation: fadeIn 0.4s; text-align: justify; line-height: 1.8; }
         .ruang-isi.active { display: block; }
-        .buku-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; display: block; }
-        .penulis-label { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; display: block; margin-top: 15px; }
-        .btn-akad { width: 100%; padding: 22px; background: var(--ink); color: white; border: none; font-weight: 600; letter-spacing: 5px; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; margin-top: 35px; }
+        
+        .buku-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin: 20px 0 8px; display: block; border-left: 3px solid var(--accent); padding-left: 12px; }
+        .penulis-label { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; font-weight: 600; letter-spacing: 1px; display: block; margin-top: 25px; }
+
+        /* BUTTONS */
+        .btn-akad { width: 100%; padding: 22px; background: var(--ink); color: white; border: none; font-weight: 600; letter-spacing: 5px; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; margin-top: 35px; transition: 0.3s; }
+        .btn-akad:hover { background: var(--accent); letter-spacing: 7px; }
+
+        /* FOOTER */
         .sumur-hikmah { margin-top: 80px; padding: 50px 30px; background: #111; color: #fff; text-align: center; }
         .status-msg { font-size: 0.65rem; color: #777; letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; border-top: 1px solid #333; padding-top: 20px; font-style: italic; }
         footer { text-align: center; padding: 80px 0 40px; font-size: 0.6rem; letter-spacing: 4px; color: #bbb; text-transform: uppercase; line-height: 2; }
+
+        @media (max-width: 480px) {
+            .platform-title { font-size: 2.2rem; }
+            .container { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
+
 <div class="container">
     <header>
         <div class="brand-top">LOKAGATRA</div>
@@ -51,37 +75,79 @@
         <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini. Setiap benda yang ada di sini bukanlah komoditas, melainkan wasilah (perantara) untuk menemani pencarianmu."</div>
         <a href="https://medium.com/@iammulazaman" target="_blank" class="medium-btn">Masuki Pemikiran @iammulazaman</a>
     </header>
+
     <nav class="nav-tabs" id="mainNav"></nav>
+
     <div id="pilar-container"></div>
+
     <div class="sumur-hikmah">
         <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px;">Sumur Hikmah</h3>
-        <p style="font-size: 0.85rem; opacity: 0.8;">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
+        <p style="font-size: 0.85rem; opacity: 0.8; letter-spacing: 1px;">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</p>
         <div class="status-msg">Sedang dalam proses penghimpunan nalar dan kurasi mendalam</div>
     </div>
-    <footer>Lokagatra : Ruang Arti — Curated by Hilmi Mulazaman<br>© 2026</footer>
+
+    <footer>
+        Lokagatra : Ruang Arti — Curated by Hilmi Mulazaman<br>© 2026
+    </footer>
 </div>
 
 <script>
     const Catalog = {
         BATAS: {
             title: "Nomaden Gear", spirit: "Ketahanan di titik terjauh", aP: 195000, lP: 625000,
-            b1: { t: "Titik Nol", p: "Agustinus Wibowo", pInfo: "Pionir travelog filosofis Indonesia. Mencari makna 'rumah' di wilayah konflik Asia Tengah.", rInfo: "Bukan sekadar catatan perjalanan, melainkan dekonstruksi konsep 'tujuan'. Menemukan bahwa musuh terbesar adalah trauma diri sendiri di titik paling asing." },
-            b2: { t: "Siddhartha", p: "Hermann Hesse", pInfo: "Sastrawan Nobel 1946. Penjelajah dualitas rasionalitas Barat dan spiritualitas Timur.", rInfo: "Alegori pencerahan melalui tiga kekuatan inti pengembara: Berpikir, Menunggu, dan Berpuasa. Panduan tidak tersesat di tengah kepuasan jasmani." }
+            jasad: "Daypack Naturehike 22L & Victorinox Spartan",
+            b1: { 
+                t: "Titik Nol", p: "Agustinus Wibowo", 
+                pInfo: "Pionir travelog filosofis Indonesia. Ia meninggalkan karier fotografer di Afghanistan demi mencari makna 'rumah'. Dikenal mampu membedah sisi sosiopolitik dan spiritualitas di wilayah konflik Asia Tengah.", 
+                rInfo: "Dekonstruksi konsep 'tujuan'. Agustinus membawa kita melintasi Tibet hingga Afghanistan, hanya untuk menemukan bahwa musuh terbesar sekaligus jawaban tercanggih adalah trauma diri sendiri. Batas negara sering kali hanyalah imajinasi yang memisahkan manusia dari kemanusiaannya." 
+            },
+            b2: { 
+                t: "Siddhartha", p: "Hermann Hesse", 
+                pInfo: "Sastrawan Jerman-Swiss (Nobel 1946). Karyanya mengeksplorasi dualitas antara rasionalitas Barat dan spiritualitas Timur, dipengaruhi kuat oleh psikoanalisis Carl Jung.", 
+                rInfo: "Berlatar di India pada masa Buddha, mengisahkan Siddhartha yang menolak doktrin demi mencari kebenaran melalui pengalaman langsung. Hesse merumuskan tiga kekuatan inti pengembara batin: 'Aku bisa berpikir, aku bisa menunggu, dan aku bisa berpuasa.'" 
+            }
         },
         RISET: {
             title: "Narasi Pengembara", spirit: "Menanam legasi melalui tulisan", aP: 395000, lP: 1050000,
-            b1: { t: "21 Lessons", p: "Yuval Noah Harari", pInfo: "Sejarawan publik global. Pemegang kompas nalar peradaban di tengah krisis narasi.", rInfo: "Bedah ancaman algoritma dan pasca-kebenaran. Menjaga fokus dan kejujuran narasi adalah bentuk pemberontakan tertinggi saat ini." },
-            b2: { t: "Norwegian Wood", p: "Haruki Murakami", pInfo: "Maestro realisme magis Jepang. Ahli menangkap detail sensorik yang melankolis.", rInfo: "Pelajaran mendeskripsikan tekstur kehilangan agar tulisan tidak hanya menjadi data, tapi menjadi rasa yang hidup bagi pembaca." }
+            jasad: "Mic Wireless Ulanzi WM-10, Anker Powerbank 10k, & Leather Myntydori",
+            b1: { 
+                t: "21 Lessons", p: "Yuval Noah Harari", 
+                pInfo: "Sejarawan publik dan profesor di Hebrew University of Jerusalem. Pemikir global yang membedah peradaban manusia melalui narasi besar sejarah dan masa depan.", 
+                rInfo: "Harari membedah ancaman algoritma, krisis identitas, dan hilangnya makna kerja. Bagi periset, buku ini adalah kompas untuk memahami bahwa di era post-truth, kemampuan menjaga fokus dan kejujuran narasi adalah pemberontakan tertinggi." 
+            },
+            b2: { 
+                t: "Norwegian Wood", p: "Haruki Murakami", 
+                pInfo: "Maestro kontemporer Jepang. Dikenal dengan gaya magical realism yang menggabungkan keseharian eksistensial dengan kedalaman magis yang sublim.", 
+                rInfo: "Melalui tokoh Toru Watanabe, Murakami mengasah kepekaan kita terhadap kehilangan. Pelajaran tentang mendeskripsikan detail sensorik—suara hujan, aroma hutan, hingga sunyinya kematian—sehingga tulisan tidak hanya menjadi data, tapi menjadi rasa yang hidup." 
+            }
         },
         JEDA: {
             title: "Selasar Hening", spirit: "Ketenangan radikal", aP: 135000, lP: 295000,
-            b1: { t: "Search for Meaning", p: "Viktor Frankl", pInfo: "Psikiater & penyintas Nazi. Penemu Logotherapy berbasis makna hidup.", rInfo: "Frankl mengajarkan bahwa di antara penderitaan dan respon, terdapat ruang kebebasan manusia untuk memilih sikap. Nalar valid untuk titik diam." },
-            b2: { t: "Hujan Bulan Juni", p: "Sapardi Djoko Damono", pInfo: "Begawan sastra Indonesia. Maestro puitika kesederhanaan sublim.", rInfo: "Alat meditasi batin dari polusi kata-kata. Mengajarkan ketabahan hujan yang menahan rintiknya dan bunga yang memendam rahasia." }
+            jasad: "Sajadah Genggam MURI Waterproof & Mack's Earplugs",
+            b1: { 
+                t: "Man’s Search for Meaning", p: "Viktor Frankl", 
+                pInfo: "Psikiater Austria dan penyintas kamp konsentrasi Nazi. Penemu Logotherapy, teori psikologi yang berpusat pada penemuan makna hidup di tengah penderitaan.", 
+                rInfo: "Frankl mencatat bahwa mereka yang bertahan di kamp kematian adalah yang memiliki 'makna' untuk diperjuangkan. Ia mengajarkan bahwa di antara penderitaan dan respon, terdapat satu ruang: kebebasan manusia untuk memilih sikap." 
+            },
+            b2: { 
+                t: "Hujan Bulan Juni", p: "Sapardi Djoko Damono", 
+                pInfo: "Begawan sastra Indonesia. Maestro puitika kesederhanaan yang membawa bahasa kembali ke akarnya yang sublim dan jernih.", 
+                rInfo: "Kumpulan puisi ini adalah alat meditasi untuk membersihkan batin dari polusi kata-kata penuh pretensi. Sapardi mengajarkan tentang 'ketabahan': hujan yang menahan rintiknya dan bunga yang memendam rahasianya di dalam keheningan bahasa." 
+            }
         },
         FOKUS: {
             title: "Navigasi Fokus", spirit: "Kehadiran utuh", aP: 245000, lP: 650000,
-            b1: { t: "Digital Minimalism", p: "Cal Newport", pInfo: "Profesor Ilmu Komputer. Pemikir kedaulatan waktu di era distraksi algoritma.", rInfo: "Strategi merebut perhatian demi kualitas waktu nyata. Memastikan kehadiran di depan keluarga bukan sekadar raga, tapi jiwa yang utuh." },
-            b2: { t: "Slow Down", p: "Haemin Sunim", pInfo: "Biksu Zen lulusan Harvard. Pembawa kearifan bagi problematika modern.", rInfo: "Ajakan melambat agar mampu melihat luka orang tersayang. Kebahagiaan sejati berada di dalam momen tenang bersama mereka sekarang." }
+            jasad: "Tumbler Rosca Thermal 1L & Casio Analog MQ-24",
+            b1: { 
+                t: "Digital Minimalism", p: "Cal Newport", 
+                pInfo: "Profesor Ilmu Komputer di Georgetown University. Pemikir utama tentang efektivitas kerja dan kedaulatan perhatian di era distraksi digital.", 
+                rInfo: "Newport merumuskan filosofi di mana kita merebut kembali kedaulatan waktu dari manipulasi ekonomi perhatian (attention economy). Tujuannya agar kehadiran kita di depan keluarga bukan sekadar raga, tapi jiwa yang utuh." 
+            },
+            b2: { 
+                t: "Slow Down", p: "Haemin Sunim", 
+                pInfo: "Biksu Zen asal Korea Selatan lulusan Harvard. Mampu memberikan nasihat spiritual yang relevan bagi problematika manusia urban yang tergesa-gesa.", 
+                rInfo: "Sunim mengingatkan bahwa dunia terasa cepat karena pikiran kita yang terburu-buru. Ia mengajak kita melambat agar mampu melihat luka pasangan, mendengarkan tawa anak, dan menyadari kebahagiaan di dalam momen yang tenang." 
+            }
         }
     };
 
@@ -90,38 +156,53 @@
     function init() {
         const nav = document.getElementById('mainNav');
         const container = document.getElementById('pilar-container');
+        
         Object.keys(Catalog).forEach((key, index) => {
             const data = Catalog[key];
             nav.innerHTML += `<button class="tab-btn ${index===0?'active':''}" onclick="showPilar(event, '${key}')">${key}</button>`;
+            
             container.innerHTML += `
                 <section id="${key}" class="pilar-content ${index===0?'active':''}">
                     <span style="font-size:0.6rem; letter-spacing:2px; color:var(--accent); font-weight:600; text-transform:uppercase;">Spirit: ${data.spirit}</span>
                     <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin:10px 0 25px;">${data.title}</h2>
+                    
                     <div class="tier-card" onclick="pick(this, '${data.title}', 'Aksara', ${data.aP})">
-                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Akad Aksara (Jiwa)</span>
+                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate);">Akad Aksara (Jiwa)</span>
                         <span class="tier-price">IDR ${data.aP.toLocaleString('id-ID')}</span>
                     </div>
+
                     <div class="tier-card" onclick="pick(this, '${data.title}', 'Lengkap', ${data.lP})">
-                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Akad Lengkap (Raga & Jiwa)</span>
+                        <span style="font-size:0.65rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--slate);">Akad Lengkap (Raga & Jiwa)</span>
                         <span class="tier-price">IDR ${data.lP.toLocaleString('id-ID')}</span>
+                        <div class="jasad-info">+ ${data.jasad}</div>
                     </div>
+
                     <div class="bedah-aksara">
                         <div class="bedah-nav">
-                            <button class="sub-tab active" onclick="subTab(this, '${key}', 'penulis')">Penulis</button>
-                            <button class="sub-tab" onclick="subTab(this, '${key}', 'resensi')">Resensi</button>
+                            <button class="sub-tab active" onclick="subTab(this, '${key}', 'penulis')">Tentang Penulis</button>
+                            <button class="sub-tab" onclick="subTab(this, '${key}', 'resensi')">Resensi Mendalam</button>
                         </div>
                         <div id="${key}-penulis" class="ruang-isi active">
-                            <span class="penulis-label">${data.b1.p}</span><span class="buku-title">${data.b1.t}</span><p>${data.b1.pInfo}</p>
-                            <span class="penulis-label">${data.b2.p}</span><span class="buku-title">${data.b2.t}</span><p>${data.b2.pInfo}</p>
+                            <span class="penulis-label">${data.b1.p}</span>
+                            <span class="buku-title">${data.b1.t}</span>
+                            <p>${data.b1.pInfo}</p>
+                            
+                            <span class="penulis-label">${data.b2.p}</span>
+                            <span class="buku-title">${data.b2.t}</span>
+                            <p>${data.b2.pInfo}</p>
                         </div>
                         <div id="${key}-resensi" class="ruang-isi">
-                            <span class="buku-title">${data.b1.t}</span><p>${data.b1.rInfo}</p>
-                            <div style="height:15px"></div>
-                            <span class="buku-title">${data.b2.t}</span><p>${data.b2.rInfo}</p>
+                            <span class="buku-title">${data.b1.t}</span>
+                            <p>${data.b1.rInfo}</p>
+                            <div style="height:20px; border-bottom:1px solid #eee; margin-bottom:20px;"></div>
+                            <span class="buku-title">${data.b2.t}</span>
+                            <p>${data.b2.rInfo}</p>
                         </div>
                     </div>
+
                     <button class="btn-akad" onclick="submit()">Mulai Akad</button>
-                </section>`;
+                </section>
+            `;
         });
     }
 
@@ -149,14 +230,16 @@
 
     function submit() {
         if(!selected.paket) return alert("Sila pilih pintu akad Anda.");
-        const n = prompt("Nama:");
-        const niat = prompt("Tuliskan Niat/Kegelisahan Anda:");
+        const n = prompt("Sila masukkan Nama Anda:");
+        const niat = prompt("Tuliskan Niat atau Kegelisahan Anda:");
         if(n && niat) {
             const msg = `Rahayu Kurator Lokagatra,\n\nSaya ${n}.\nMemilih Paket ${selected.paket} dari Pilar ${selected.pilar}.\n\nNiat Akad: "${niat}"\nTotal Akad: IDR ${selected.harga}\n\n(Mohon instruksi selanjutnya)`;
             window.open(`https://wa.me/6288989764121?text=${encodeURIComponent(msg)}`);
         }
     }
+
     window.onload = init;
 </script>
+
 </body>
 </html>

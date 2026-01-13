@@ -14,44 +14,41 @@
         body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; }
         .container { max-width: 600px; margin: 0 auto; padding: 60px 24px; }
 
-        /* AMBANG PINTU */
-        header { text-align: center; margin-bottom: 60px; }
-        .title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #fff; margin: 0; }
-        .tagline { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); }
-        .philosophy { margin: 40px 0; font-size: 0.9rem; color: #888; text-align: justify; line-height: 2; border-top: 1px solid var(--border); padding-top: 30px; }
+        header { text-align: center; margin-bottom: 50px; }
+        .title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #fff; margin: 0; letter-spacing: -1px; }
+        .tagline { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-top: 10px; }
 
-        /* NAVIGASI PILAR */
-        .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+        .philosophy-box { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 30px; font-size: 0.9rem; color: #888; text-align: justify; }
+        .medium-link { display: block; text-align: center; border: 1px solid var(--accent); padding: 18px; margin: 30px 0; font-size: 0.65rem; color: #fff; text-decoration: none; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; }
+        .medium-link:hover { background: #fff; color: #000; }
+
+        .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin: 40px 0; }
         .tab-btn { background: none; border: none; padding: 15px 0; cursor: pointer; font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #444; transition: 0.3s; }
         .tab-btn.active { color: #fff; border-bottom: 2px solid #fff; }
 
-        .pilar-content { display: none; animation: fadeIn 0.5s ease; }
+        .pilar-content { display: none; animation: fadeIn 0.6s ease; }
         .pilar-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* KARTU AKAD */
-        .card { background: var(--glass); border: 1px solid var(--border); padding: 20px; margin-bottom: 12px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .card { background: var(--glass); border: 1px solid var(--border); padding: 22px; margin-bottom: 12px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
         .card:hover { border-color: #555; }
-        .card.selected { border-color: #fff; background: rgba(255,255,255,0.1); }
-        .card-type { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
-        .price { font-size: 1.1rem; display: block; margin-top: 5px; }
+        .card.selected { border-color: #fff; background: rgba(255,255,255,0.12); }
+        .price { font-size: 1.1rem; display: block; margin-top: 5px; color: #fff; }
 
-        /* BEDAH AKSARA */
-        .bedah-trigger { width: 100%; padding: 15px; background: none; border: 1px dashed #444; color: var(--accent); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin: 25px 0; border-radius: 4px; }
-        .bedah-trigger:hover { color: #fff; border-color: #fff; }
+        .bedah-btn { width: 100%; padding: 15px; background: none; border: 1px dashed #444; color: var(--accent); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin: 25px 0; }
+        .btn-akad { width: 100%; padding: 22px; background: #1a1a1a; color: #444; border: none; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 0.75rem; border-radius: 2px; cursor: not-allowed; transition: 0.4s; }
+        .btn-akad.active { background: #fff; color: #000; cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
 
-        /* TOMBOL AKAD */
-        .btn-akad { width: 100%; padding: 20px; background: #222; color: #555; border: none; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; border-radius: 2px; cursor: not-allowed; transition: 0.4s; }
-        .btn-akad.ready { background: #fff; color: #000; cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        /* OVERLAY SCROLLABLE */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; display: none; padding: 40px 24px; overflow-y: auto; }
+        .overlay-inner { max-width: 500px; margin: 0 auto; }
+        .resensi-item { margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 30px; }
+        .sanad-label { font-size: 0.6rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+        .buku-t { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin: 10px 0; display: block; }
 
-        /* OVERLAY */
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; display: none; padding: 40px 24px; overflow-y: auto; }
-        .overlay-content { max-width: 500px; margin: 0 auto; }
-        .buku-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; margin-top: 25px; display: block; }
-        .resensi { font-size: 0.9rem; color: #999; margin-bottom: 30px; }
+        footer { text-align: center; margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); }
+        .sumur { font-family: 'Playfair Display', serif; font-style: italic; color: #666; font-size: 0.85rem; letter-spacing: 1px; }
 
-        footer { text-align: center; margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); }
-        .pondasi { font-family: 'Playfair Display', serif; font-style: italic; color: #555; font-size: 0.8rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -60,118 +57,120 @@
     <header>
         <div class="tagline">LOKAGATRA</div>
         <h1 class="title">RUANG ARTI</h1>
-        <div class="tagline" style="color:var(--accent); margin-top:10px;">Prasanti Adikala</div>
-        <div class="philosophy">
-            Lokagatra dirancang agar manusia berhenti sejenak (Jeda), membaca sanad pemikiran (Riset), dan menjaga kehadiran jiwa (Fokus) sebelum melangkah ke titik terjauh (Batas).
+        <div class="tagline" style="color:var(--accent)">Prasanti Adikala</div>
+        <div class="philosophy-box">
+            "Lokagatra dirancang agar manusia berhenti sejenak (Jeda), membaca sanad pemikiran (Riset), dan menjaga kehadiran jiwa (Fokus) sebelum melangkah ke titik terjauh (Batas)."
         </div>
+        <a href="https://medium.com/@iammulazaman" class="medium-link">[ MASUKI PEMIKIRAN @IAMMULAZAMAN ]</a>
     </header>
 
     <nav class="nav-tabs" id="mainNav"></nav>
     <div id="pilar-container"></div>
 
     <footer>
-        <div class="pondasi">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</div>
-        <div style="font-size:0.55rem; color:#333; margin-top:20px; letter-spacing:3px;">CURATED BY HILMI MULAZAMAN © 2026</div>
+        <div class="sumur">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</div>
+        <div style="font-size:0.55rem; color:#444; margin-top:20px; letter-spacing:3px;">HILMI MULAZAMAN © 2026</div>
     </footer>
 </div>
 
 <div id="overlay" class="overlay">
-    <div class="overlay-content">
-        <div id="overlay-body"></div>
-        <button class="bedah-trigger" style="border-style:solid; color:#fff; background:#222;" onclick="tuntas()">Saya Telah Menuntaskan Nalar</button>
+    <div class="overlay-inner">
+        <div id="overlay-content"></div>
+        <button class="medium-link" style="width:100%; cursor:pointer;" onclick="tuntas()">SAYA TELAH MENUNTASKAN NALAR</button>
     </div>
 </div>
 
 <script>
     const Catalog = {
-        BATAS: { spirit: "Ketahanan di titik terjauh", bonus: "Peta Navigasi Batin", aP: 195000, lP: 625000,
-            b1: { t: "Titik Nol", s: "Agustinus Wibowo", r: "Dekonstruksi jujur atas konsep 'tujuan'." },
-            b2: { t: "Siddhartha", s: "Hermann Hesse", r: "Cermin kebenaran: Berpikir, Menunggu, Berpuasa." }
+        BATAS: { 
+            spirit: "Ketahanan di titik terjauh.", bonus: "Peta Navigasi Batin di Wilayah Asing", aP: 195000, lP: 625000,
+            b1: { t: "Titik Nol", p: "Agustinus Wibowo", r: "Dekonstruksi jujur atas konsep 'tujuan'; musuh terbesar adalah trauma diri sendiri." },
+            b2: { t: "Siddhartha", p: "Hermann Hesse", r: "Cermin kebenaran dari lidah pengalaman; pusaka Berpikir, Menunggu, dan Berpuasa." }
         },
-        RISET: { spirit: "Menanam legasi melalui tulisan", bonus: "Arsitektur Narasi", aP: 395000, lP: 1050000,
-            b1: { t: "21 Lessons", s: "Yuval Noah Harari", r: "Menjaga fokus adalah pemberontakan tertinggi." },
-            b2: { t: "Norwegian Wood", s: "Haruki Murakami", r: "Memahat duka menjadi detail sensorik hidup." }
+        RISET: { 
+            spirit: "Menanam legasi melalui tulisan.", bonus: "Arsitektur Narasi: Mengubah Data Menjadi Rasa", aP: 395000, lP: 1050000,
+            b1: { t: "21 Lessons", p: "Yuval Noah Harari", r: "Benteng kemanusiaan di era post-truth; menjaga fokus adalah pemberontakan tertinggi." },
+            b2: { t: "Norwegian Wood", p: "Haruki Murakami", r: "Ode untuk kehilangan; memahat duka menjadi detail sensorik yang hidup." }
         },
-        JEDA: { spirit: "Ketenangan radikal", bonus: "Protokol Logotherapy", aP: 135000, lP: 295000,
-            b1: { t: "Man’s Search for Meaning", s: "Viktor Frankl", r: "Kebebasan memilih sikap di tengah penderitaan." },
-            b2: { t: "Hujan Bulan Juni", s: "Sapardi Djoko Damono", r: "Protokol mencuci batin dari polusi kata." }
+        JEDA: { 
+            spirit: "Ketenangan radikal.", bonus: "Protokol Logotherapy: Makna di Tengah Bising", aP: 135000, lP: 295000,
+            b1: { t: "Man’s Search for Meaning", p: "Viktor Frankl", r: "Ruang kebebasan untuk memilih sikap di tengah penderitaan." },
+            b2: { t: "Hujan Bulan Juni", p: "Sapardi Djoko Damono", r: "Puncak estetika ketabahan; protokol mencuci batin dari polusi kata-kata." }
         },
-        FOKUS: { spirit: "Kehadiran utuh", bonus: "Manual Fokus Keluarga", aP: 245000, lP: 650000,
-            b1: { t: "Digital Minimalism", s: "Cal Newport", r: "Merebut kembali waktu dari algoritma." },
-            b2: { t: "Slow Down", s: "Haemin Sunim", r: "Dunia terasa cepat karena pikiran terburu-buru." }
+        FOKUS: { 
+            spirit: "Kehadiran utuh.", bonus: "Manual Fokus Keluarga: Kedaulatan Perhatian", aP: 245000, lP: 650000,
+            b1: { t: "Digital Minimalism", p: "Cal Newport", r: "Merebut kembali waktu dari algoritma agar jiwa hadir sepenuhnya bagi keluarga." },
+            b2: { t: "Slow Down", p: "Haemin Sunim", r: "Dunia terasa cepat karena pikiran terburu-buru; menemukan surga di setiap langkah kecil." }
         }
     };
 
-    let state = { pilar: "BATAS", paket: "", harga: "", bonus: "", bedah: false };
+    let s = { key: "BATAS", paket: "", harga: "", bonus: "", bedah: false };
 
     function init() {
         const nav = document.getElementById('mainNav');
         const cont = document.getElementById('pilar-container');
         Object.keys(Catalog).forEach((k, i) => {
-            nav.innerHTML += `<button class="tab-btn ${i===0?'active':''}" onclick="switchPilar(event, '${k}')">${k}</button>`;
+            nav.innerHTML += `<button class="tab-btn ${i===0?'active':''}" onclick="tab(event, '${k}')">${k}</button>`;
             const d = Catalog[k];
             cont.innerHTML += `
                 <section id="${k}" class="pilar-content ${i===0?'active':''}">
-                    <p style="text-align:center; font-size:0.8rem; color:#666; font-style:italic; margin-bottom:30px;">"${d.spirit}"</p>
-                    <div class="card" onclick="pilihAkad(this,'${k}','Aksara','${d.aP.toLocaleString('id-ID')}','${d.bonus}')">
-                        <span class="card-type">Akad Aksara (Jiwa)</span>
-                        <span class="price">IDR ${d.aP.toLocaleString('id-ID')}</span>
+                    <p style="text-align:center; font-size:0.8rem; color:#666; margin-bottom:30px;">Spirit: ${d.spirit}</p>
+                    <div class="card" onclick="select(this,'${k}','Aksara','${d.aP.toLocaleString()}','${d.bonus}')">
+                        <div class="sanad-label">Akad Jiwa (Aksara)</div>
+                        <span class="price">IDR ${d.aP.toLocaleString()}</span>
                     </div>
-                    <div class="card" onclick="pilihAkad(this,'${k}','Lengkap','${d.lP.toLocaleString('id-ID')}','${d.bonus}')">
-                        <span class="card-type">Akad Lengkap (Raga & Jiwa)</span>
-                        <span class="price">IDR ${d.lP.toLocaleString('id-ID')}</span>
+                    <div class="card" onclick="select(this,'${k}','Lengkap','${d.lP.toLocaleString()}','${d.bonus}')">
+                        <div class="sanad-label">Akad Raga & Jiwa (Lengkap)</div>
+                        <span class="price">IDR ${d.lP.toLocaleString()}</span>
                     </div>
-                    <button class="bedah-trigger" onclick="bukaBedah('${k}')">Bedah Aksara (Wajib Baca)</button>
-                    <button id="btn-${k}" class="btn-akad" onclick="mulaiAkad()">Mulai Akad</button>
+                    <button class="bedah-btn" onclick="buka('${k}')">Bedah Aksara (Wajib Baca)</button>
+                    <button id="btn-${k}" class="btn-akad" onclick="akad()">Mulai Akad</button>
                 </section>`;
         });
     }
 
-    function switchPilar(e, k) {
+    function tab(e, k) {
         document.querySelectorAll('.tab-btn, .pilar-content').forEach(x => x.classList.remove('active'));
         e.target.classList.add('active'); document.getElementById(k).classList.add('active');
-        state = { pilar: k, paket: "", harga: "", bonus: "", bedah: false };
+        s = { key: k, paket: "", harga: "", bonus: "", bedah: false };
     }
 
-    function pilihAkad(el, k, p, h, b) {
+    function select(el, k, p, h, b) {
         el.parentElement.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
         el.classList.add('selected');
-        state.paket = p; state.harga = h; state.bonus = b;
-        updateButton();
+        s.paket = p; s.harga = h; s.bonus = b; check();
     }
 
-    function bukaBedah(k) {
+    function buka(k) {
         const d = Catalog[k];
-        document.getElementById('overlay-body').innerHTML = `
-            <h2 style="font-family:Playfair Display; color:#fff;">Sanad & Nalar: ${k}</h2>
-            <span class="buku-title">${d.b1.t}</span><small style="color:var(--accent)">Sanad: ${d.b1.s}</small><p class="resensi">${d.b1.r}</p>
-            <span class="buku-title">${d.b2.t}</span><small style="color:var(--accent)">Sanad: ${d.b2.s}</small><p class="resensi">${d.b2.r}</p>
+        document.getElementById('overlay-content').innerHTML = `
+            <div class="resensi-item"><span class="sanad-label">Sanad: ${d.b1.p}</span><span class="buku-t">${d.b1.t}</span><p style="color:#999">${d.b1.r}</p></div>
+            <div class="resensi-item"><span class="sanad-label">Sanad: ${d.b2.p}</span><span class="buku-t">${d.b2.t}</span><p style="color:#999">${d.b2.r}</p></div>
         `;
         document.getElementById('overlay').style.display = 'block';
     }
 
     function tuntas() {
-        state.bedah = true;
-        document.getElementById('overlay').style.display = 'none';
-        updateButton();
+        s.bedah = true; document.getElementById('overlay').style.display = 'none'; check();
     }
 
-    function updateButton() {
-        const btn = document.getElementById(`btn-${state.pilar}`);
-        if(state.paket && state.bedah) btn.classList.add('ready');
+    function check() {
+        const b = document.getElementById(`btn-${s.key}`);
+        if(s.paket && s.bedah) b.classList.add('active');
     }
 
-    function mulaiAkad() {
-        if(!state.paket || !state.bedah) return alert("Selesaikan Bedah Aksara dan Pilih Paket terlebih dahulu.");
+    function akad() {
+        if(!s.paket || !s.bedah) return alert("Pilih paket dan tuntaskan Bedah Aksara dahulu.");
         const n = prompt("Siapa namamu sebagai penanggung beban nalar?");
-        if(!n) return;
-        const a = prompt("Alamat Labuh (Pengiriman)?");
-        if(!a) return;
-        const ni = prompt("Apa kegelisahan batin atau niatmu?");
-        if(!ni) return;
+        const l = prompt("Ke mana jasad ini harus kami hantarkan (Alamat Labuh)?");
+        const r = prompt("Apa kegelisahan batin atau niat yang membawamu memilih wasilah ini?");
+        
+        if(!n || !l || !r) return alert("Akad membutuhkan niat dan identitas yang jernih.");
 
-        const txt = `Rahayu Kurator Lokagatra, saya *${n}* bermaksud Akad *${state.pilar}* (${state.paket}).\n\n*Niat Akad:* ${ni}\n*Alamat Labuh:* ${a}\n*Total:* IDR ${state.harga}\n*Bonus PDF:* ${state.bonus}\n\n— _Prasanti Adikala_`;
-        window.location.href = `https://api.whatsapp.com/send?phone=6288989764121&text=${encodeURIComponent(txt)}`;
+        const text = `Rahayu Kurator Lokagatra, saya *${n}* bermaksud melakukan Akad *${s.key}* (${s.paket}).\n\n*Niat Akad:* ${r}\n*Alamat Labuh:* ${l}\n*Total:* IDR ${s.harga}\n*PDF Bonus:* ${s.bonus}\n\n— _Prasanti Adikala_`;
+        
+        // DIRECT REDIRECT WHATSAPP
+        window.location.href = `https://api.whatsapp.com/send?phone=6288989764121&text=${encodeURIComponent(text)}`;
     }
 
     window.onload = init;

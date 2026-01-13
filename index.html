@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOKAGATRA | Prasanti Adikala</title>
+    <title>LOKAGATRA | RUANG ARTI</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,87 +17,82 @@
         
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        .container { max-width: 600px; margin: 0 auto; padding: 80px 24px; }
+        .container { max-width: 650px; margin: 0 auto; padding: 100px 24px; }
 
-        header { text-align: center; margin-bottom: 60px; }
-        .brand { font-family: 'Playfair Display', serif; font-size: 2.6rem; letter-spacing: 8px; text-transform: uppercase; margin: 0; font-weight: 700; }
-        .tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-top: 10px; font-weight: 600; }
-        .intro-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--slate); margin: 40px 0; line-height: 1.8; }
+        /* HEADER & IDENTITY */
+        header { text-align: center; margin-bottom: 80px; }
+        .brand { font-size: 0.75rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; color: var(--slate); }
+        h1.selasar-title { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; letter-spacing: -1px; }
+        .tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-top: 15px; font-weight: 600; }
+        .intro-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--slate); margin: 45px 0; line-height: 1.9; position: relative; padding: 0 20px; }
+        
+        /* MEDIUM CTA */
+        .medium-link-box { margin: 40px 0 80px; text-align: center; }
+        .medium-cta { text-decoration: none; color: var(--ink); display: inline-block; transition: all 0.3s ease; }
+        .medium-subtext { font-size: 0.75rem; color: var(--slate); letter-spacing: 0.5px; display: block; margin-bottom: 15px; }
+        .medium-btn { border: 1px solid var(--ink); padding: 18px 36px; font-size: 0.7rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; transition: 0.3s; }
+        .medium-cta:hover .medium-btn { background: var(--ink); color: white; transform: translateY(-3px); }
 
-        .medium-link-box { margin: 30px 0 60px; text-align: center; }
-        .medium-cta {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--ink);
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        .medium-subtext { font-size: 0.75rem; color: var(--slate); letter-spacing: 0.5px; margin-bottom: 12px; }
-        .medium-btn {
-            border: 1px solid var(--ink);
-            padding: 16px 32px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .medium-cta:hover .medium-btn { background: var(--ink); color: white; }
-
-        .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin-bottom: 50px; }
+        /* NAVIGATION */
+        .nav-tabs { display: flex; justify-content: space-around; border-bottom: 1px solid var(--border); margin-bottom: 60px; overflow-x: auto; }
         .tab-btn {
-            background: none; border: none; padding: 15px 5px; cursor: pointer;
-            font-size: 0.65rem; font-weight: 600; letter-spacing: 1.5px;
-            text-transform: uppercase; color: #aaa; transition: 0.3s; position: relative;
+            background: none; border: none; padding: 20px 10px; cursor: pointer;
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: #aaa; transition: 0.3s; position: relative; white-space: nowrap;
         }
         .tab-btn.active { color: var(--ink); }
-        .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--ink); }
+        .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--accent); }
 
+        /* PILAR CONTENT */
         .pilar-content { display: none; }
         .pilar-content.active { display: block; animation: fadeIn 0.8s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .label-pilar { font-size: 0.6rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 400; }
-        .spirit-text { font-size: 0.85rem; color: var(--slate); margin-bottom: 35px; display: block; font-style: italic; }
+        .label-pilar { font-size: 0.6rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 8px 0; font-weight: 400; }
+        .spirit-text { font-size: 0.85rem; color: var(--slate); margin-bottom: 40px; display: block; font-style: italic; border-left: 2px solid var(--border); padding-left: 15px; }
 
+        /* CARDS */
         .tier-card { 
-            padding: 24px; border: 1px solid var(--border); margin-bottom: 12px;
-            cursor: pointer; transition: 0.3s ease; background: var(--soft-bg);
+            padding: 28px; border: 1px solid var(--border); margin-bottom: 15px;
+            cursor: pointer; transition: 0.3s ease; background: var(--soft-bg); border-radius: 2px;
         }
         .tier-card:hover { border-color: var(--ink); background: white; }
-        .tier-card.selected { border-color: var(--accent); background: #fffdf5; box-shadow: 0 10px 25px rgba(166,137,17,0.06); }
-        .tier-name { font-weight: 600; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
-        .tier-price { display: block; font-size: 1.1rem; margin: 8px 0; font-weight: 400; }
-        .tier-items { font-size: 0.75rem; color: var(--slate); line-height: 1.4; display: block; }
+        .tier-card.selected { border-color: var(--accent); background: #fffdf9; box-shadow: 0 15px 35px rgba(166,137,17,0.08); }
+        .tier-name { font-weight: 600; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); }
+        .tier-price { display: block; font-size: 1.3rem; margin: 10px 0; font-weight: 400; color: var(--ink); }
+        .tier-items { font-size: 0.75rem; color: var(--slate); line-height: 1.5; display: block; }
 
-        details { margin-top: 40px; border-top: 1px solid var(--border); }
-        summary { padding: 25px 0; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; cursor: pointer; text-align: center; list-style: none; color: var(--slate); }
-        .bedah-inner { padding-bottom: 40px; }
-        .resensi-item { margin-bottom: 30px; border-bottom: 1px solid #f5f5f5; padding-bottom: 20px; }
-        .resensi-item:last-child { border-bottom: none; }
-        .resensi-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 4px; }
-        .penulis-meta { font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 10px; display: block; font-weight: 600; }
-        .resensi-text { font-size: 0.9rem; color: var(--slate); margin: 0; line-height: 1.7; }
-        .jasad-info { font-size: 0.8rem; background: #fcfcfc; padding: 20px; border-left: 1px solid var(--accent); margin-top: 25px; line-height: 1.6; }
+        /* RESENSI & BEDAH */
+        .bedah-section { margin-top: 50px; padding-top: 40px; border-top: 1px dashed var(--border); }
+        .bedah-header { font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-align: center; color: var(--slate); margin-bottom: 40px; text-transform: uppercase; }
+        .resensi-item { margin-bottom: 40px; }
+        .penulis-meta { font-size: 0.65rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1.5px; margin-bottom: 12px; display: block; font-weight: 600; }
+        .aksara-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; display: block; margin-bottom: 8px; }
+        .resensi-text { font-size: 0.95rem; color: var(--slate); margin: 0; line-height: 1.8; text-align: justify; }
+        
+        .jasad-info { font-size: 0.85rem; background: #fdfdfd; padding: 25px; border: 1px solid var(--border); margin-top: 30px; line-height: 1.7; color: var(--slate); }
+        .jasad-info strong { color: var(--ink); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
 
         .btn-akad { 
-            width: 100%; padding: 24px; background: var(--ink); color: white; border: none; 
-            font-weight: 600; letter-spacing: 4px; cursor: pointer; transition: 0.3s;
-            text-transform: uppercase; font-size: 0.75rem; margin-top: 25px;
+            width: 100%; padding: 26px; background: var(--ink); color: white; border: none; 
+            font-weight: 600; letter-spacing: 5px; cursor: pointer; transition: 0.3s;
+            text-transform: uppercase; font-size: 0.8rem; margin-top: 40px; border-radius: 2px;
         }
-        .btn-akad:hover { background: var(--accent); }
+        .btn-akad:hover { background: var(--accent); letter-spacing: 7px; }
 
-        .sumur-hikmah { margin-top: 80px; padding: 60px 0; border-top: 1px solid var(--border); text-align: center; }
-        .sumur-list { list-style: none; padding: 0; font-size: 0.85rem; color: var(--slate); letter-spacing: 0.5px; }
-        footer { text-align: center; padding: 60px 0; font-size: 0.6rem; opacity: 0.4; letter-spacing: 3px; text-transform: uppercase; line-height: 2; }
+        /* SUMUR HIKMAH */
+        .sumur-hikmah { margin-top: 100px; padding: 80px 40px; background: #111; color: #eee; border-radius: 4px; text-align: center; }
+        .sumur-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; margin-bottom: 30px; }
+        .sumur-list { list-style: none; padding: 0; margin-bottom: 40px; }
+        .sumur-list li { margin: 15px 0; font-size: 0.9rem; opacity: 0.8; letter-spacing: 1px; }
+        .status-badge { display: inline-block; padding: 10px 20px; border: 1px solid #444; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #888; }
+
+        footer { text-align: center; padding: 100px 0 60px; font-size: 0.65rem; color: #aaa; letter-spacing: 3px; text-transform: uppercase; line-height: 2; }
 
         @media (max-width: 480px) {
-            .brand { font-size: 2rem; }
-            .nav-tabs { overflow-x: auto; gap: 20px; justify-content: flex-start; padding-bottom: 10px; }
-            .tab-btn { white-space: nowrap; }
+            h1.selasar-title { font-size: 2.2rem; }
+            .container { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -106,13 +101,14 @@
 <div class="container">
     <header>
         <div class="brand">Lokagatra</div>
+        <h1 class="selasar-title">RUANG ARTI</h1>
         <div class="tagline">Prasanti Adikala</div>
-        <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di selasar ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini. Setiap benda yang ada di sini bukanlah komoditas, melainkan wasilah (perantara) untuk menemani pencarianmu."</div>
+        <div class="intro-text">"Sebelum raga melangkah untuk membekali diri, biarkan nalar beristirahat sejenak di Ruang Arti ini. Pilihlah pintu yang sesuai dengan niat perjalananmu hari ini. Setiap benda yang ada di sini bukanlah komoditas, melainkan wasilah (perantara) untuk menemani pencarianmu."</div>
         
         <div class="medium-link-box">
             <a href="https://medium.com/@iammulazaman" target="_blank" class="medium-cta">
-                <span class="medium-subtext">Pahami arsitektur pemikiran dan nalar di balik kurasi ini</span>
-                <div class="medium-btn">Read The Architecture of Thought</div>
+                <span class="medium-subtext">Menelusuri arsitektur pemikiran di balik kurasi Lokagatra</span>
+                <div class="medium-btn">Masuki Pemikiran @iammulazaman</div>
             </a>
         </div>
     </header>
@@ -128,124 +124,125 @@
         <section id="BATAS" class="pilar-content active">
             <span class="label-pilar">The Seeker / Pejuang</span>
             <h2>Nomaden Gear</h2>
-            <span class="spirit-text">Spirit: Ketahanan di titik terjauh.</span>
+            <span class="spirit-text">Ketahanan di titik terjauh.</span>
+            
             <div id="grid-batas"></div>
-            <details>
-                <summary>BEDAH AKSARA & JASAD</summary>
-                <div class="bedah-inner">
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Agustinus Wibowo — Pionir Narasi Perjalanan</span>
-                        <span class="resensi-title">Titik Nol</span>
-                        <p class="resensi-text">Mendekonstruksi makna "tujuan". Setiap batas negara adalah cermin trauma diri. Menemukan "rumah" di titik paling asing.</p>
-                    </div>
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Hermann Hesse — Nobel Sastra 1946</span>
-                        <span class="resensi-title">Siddhartha</span>
-                        <p class="resensi-text">Alegori pencerahan melalui tiga kekuatan: Berpikir (Nalar), Menunggu (Sabar), dan Berpuasa (Ketahanan).</p>
-                    </div>
-                    <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Daypack Naturehike 22L (Ringan & Tangguh) & Multi Tool VICTORINOX Spartan 91mm (Authentic Quality). Baja yang tak akan mengkhianati di titik kritis.<br>
-                        <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Navigasi Psikologis</span>
-                    </div>
+
+            <div class="bedah-section">
+                <div class="bedah-header">Bedah Nalar & Jasad</div>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Agustinus Wibowo — Pionir Perjalanan Filosofis</span>
+                    <span class="aksara-title">Titik Nol</span>
+                    <p class="resensi-text">Mendekonstruksi makna "tujuan". Setiap batas negara adalah cermin trauma diri. Menemukan "rumah" di titik paling asing melalui penelusuran batas geografis dan psikologis.</p>
                 </div>
-            </details>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Hermann Hesse — Nobel Sastra 1946</span>
+                    <span class="aksara-title">Siddhartha</span>
+                    <p class="resensi-text">Alegori pencerahan melalui tiga kekuatan: Berpikir (Nalar), Menunggu (Sabar), dan Berpuasa (Ketahanan). Pencarian jati diri di antara hingar-bingar dunia dan keheningan sungai.</p>
+                </div>
+                <div class="jasad-info">
+                    <strong>Kualitas Jasad:</strong> Daypack Naturehike 22L (Ringan & Tangguh) & Victorinox Spartan (Authentic Quality). Baja yang dirancang untuk tidak mengkhianati di titik kritis perjalanan.<br><br>
+                    <span style="color:var(--accent); font-weight:600;">+ Termasuk: PDF Navigasi Psikologis</span>
+                </div>
+            </div>
             <button class="btn-akad" onclick="kirimAkad()">Mulai Akad</button>
         </section>
 
         <section id="RISET" class="pilar-content">
             <span class="label-pilar">The Narrator / Kreator</span>
             <h2>Narasi Pengembara</h2>
-            <span class="spirit-text">Spirit: Menanam legasi melalui tulisan.</span>
+            <span class="spirit-text">Menanam legasi melalui tulisan.</span>
+            
             <div id="grid-riset"></div>
-            <details>
-                <summary>BEDAH AKSARA & JASAD</summary>
-                <div class="bedah-inner">
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Yuval Noah Harari — Sejarawan Intelektual Dunia</span>
-                        <span class="resensi-title">21 Lessons for the 21st Century</span>
-                        <p class="resensi-text">Peta kondisi dunia (Algoritma & Krisis Narasi). Kompas agar karya memiliki bobot sejarah, bukan sekadar konten kosong.</p>
-                    </div>
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Haruki Murakami — Maestro Realisme Magis Jepang</span>
-                        <span class="resensi-title">Norwegian Wood</span>
-                        <p class="resensi-text">Mengasah kepekaan menangkap melankoli dan detail sensorik yang hidup dalam setiap memori.</p>
-                    </div>
-                    <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Mic Wireless Ulanzi WM-10, Anker Powerbank 10k mAh, & Leather Myntydori Passport Size. Menjamin integritas suara dan energi narasi tak terputus.<br>
-                        <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Arsitektur Makna</span>
-                    </div>
+
+            <div class="bedah-section">
+                <div class="bedah-header">Bedah Nalar & Jasad</div>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Yuval Noah Harari — Sejarawan Intelektual Dunia</span>
+                    <span class="aksara-title">21 Lessons for the 21st Century</span>
+                    <p class="resensi-text">Peta kondisi dunia di tengah krisis narasi dan jeratan algoritma. Kompas agar setiap karya yang Anda ciptakan memiliki bobot sejarah, bukan sekadar konten kosong.</p>
                 </div>
-            </details>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Haruki Murakami — Maestro Realisme Magis</span>
+                    <span class="aksara-title">Norwegian Wood</span>
+                    <p class="resensi-text">Mengasah kepekaan menangkap melankoli dan detail sensorik yang hidup. Memberikan tekstur pada ingatan agar narasi pengembaraan Anda menjadi nyata bagi pembaca.</p>
+                </div>
+                <div class="jasad-info">
+                    <strong>Kualitas Jasad:</strong> Mic Wireless Ulanzi WM-10, Anker Powerbank 10k mAh, & Leather Myntydori Passport Size. Menjamin integritas suara dan energi narasi tak terputus.<br><br>
+                    <span style="color:var(--accent); font-weight:600;">+ Termasuk: PDF Arsitektur Makna</span>
+                </div>
+            </div>
             <button class="btn-akad" onclick="kirimAkad()">Mulai Akad</button>
         </section>
 
         <section id="JEDA" class="pilar-content">
             <span class="label-pilar">The Spiritual / Healing</span>
             <h2>Selasar Hening</h2>
-            <span class="spirit-text">Spirit: Ketenangan radikal.</span>
+            <span class="spirit-text">Ketenangan radikal.</span>
+            
             <div id="grid-jeda"></div>
-            <details>
-                <summary>BEDAH AKSARA & JASAD</summary>
-                <div class="bedah-inner">
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Viktor Frankl — Psikiater & Penyintas Nazi</span>
-                        <span class="resensi-title">Man’s Search for Meaning</span>
-                        <p class="resensi-text">Rumusan bertahan hidup melalui penemuan makna. Nalar valid untuk menemukan "titik diam" di tengah penderitaan pekat.</p>
-                    </div>
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Sapardi Djoko Damono — Begawan Sastra Indonesia</span>
-                        <span class="resensi-title">Hujan Bulan Juni</span>
-                        <p class="resensi-text">Mengajarkan ketabahan dalam hal yang tidak tersampaikan. Media meditatif penyucian rasa dari polusi kata-kata dunia modern.</p>
-                    </div>
-                    <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Sajadah Genggam MURI Waterproof & Mack's Silicone Earplugs. Menciptakan tembok hening sensorik untuk menjaga kewarasan batin.<br>
-                        <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Ritual Sunyi</span>
-                    </div>
+
+            <div class="bedah-section">
+                <div class="bedah-header">Bedah Nalar & Jasad</div>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Viktor Frankl — Psikiater & Penyintas Nazi</span>
+                    <span class="aksara-title">Man’s Search for Meaning</span>
+                    <p class="resensi-text">Rumusan bertahan hidup melalui penemuan makna (Logotherapy). Nalar valid untuk menemukan "titik diam" dan kedaulatan batin di tengah penderitaan yang pekat.</p>
                 </div>
-            </details>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Sapardi Djoko Damono — Begawan Sastra Indonesia</span>
+                    <span class="aksara-title">Hujan Bulan Juni</span>
+                    <p class="resensi-text">Mengajarkan ketabahan dalam hal yang tidak tersampaikan. Media meditatif penyucian rasa dari polusi kata-kata dunia modern yang melelahkan.</p>
+                </div>
+                <div class="jasad-info">
+                    <strong>Kualitas Jasad:</strong> Sajadah Genggam MURI Waterproof & Mack's Silicone Earplugs. Menciptakan tembok hening sensorik untuk menjaga kewarasan batin di mana pun Anda berada.<br><br>
+                    <span style="color:var(--accent); font-weight:600;">+ Termasuk: PDF Ritual Sunyi</span>
+                </div>
+            </div>
             <button class="btn-akad" onclick="kirimAkad()">Mulai Akad</button>
         </section>
 
         <section id="FOKUS" class="pilar-content">
             <span class="label-pilar">The Guardian / Keluarga</span>
             <h2>Navigasi Fokus</h2>
-            <span class="spirit-text">Spirit: Kehadiran utuh.</span>
+            <span class="spirit-text">Kehadiran utuh.</span>
+            
             <div id="grid-fokus"></div>
-            <details>
-                <summary>BEDAH AKSARA & JASAD</summary>
-                <div class="bedah-inner">
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Cal Newport — Profesor Ilmu Komputer</span>
-                        <span class="resensi-title">Digital Minimalism</span>
-                        <p class="resensi-text">Strategi merebut kedaulatan perhatian dari jeratan algoritma demi kualitas waktu dan memori nyata bersama keluarga.</p>
-                    </div>
-                    <div class="resensi-item">
-                        <span class="penulis-meta">Haemin Sunim — Guru Meditasi Zen</span>
-                        <span class="resensi-title">Slow Down</span>
-                        <p class="resensi-text">Mengingatkan untuk melambat demi melihat luka dan kebutuhan orang tersayang yang selama ini terlewatkan.</p>
-                    </div>
-                    <div class="jasad-info">
-                        <strong>Jasad (Kualitas):</strong> Tumbler Rosca Thermal 1L & Jam Tangan Casio Analog MQ-24. Simbol kejujuran waktu dan kehadiran tanpa distraksi layar gawai.<br>
-                        <span style="color:var(--accent); font-weight:600;">+ Bonus: PDF Protokol Detoks</span>
-                    </div>
+
+            <div class="bedah-section">
+                <div class="bedah-header">Bedah Nalar & Jasad</div>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Cal Newport — Profesor Ilmu Komputer</span>
+                    <span class="aksara-title">Digital Minimalism</span>
+                    <p class="resensi-text">Strategi merebut kedaulatan perhatian dari jeratan algoritma demi kualitas waktu dan memori nyata bersama orang-orang tersayang tanpa gangguan layar gawai.</p>
                 </div>
-            </details>
+                <div class="resensi-item">
+                    <span class="penulis-meta">Haemin Sunim — Guru Meditasi Zen</span>
+                    <span class="aksara-title">Slow Down</span>
+                    <p class="resensi-text">Mengingatkan untuk melambat demi melihat luka dan kebutuhan orang di sekitar. Kearifan untuk hadir secara utuh dalam momen-momen yang sering terlewatkan.</p>
+                </div>
+                <div class="jasad-info">
+                    <strong>Kualitas Jasad:</strong> Tumbler Rosca Thermal 1L & Jam Tangan Casio Analog MQ-24. Simbol kejujuran waktu dan pemenuhan kebutuhan dasar tanpa distraksi digital.<br><br>
+                    <span style="color:var(--accent); font-weight:600;">+ Termasuk: PDF Protokol Detoks</span>
+                </div>
+            </div>
             <button class="btn-akad" onclick="kirimAkad()">Mulai Akad</button>
         </section>
     </div>
 
     <div class="sumur-hikmah">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 25px; font-size: 1.2rem;">Sumur Hikmah</div>
+        <div class="sumur-title">Sumur Hikmah</div>
         <ul class="sumur-list">
             <li>Slilit Sang Kiai — Emha Ainun Nadjib</li>
             <li>Arus Balik — Pramoedya Ananta Toer</li>
             <li>Esai Nalar Nusantara</li>
         </ul>
+        <div class="status-badge">Sedang dalam proses penghimpunan nalar</div>
     </div>
 
     <footer>
-        Curated by Hilmi Mulazaman<br>
-        © 2026 Prasanti Adikala — Membangun Nalar, Merawat Peradaban.
+        Lokagatra : Ruang Arti — Curated by Hilmi Mulazaman<br>
+        Membangun Nalar, Merawat Peradaban. © 2026
     </footer>
 </div>
 
@@ -253,31 +250,31 @@
     const Catalog = {
         BATAS: { 
             name: "Nomaden Gear", 
-            aPrice: 184000, 
-            lPrice: 569740, 
-            aDesc: "2 Aksara: Titik Nol & Siddhartha", 
-            lDesc: "Aksara + Daypack & Victorinox" 
+            aPrice: 195000, 
+            lPrice: 625000, 
+            aDesc: "2 Aksara Utama: Titik Nol & Siddhartha", 
+            lDesc: "Aksara + Daypack Naturehike & Victorinox Spartan" 
         },
         RISET: { 
             name: "Narasi Pengembara", 
-            aPrice: 377000, 
-            lPrice: 962000, 
-            aDesc: "2 Aksara: 21 Lessons & Norwegian Wood", 
-            lDesc: "Aksara + Mic, Powerbank, & Notebook" 
+            aPrice: 395000, 
+            lPrice: 1050000, 
+            aDesc: "2 Aksara Utama: 21 Lessons & Norwegian Wood", 
+            lDesc: "Aksara + Mic Ulanzi, Powerbank Anker & Leather Notebook" 
         },
         JEDA: { 
             name: "Selasar Hening", 
-            aPrice: 122250, 
-            lPrice: 259348, 
-            aDesc: "2 Aksara: Frankl & Sapardi", 
-            lDesc: "Aksara + Sajadah & Earplugs" 
+            aPrice: 135000, 
+            lPrice: 295000, 
+            aDesc: "2 Aksara Utama: Frankl & Sapardi Djoko Damono", 
+            lDesc: "Aksara + Sajadah MURI & Mack's Earplugs" 
         },
         FOKUS: { 
             name: "Navigasi Fokus", 
-            aPrice: 224400, 
-            lPrice: 588364, 
-            aDesc: "2 Aksara: Digital Minimalism & Slow Down", 
-            lDesc: "Aksara + Tumbler & Jam Casio" 
+            aPrice: 245000, 
+            lPrice: 650000, 
+            aDesc: "2 Aksara Utama: Digital Minimalism & Slow Down", 
+            lDesc: "Aksara + Tumbler Rosca & Jam Casio MQ-24" 
         }
     };
 
@@ -318,15 +315,19 @@
     }
 
     function kirimAkad() {
-        if (!selection.paket) return alert("Sila tentukan pintu perjalanan Anda.");
-        const nama = prompt("Nama:");
-        const alamat = prompt("Alamat:");
-        const niat = prompt("Niat/Kegelisahan (Ruh Akad):");
+        if (!selection.paket) {
+            alert("Sila pilih pintu perjalanan Anda terlebih dahulu.");
+            return;
+        }
+        const nama = prompt("Nama Lengkap:");
+        const alamat = prompt("Alamat Pengiriman:");
+        const niat = prompt("Tuliskan Niat/Kegelisahan Anda (Ruh Akad):");
+        
         if (nama && alamat && niat) {
-            const pesan = `Rahayu Kurator Lokagatra,\n\nSaya *${nama}*.\nAlamat: ${alamat}\n\nMenetapkan hati memilih *${selection.paket}* dari pilar *${selection.pilar}*.\n\nNiat: "${niat}"\n\nAkad: IDR ${selection.harga}. Terima kasih.`;
+            const pesan = `Rahayu Kurator Lokagatra,\n\nSaya *${nama}*.\nAlamat: ${alamat}\n\nMenetapkan hati memilih *${selection.paket}* dari pilar *${selection.pilar}*.\n\nNiat Akad: "${niat}"\n\nTotal Akad: IDR ${selection.harga}.\n\nTerima kasih.`;
             window.open(`https://wa.me/6288989764121?text=${encodeURIComponent(pesan)}`, '_blank');
         } else {
-            alert("Setiap akad memerlukan 'Niat' yang utuh.");
+            alert("Akad memerlukan kejujuran Nama, Alamat, dan Niat.");
         }
     }
     window.onload = render;

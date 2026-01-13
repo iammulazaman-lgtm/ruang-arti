@@ -4,142 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOKAGATRA | RUANG ARTI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #fcfcf7; /* Warna kertas lama yang lembut */
-            --ink: #3a3b3c; /* Hitam arang yang ramah di mata */
-            --accent: #927a20; 
-            --border: #e8e8e3; 
-            --slate: #717171; 
+            --bg: #0d0d0d; --ink: #e0e0e0; --accent: #a0a0a0; 
+            --glass: rgba(255, 255, 255, 0.05); --border: rgba(255, 255, 255, 0.1);
         }
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; }
+        body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.8; }
         .container { max-width: 600px; margin: 0 auto; padding: 60px 24px; }
-        
-        header { text-align: center; margin-bottom: 50px; }
-        .brand { font-size: 0.7rem; letter-spacing: 7px; text-transform: uppercase; color: var(--slate); font-weight: 500; }
-        .title { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 10px 0; font-weight: 700; }
-        .tagline { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); font-weight: 600; }
 
-        /* TABS */
-        .nav-tabs { display: flex; justify-content: space-around; border-bottom: 1px solid var(--border); margin: 40px 0; }
-        .tab-btn { background: none; border: none; padding: 15px 0; cursor: pointer; font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #bbb; transition: 0.3s; }
-        .tab-btn.active { color: var(--ink); border-bottom: 2px solid var(--accent); }
+        /* AMBANG PINTU */
+        header { text-align: center; margin-bottom: 60px; }
+        .title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #fff; margin: 0; }
+        .tagline { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); }
+        .philosophy { margin: 40px 0; font-size: 0.9rem; color: #888; text-align: justify; line-height: 2; border-top: 1px solid var(--border); padding-top: 30px; }
 
-        /* CARDS */
+        /* NAVIGASI PILAR */
+        .nav-tabs { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+        .tab-btn { background: none; border: none; padding: 15px 0; cursor: pointer; font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #444; transition: 0.3s; }
+        .tab-btn.active { color: #fff; border-bottom: 2px solid #fff; }
+
         .pilar-content { display: none; animation: fadeIn 0.5s ease; }
         .pilar-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .card { padding: 25px; border: 1px solid var(--border); margin-bottom: 15px; cursor: pointer; background: #fff; border-radius: 8px; transition: 0.3s; }
-        .card.selected { border-color: var(--accent); background: #fdfdf5; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .price { font-size: 1.2rem; display: block; margin-top: 5px; color: var(--ink); }
-        .info { font-size: 0.6rem; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-top: 8px; }
+        /* KARTU AKAD */
+        .card { background: var(--glass); border: 1px solid var(--border); padding: 20px; margin-bottom: 12px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .card:hover { border-color: #555; }
+        .card.selected { border-color: #fff; background: rgba(255,255,255,0.1); }
+        .card-type { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); }
+        .price { font-size: 1.1rem; display: block; margin-top: 5px; }
 
-        /* BEDAH NALAR */
-        .box { margin-top: 30px; padding: 25px; border: 1px solid var(--border); background: #fff; border-radius: 8px; }
-        .sub-nav { border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; gap: 20px; }
-        .sub-btn { background: none; border: none; padding: 10px 0; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; color: #ccc; }
-        .sub-btn.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
-        
-        .isi { display: none; font-size: 0.9rem; color: var(--slate); text-align: justify; }
-        .isi.active { display: block; }
-        .b-t { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 15px 0 5px; display: block; }
+        /* BEDAH AKSARA */
+        .bedah-trigger { width: 100%; padding: 15px; background: none; border: 1px dashed #444; color: var(--accent); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; margin: 25px 0; border-radius: 4px; }
+        .bedah-trigger:hover { color: #fff; border-color: #fff; }
 
-        .btn-akad { width: 100%; padding: 20px; background: var(--ink); color: #fff; border: none; font-weight: 600; letter-spacing: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; margin-top: 25px; border-radius: 4px; transition: 0.3s; }
-        .btn-akad:hover { background: var(--accent); }
+        /* TOMBOL AKAD */
+        .btn-akad { width: 100%; padding: 20px; background: #222; color: #555; border: none; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; border-radius: 2px; cursor: not-allowed; transition: 0.4s; }
+        .btn-akad.ready { background: #fff; color: #000; cursor: pointer; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
 
-        footer { text-align: center; padding: 60px 0; font-size: 0.6rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
+        /* OVERLAY */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 100; display: none; padding: 40px 24px; overflow-y: auto; }
+        .overlay-content { max-width: 500px; margin: 0 auto; }
+        .buku-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; margin-top: 25px; display: block; }
+        .resensi { font-size: 0.9rem; color: #999; margin-bottom: 30px; }
+
+        footer { text-align: center; margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); }
+        .pondasi { font-family: 'Playfair Display', serif; font-style: italic; color: #555; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="brand">LOKAGATRA</div>
-        <h1 class="title">Ruang Arti</h1>
-        <div class="tagline">Prasanti Adikala</div>
+        <div class="tagline">LOKAGATRA</div>
+        <h1 class="title">RUANG ARTI</h1>
+        <div class="tagline" style="color:var(--accent); margin-top:10px;">Prasanti Adikala</div>
+        <div class="philosophy">
+            Lokagatra dirancang agar manusia berhenti sejenak (Jeda), membaca sanad pemikiran (Riset), dan menjaga kehadiran jiwa (Fokus) sebelum melangkah ke titik terjauh (Batas).
+        </div>
     </header>
 
     <nav class="nav-tabs" id="mainNav"></nav>
     <div id="pilar-container"></div>
 
     <footer>
-        Lokagatra : Ruang Arti<br>Curated by Hilmi Mulazaman © 2026
+        <div class="pondasi">Slilit Sang Kiai — Arus Balik — Esai Nalar Nusantara</div>
+        <div style="font-size:0.55rem; color:#333; margin-top:20px; letter-spacing:3px;">CURATED BY HILMI MULAZAMAN © 2026</div>
     </footer>
 </div>
 
+<div id="overlay" class="overlay">
+    <div class="overlay-content">
+        <div id="overlay-body"></div>
+        <button class="bedah-trigger" style="border-style:solid; color:#fff; background:#222;" onclick="tuntas()">Saya Telah Menuntaskan Nalar</button>
+    </div>
+</div>
+
 <script>
-    const Data = {
-        BATAS: { t: "BATAS", s: "Ketahanan Terjauh", aP: 195000, lP: 625000, j: "Daypack & Victorinox", b1: {t: "Titik Nol", r: "Menemukan diri di titik awal."}, b2: {t: "Siddhartha", r: "Berpikir, Menunggu, Berpuasa."} },
-        RISET: { t: "RISET", s: "Legasi Tulisan", aP: 395000, lP: 1050000, j: "Mic & Leather Journal", b1: {t: "21 Lessons", r: "Kejujuran narasi di era digital."}, b2: {t: "Norwegian Wood", r: "Memahat duka menjadi rasa."} },
-        JEDA: { t: "JEDA", s: "Ketenangan Radikal", aP: 135000, lP: 295000, j: "Sajadah & Earplugs", b1: {t: "Man's Search for Meaning", r: "Kebebasan memilih sikap batin."}, b2: {t: "Hujan Bulan Juni", r: "Tabah dalam keheningan."} },
-        FOKUS: { t: "FOKUS", s: "Kehadiran Utuh", aP: 245000, lP: 650000, j: "Tumbler & Casio", b1: {t: "Digital Minimalism", r: "Merebut waktu dari algoritma."}, b2: {t: "Slow Down", r: "Melambat untuk bahagia."} }
+    const Catalog = {
+        BATAS: { spirit: "Ketahanan di titik terjauh", bonus: "Peta Navigasi Batin", aP: 195000, lP: 625000,
+            b1: { t: "Titik Nol", s: "Agustinus Wibowo", r: "Dekonstruksi jujur atas konsep 'tujuan'." },
+            b2: { t: "Siddhartha", s: "Hermann Hesse", r: "Cermin kebenaran: Berpikir, Menunggu, Berpuasa." }
+        },
+        RISET: { spirit: "Menanam legasi melalui tulisan", bonus: "Arsitektur Narasi", aP: 395000, lP: 1050000,
+            b1: { t: "21 Lessons", s: "Yuval Noah Harari", r: "Menjaga fokus adalah pemberontakan tertinggi." },
+            b2: { t: "Norwegian Wood", s: "Haruki Murakami", r: "Memahat duka menjadi detail sensorik hidup." }
+        },
+        JEDA: { spirit: "Ketenangan radikal", bonus: "Protokol Logotherapy", aP: 135000, lP: 295000,
+            b1: { t: "Man’s Search for Meaning", s: "Viktor Frankl", r: "Kebebasan memilih sikap di tengah penderitaan." },
+            b2: { t: "Hujan Bulan Juni", s: "Sapardi Djoko Damono", r: "Protokol mencuci batin dari polusi kata." }
+        },
+        FOKUS: { spirit: "Kehadiran utuh", bonus: "Manual Fokus Keluarga", aP: 245000, lP: 650000,
+            b1: { t: "Digital Minimalism", s: "Cal Newport", r: "Merebut kembali waktu dari algoritma." },
+            b2: { t: "Slow Down", s: "Haemin Sunim", r: "Dunia terasa cepat karena pikiran terburu-buru." }
+        }
     };
 
-    let s = { k: "", p: "", h: "" };
+    let state = { pilar: "BATAS", paket: "", harga: "", bonus: "", bedah: false };
 
     function init() {
         const nav = document.getElementById('mainNav');
         const cont = document.getElementById('pilar-container');
-        Object.keys(Data).forEach((k, i) => {
-            nav.innerHTML += `<button class="tab-btn ${i===0?'active':''}" onclick="show(event, '${k}')">${k}</button>`;
+        Object.keys(Catalog).forEach((k, i) => {
+            nav.innerHTML += `<button class="tab-btn ${i===0?'active':''}" onclick="switchPilar(event, '${k}')">${k}</button>`;
+            const d = Catalog[k];
             cont.innerHTML += `
                 <section id="${k}" class="pilar-content ${i===0?'active':''}">
-                    <div class="card" onclick="pk(this,'${k}','Aksara',${Data[k].aP})">
-                        <span style="font-size:0.55rem; letter-spacing:1px; color:var(--slate); font-weight:700; text-transform:uppercase;">Akad Jiwa</span>
-                        <span class="price">IDR ${Data[k].aP.toLocaleString('id-ID')}</span>
+                    <p style="text-align:center; font-size:0.8rem; color:#666; font-style:italic; margin-bottom:30px;">"${d.spirit}"</p>
+                    <div class="card" onclick="pilihAkad(this,'${k}','Aksara','${d.aP.toLocaleString('id-ID')}','${d.bonus}')">
+                        <span class="card-type">Akad Aksara (Jiwa)</span>
+                        <span class="price">IDR ${d.aP.toLocaleString('id-ID')}</span>
                     </div>
-                    <div class="card" onclick="pk(this,'${k}','Lengkap',${Data[k].lP})">
-                        <span style="font-size:0.55rem; letter-spacing:1px; color:var(--slate); font-weight:700; text-transform:uppercase;">Akad Raga & Jiwa</span>
-                        <span class="price">IDR ${Data[k].lP.toLocaleString('id-ID')}</span>
-                        <div class="info">+ ${Data[k].j}</div>
+                    <div class="card" onclick="pilihAkad(this,'${k}','Lengkap','${d.lP.toLocaleString('id-ID')}','${d.bonus}')">
+                        <span class="card-type">Akad Lengkap (Raga & Jiwa)</span>
+                        <span class="price">IDR ${d.lP.toLocaleString('id-ID')}</span>
                     </div>
-                    <div class="box">
-                        <div class="sub-nav">
-                            <button class="sub-btn active" onclick="st(this,'${k}','r')">Bedah Nalar</button>
-                        </div>
-                        <div id="${k}-r" class="isi active">
-                            <span class="b-t">${Data[k].b1.t}</span><p>${Data[k].b1.r}</p>
-                            <span class="b-t">${Data[k].b2.t}</span><p>${Data[k].b2.r}</p>
-                        </div>
-                    </div>
-                    <button class="btn-akad" onclick="go()">Mulai Akad</button>
+                    <button class="bedah-trigger" onclick="bukaBedah('${k}')">Bedah Aksara (Wajib Baca)</button>
+                    <button id="btn-${k}" class="btn-akad" onclick="mulaiAkad()">Mulai Akad</button>
                 </section>`;
         });
     }
 
-    function show(e, k) {
+    function switchPilar(e, k) {
         document.querySelectorAll('.tab-btn, .pilar-content').forEach(x => x.classList.remove('active'));
         e.target.classList.add('active'); document.getElementById(k).classList.add('active');
-        s = { k: "", p: "", h: "" };
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+        state = { pilar: k, paket: "", harga: "", bonus: "", bedah: false };
     }
 
-    function st(b, k, t) {
-        b.parentElement.querySelectorAll('.sub-btn').forEach(x => x.classList.remove('active'));
-        b.classList.add('active');
-    }
-
-    function pk(el, k, p, h) {
+    function pilihAkad(el, k, p, h, b) {
         el.parentElement.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
         el.classList.add('selected');
-        s = { k: k, p: p, h: h.toLocaleString('id-ID') };
+        state.paket = p; state.harga = h; state.bonus = b;
+        updateButton();
     }
 
-    function go() {
-        if(!s.p) return alert("Sila pilih pintu akad.");
-        const n = prompt("Siapa namamu?");
+    function bukaBedah(k) {
+        const d = Catalog[k];
+        document.getElementById('overlay-body').innerHTML = `
+            <h2 style="font-family:Playfair Display; color:#fff;">Sanad & Nalar: ${k}</h2>
+            <span class="buku-title">${d.b1.t}</span><small style="color:var(--accent)">Sanad: ${d.b1.s}</small><p class="resensi">${d.b1.r}</p>
+            <span class="buku-title">${d.b2.t}</span><small style="color:var(--accent)">Sanad: ${d.b2.s}</small><p class="resensi">${d.b2.r}</p>
+        `;
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function tuntas() {
+        state.bedah = true;
+        document.getElementById('overlay').style.display = 'none';
+        updateButton();
+    }
+
+    function updateButton() {
+        const btn = document.getElementById(`btn-${state.pilar}`);
+        if(state.paket && state.bedah) btn.classList.add('ready');
+    }
+
+    function mulaiAkad() {
+        if(!state.paket || !state.bedah) return alert("Selesaikan Bedah Aksara dan Pilih Paket terlebih dahulu.");
+        const n = prompt("Siapa namamu sebagai penanggung beban nalar?");
         if(!n) return;
-        const a = prompt("Alamat kirim?");
+        const a = prompt("Alamat Labuh (Pengiriman)?");
         if(!a) return;
-        const ni = prompt("Apa niat batinmu?");
+        const ni = prompt("Apa kegelisahan batin atau niatmu?");
         if(!ni) return;
 
-        const txt = `Rahayu Kurator Lokagatra, saya *${n}* bermaksud Akad *${s.k}* (${s.p}).\n\n*Niat:* ${ni}\n*Alamat:* ${a}\n*Total:* IDR ${s.h}\n\n— _Prasanti Adikala_`;
-        
-        // MENGGUNAKAN DIRECT LOCATION UNTUK MEMAKSA WHATSAPP TERBUKA
+        const txt = `Rahayu Kurator Lokagatra, saya *${n}* bermaksud Akad *${state.pilar}* (${state.paket}).\n\n*Niat Akad:* ${ni}\n*Alamat Labuh:* ${a}\n*Total:* IDR ${state.harga}\n*Bonus PDF:* ${state.bonus}\n\n— _Prasanti Adikala_`;
         window.location.href = `https://api.whatsapp.com/send?phone=6288989764121&text=${encodeURIComponent(txt)}`;
     }
 
